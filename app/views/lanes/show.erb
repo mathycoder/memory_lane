@@ -7,12 +7,19 @@
 
 <div>
   <% @lane.memories.each do |memory| %>
-    <h2> Title: <%= memory.title %> </h2>
-    <h5> Location: <%= memory.location %> </h5>
-    <h5> Date: <%= memory.date %> </h5>
+    <h3> Memory: <%= memory.title %> <br>
+         Location: <%= memory.location %> <br>
+         Date: <%= memory.date %> </h3>
 
-    <%binding.pry%> 
-
-
+      <% memory.recollections.each do |recollection| %>
+        <p>Recollection by <%=recollection.user.name %>: <br>
+          Anecdote: <%=recollection.anecdote %><br>
+          Quote: <%=recollection.quote %><br>
+          Joke: <%=recollection.joke %>
+        </p>
+      <% end %>
   <% end %>
 </div>
+
+
+<p><a href="/users/<%=@user.id%>/lanes">Back to Lanes</a></p>
