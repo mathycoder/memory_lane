@@ -8,5 +8,6 @@ begin
   use Rack::MethodOverride
   use LanesController
   use UsersController
+  use MemoriesController
   run ApplicationController
 end
