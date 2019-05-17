@@ -13,9 +13,17 @@
 
       <% memory.recollections.each do |recollection| %>
         <p>Recollection by <%=recollection.user.name %>: <br>
-          <%= "Anecdote: " + recollection.anecdote if !recollection.anecdote.nil?%><br>
-          <%= "Quote: " + recollection.quote if !recollection.quote.nil?%><br>
-          <%= "Joke: " + recollection.joke if !recollection.joke.nil? %>
+          <% if !recollection.anecdote.nil? %>
+            <%= "Anecdote: " + recollection.anecdote %><br>
+          <% end %>
+
+          <% if !recollection.quote.nil? %>
+            <%= "Quote: " + recollection.quote%><br>
+          <% end %>
+
+          <% if !recollection.joke.nil? %>
+            <%= "Joke: " + recollection.joke %>
+          <% end %>
         </p>
       <% end %>
   <% end %>
