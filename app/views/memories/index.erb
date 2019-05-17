@@ -1,5 +1,7 @@
 <h1><%=@user.name%>'s Memories</h1>
 
+<p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
+
 <div>
   <% @user.memories.each do |memory| %>
     <h3> Memory: <%= memory.title %> <br>
