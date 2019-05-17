@@ -13,6 +13,7 @@ class MemoriesController < ApplicationController
   end
 
   post '/users/:user_id/memories' do
-    binding.pry
+    memory = Memory.create(params[:memory])
+    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 end
