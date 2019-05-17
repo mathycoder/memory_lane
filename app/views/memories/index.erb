@@ -27,5 +27,12 @@
           <% end %>
         </p>
       <% end %>
+
+      <% if memory.recollections.none? {|recollection| recollection.user == @user} %>
+        <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/new">
+          <input type='submit' value='Add Your Recollection'>
+        </form>
+      <% end %>
+
   <% end %>
 </div>
