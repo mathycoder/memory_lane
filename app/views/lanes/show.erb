@@ -1,0 +1,18 @@
+<h1>Memory Lane with:
+  <% @lane.users.each do |user| %>
+    <%= user.name if user != @user %>
+  <% end %>
+</h1>
+
+
+<div>
+  <% @lane.memories.each do |memory| %>
+    <h2> Title: <%= memory.title %> </h2>
+    <h5> Location: <%= memory.location %> </h5>
+    <h5> Date: <%= memory.date %> </h5>
+
+    <%binding.pry%> 
+
+
+  <% end %>
+</div>

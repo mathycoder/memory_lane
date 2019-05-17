@@ -6,5 +6,6 @@ require_relative './config/environment'
 
 begin
   use Rack::MethodOverride
+  use LanesController
   run ApplicationController
 end
