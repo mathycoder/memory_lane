@@ -9,5 +9,6 @@ begin
   use LanesController
   use UsersController
   use MemoriesController
+  use RecollectionsController
   run ApplicationController
 end
