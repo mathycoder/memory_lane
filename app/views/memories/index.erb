@@ -1,1 +1,29 @@
 <h1><%=@user.name%>'s Memories</h1>
+
+<div>
+  <% @user.memories.each do |memory| %>
+    <h3> Memory: <%= memory.title %> <br>
+         With:
+          <% memory.users.each do |user| %>
+            <%=user.name if user != @user %>
+          <% end %><br>
+         Location: <%= memory.location %> <br>
+         Date: <%= memory.date %> </h3>
+
+      <% memory.recollections.each do |recollection| %>
+        <p>Recollection by <%=recollection.user.name %>: <br>
+          <% if !recollection.anecdote.nil? %>
+            <%= "Anecdote: " + recollection.anecdote %><br>
+          <% end %>
+
+          <% if !recollection.quote.nil? %>
+            <%= "Quote: " + recollection.quote%><br>
+          <% end %>
+
+          <% if !recollection.joke.nil? %>
+            <%= "Joke: " + recollection.joke %>
+          <% end %>
+        </p>
+      <% end %>
+  <% end %>
+</div>
