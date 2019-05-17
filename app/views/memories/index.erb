@@ -6,7 +6,7 @@
   <% @user.memories.each do |memory| %>
     <h3> Memory: <%= memory.title %> <br>
          With:
-          <% memory.users.each do |user| %>
+          <% memory.lane.users.each do |user| %>
             <%=user.name if user != @user %>
           <% end %><br>
          Location: <%= memory.location %> <br>
