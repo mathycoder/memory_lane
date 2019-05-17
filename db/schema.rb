@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_143922) do
 
   create_table "memories", force: :cascade do |t|
     t.string "title"
-    t.date "date"
+    t.string "date"
     t.string "location"
     t.integer "lane_id"
   end
