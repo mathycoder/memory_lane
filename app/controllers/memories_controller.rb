@@ -7,4 +7,12 @@ class MemoriesController < ApplicationController
     erb :'memories/index'
   end
 
+  get '/users/:user_id/memories/new' do
+    @user = User.find(params[:user_id])
+    erb :'memories/new'
+  end
+
+  post '/users/:user_id/memories' do
+    binding.pry
+  end
 end
