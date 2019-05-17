@@ -26,8 +26,15 @@
             <%= "Joke: " + recollection.joke %>
           <% end %>
         </p>
+
+        <% if memory.recollections.none? {|recollection| recollection.user == @user} %>
+          <h3>You still need to add your recollection!</h3>
+        <% end %>
+
       <% end %>
   <% end %>
+
+
 </div>
 
 
