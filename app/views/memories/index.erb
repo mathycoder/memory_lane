@@ -11,12 +11,23 @@
           <% end %><br>
          Location: <%= memory.location %> <br>
          Date: <%= memory.date %><br></h3>
-    <h6 style="display: inline">Created by <%=memory.creator.name %></h6>
+    <h6 style="display: inline">Created by <%=memory.creator.name %>
 
+      <% if memory.creator == @user %>
+        <a>Edit</a>
+      <% end %>
 
+    </h6>
 
       <% memory.recollections.each do |recollection| %>
-        <p>Recollection by <%=recollection.user.name %>: <br>
+        <p>Recollection by <%=recollection.user.name %>:
+
+          <% if recollection.user == @user %>
+            <a>Edit</a>
+          <% end %>
+
+          <br>
+
           <% if !recollection.anecdote.nil? %>
             <%= "Anecdote: " + recollection.anecdote %><br>
           <% end %>
