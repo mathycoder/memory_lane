@@ -12,6 +12,10 @@ class MemoriesController < ApplicationController
     erb :'memories/new'
   end
 
+  get '/users/:user_id/memories/:memory_id/edit' do
+    erb :'memories/edit'
+  end
+
   post '/users/:user_id/memories' do
     memory = Memory.create(params[:memory])
     memory.creator_user_id = params[:user_id]

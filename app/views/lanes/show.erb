@@ -14,7 +14,7 @@
          <h6 style="display: inline">Created by <%=memory.creator.name %>
 
            <% if memory.creator == @user %>
-             <a>Edit</a>
+             <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/edit">Edit</a>
            <% end %>
 
          </h6>
