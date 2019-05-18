@@ -10,7 +10,7 @@
             <%=user.name if user != @user %>
           <% end %><br>
          Location: <%= memory.location %> <br>
-         Date: <%= memory.date %><br></h3>
+         Date: <%= memory.display_date%><br></h3>
     <h6 style="display: inline">Created by <%=memory.creator.name %>
 
       <% if memory.creator == @user %>
