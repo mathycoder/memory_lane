@@ -40,4 +40,10 @@ class MemoriesController < ApplicationController
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
+  delete '/users/:user_id/memories/:memory_id' do
+    memory = Memory.find(params[:memory_id])
+    memory.delete
+    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+  end
+
 end

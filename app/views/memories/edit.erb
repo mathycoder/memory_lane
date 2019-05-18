@@ -1,6 +1,6 @@
 <h1>Edit your Memory!</h1>
 
-<form method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>">
+<form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>">
 
   <input method="hidden" type="hidden" name="_method" value="PATCH"/>
 
@@ -12,4 +12,9 @@
 
   <input type='submit' value='Save'/>
 
+</form>
+
+<form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>">
+  <input method="hidden" type="hidden" name="_method" value="DELETE"/>
+  <input type="submit" value="Delete"/>
 </form>
