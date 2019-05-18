@@ -8,3 +8,4 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_all 'app'
+require 'active_support/core_ext/integer/inflections'

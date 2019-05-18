@@ -13,7 +13,9 @@ class MemoriesController < ApplicationController
   end
 
   post '/users/:user_id/memories' do
-    memory = Memory.create(params[:memory])
+    memory = Memory.create(title: params[:memory][:title], location: params[:memory][:location], lane_id: params[:memory][:lane_id])
+    date = params[:memory][:date].split("-")
+    memory.date = DateTime.new(date[2].to_i,date[0].to_i,date[1].to_i)
     memory.creator_user_id = params[:user_id]
     memory.save
 
