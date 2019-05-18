@@ -12,10 +12,6 @@ class MemoriesController < ApplicationController
     erb :'memories/new'
   end
 
-  get '/users/:user_id/memories/:memory_id/edit' do
-    erb :'memories/edit'
-  end
-
   post '/users/:user_id/memories' do
     memory = Memory.create(params[:memory])
     memory.creator_user_id = params[:user_id]
@@ -31,4 +27,17 @@ class MemoriesController < ApplicationController
 
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
+
+  get '/users/:user_id/memories/:memory_id/edit' do
+    @memory = Memory.find(params[:memory_id])
+    @user = User.find(params[:user_id])
+    erb :'memories/edit'
+  end
+
+  patch '/users/:user_id/memories/:memory_id' do
+    memory = Memory.find(params[:memory_id])
+    memory.update(params[:memory])
+    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+  end
+
 end

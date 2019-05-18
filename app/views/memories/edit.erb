@@ -1,1 +1,15 @@
 <h1>Edit your Memory!</h1>
+
+<form method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>">
+
+  <input method="hidden" type="hidden" name="_method" value="PATCH"/>
+
+  <p>
+  Title: <input type="text" name="memory[title]" value="<%=@memory.title%>"/><br><br>
+  Location: <input type="text" name="memory[location]" value="<%=@memory.location%>"/><br><br>
+  Date: <input type="text" name="memory[date]" value="<%=@memory.date%>"/><br><br>
+  </p>
+
+  <input type='submit' value='Save'/>
+
+</form>
