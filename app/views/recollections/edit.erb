@@ -1,1 +1,27 @@
 <h1>Edit your recollection</h1>
+
+<form method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections/<%=@recollection.id%>">
+  <input method="hidden" type="hidden" name="_method" value="PATCH"/>
+
+  <p>
+  Title: <%= @memory.title %><br>
+  Location: <%= @memory.location %><br>
+  Date: <%= @memory.date %><br>
+  </p>
+
+  <h3>Edit Your Recollection</h3>
+
+  <p>Anecdote<br>
+  <textarea type='text' rows="4" cols="50" name="recollection[anecdote]"><%=@recollection.anecdote%></textarea>
+  </p>
+
+  <p>Joke<br>
+  <textarea type='text' rows="2" cols="50" name="recollection[joke]"><%=@recollection.joke%></textarea>
+  </p>
+
+  <p>Quote<br>
+  <textarea type='text' rows="2" cols="50" name="recollection[quote]"><%=@recollection.quote%></textarea>
+  </p>
+
+  <input type='submit' value="Save"/>
+</form>

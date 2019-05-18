@@ -23,8 +23,18 @@ class RecollectionsController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
+    @recollection = Recollection.find(params[:recollection_id])
+    @user = @recollection.user
+    @memory = @recollection.memory
     erb :'recollections/edit'
-  end 
+  end
+
+  patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
+    recollection = Recollection.find(params[:recollection_id])
+    recollection.update(params[:recollection])
+    memory = Memory.find(params[:memory_id])
+    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+  end
 
 end
 
