@@ -38,7 +38,11 @@ class MemoriesController < ApplicationController
 
   patch '/users/:user_id/memories/:memory_id' do
     memory = Memory.find(params[:memory_id])
-    memory.update(params[:memory])
+    memory.title = params[:memory][:title]
+    memory.location= params[:memory][:location]
+    date = params[:memory][:date].split("-")
+    memory.date = DateTime.new(date[2].to_i,date[0].to_i,date[1].to_i)
+    memory.save
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
