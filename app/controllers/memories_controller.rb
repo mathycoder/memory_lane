@@ -14,6 +14,8 @@ class MemoriesController < ApplicationController
 
   post '/users/:user_id/memories' do
     memory = Memory.create(params[:memory])
+    memory.creator_user_id = params[:user_id]
+    memory.save
 
     recollection = Recollection.create
     recollection.user = User.find(params[:user_id])

@@ -7,4 +7,8 @@ class Memory < ActiveRecord::Base
   # has_many :user_lanes, through: :lanes
   # has_many :users, through: :user_lanes
 
+  def creator
+    User.find(self.creator_user_id)
+  end
+
 end

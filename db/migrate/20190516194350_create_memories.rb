@@ -5,6 +5,7 @@ class CreateMemories < ActiveRecord::Migration[5.2]
       t.string :date
       t.string :location
       t.integer :lane_id
+      t.integer :creator_user_id
     end
   end
 end
