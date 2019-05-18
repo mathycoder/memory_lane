@@ -9,7 +9,8 @@ our_lane.users << cathy
 our_lane.save
 
 #create memory
-first_memory = Memory.create(title: "Our first date", location: "Central Park", date: "May 7th, 2017")
+first_memory = Memory.create(title: "Our first date", location: "Central Park")
+first_memory.date = DateTime.new(2017, 05, 07)
 first_memory.lane = our_lane
 first_memory.creator_user_id = adam.id
 first_memory.save
@@ -30,7 +31,8 @@ first_memory.save
 
 
 #create second memory
-second_memory = Memory.create(title: "Our second date", location: "Washington Square Park", date: "May 14th, 2017")
+second_memory = Memory.create(title: "Our second date", location: "Washington Square Park")
+second_memory.date = DateTime.new(2017, 05, 14)
 second_memory.lane = our_lane
 second_memory.creator_user_id = cathy.id
 second_memory.save
