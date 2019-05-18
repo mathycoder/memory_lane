@@ -23,7 +23,7 @@
         <p>Recollection by <%=recollection.user.name %>:
 
           <% if recollection.user == @user %>
-            <a>Edit</a>
+            <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">Edit</a>
           <% end %>
 
           <br>

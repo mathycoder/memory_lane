@@ -22,6 +22,10 @@ class RecollectionsController < ApplicationController
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
+  get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
+    erb :'recollections/edit'
+  end 
+
 end
 
 
