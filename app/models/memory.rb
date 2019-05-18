@@ -22,4 +22,8 @@ class Memory < ActiveRecord::Base
     "#{array[1]}-#{array[2]}-#{array[0]}"
   end
 
+  def self.sorted_by_newest
+    Memory.all.sort_by{|memory| memory.date}.reverse
+  end
+
 end

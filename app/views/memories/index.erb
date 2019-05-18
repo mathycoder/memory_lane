@@ -3,7 +3,7 @@
 <p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
 
 <div>
-  <% @user.memories.each do |memory| %>
+  <% @user.memories.sorted_by_newest.each do |memory| %>
     <h3 style="display: inline"> Memory: <%= memory.title %> <br>
          With:
           <% memory.lane.users.each do |user| %>
