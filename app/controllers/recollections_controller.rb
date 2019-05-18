@@ -36,6 +36,13 @@ class RecollectionsController < ApplicationController
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
+  delete '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
+    recollection = Recollection.find(params[:recollection_id])
+    memory = Memory.find(params[:memory_id])
+    recollection.delete
+    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+  end
+
 end
 
 
