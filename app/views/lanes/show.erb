@@ -11,10 +11,24 @@
     <h3 style="display: inline"> Memory: <%= memory.title %> <br>
          Location: <%= memory.location %> <br>
          Date: <%= memory.date %><br> </h3>
-         <h6 style="display: inline">Created by <%=memory.creator.name %></h6>
+         <h6 style="display: inline">Created by <%=memory.creator.name %>
+
+           <% if memory.creator == @user %>
+             <a>Edit</a>
+           <% end %>
+
+         </h6>
+
+      <br><br>
 
       <% memory.recollections.each do |recollection| %>
-        <p>Recollection by <%=recollection.user.name %>: <br>
+        <p style="display: inline">Recollection by <%=recollection.user.name %>
+          <% if recollection.user == @user %>
+            <a>Edit</a>
+          <% end %>
+
+          <br>
+
           <% if !recollection.anecdote.nil? %>
             <%= "Anecdote: " + recollection.anecdote %><br>
           <% end %>
@@ -24,19 +38,21 @@
           <% end %>
 
           <% if !recollection.joke.nil? %>
-            <%= "Joke: " + recollection.joke %>
+            <%= "Joke: " + recollection.joke %><br>
           <% end %>
+
+          <br>
+
         </p>
-
-        <% if memory.recollections.none? {|recollection| recollection.user == @user} %>
-          <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/new">
-            <input type='submit' value='Add Your Recollection'>
-          </form>
-        <% end %>
-
       <% end %>
-  <% end %>
 
+      <% if memory.recollections.none? {|recollection| recollection.user == @user} %>
+        <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/new">
+          <input type='submit' value='Add Your Recollection'>
+        </form>
+      <% end %>
+
+    <% end %>
 
 </div>
 
