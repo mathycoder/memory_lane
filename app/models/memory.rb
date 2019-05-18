@@ -14,9 +14,12 @@ class Memory < ActiveRecord::Base
   end
 
   def display_date
-    #self.date.httpdate.split(" 00:00:00").first
     self.date.strftime("%A, %B #{self.date.day.ordinalize}, %Y")
-    #
+  end
+
+  def date_for_input_field
+    array = self.date.to_formatted_s.split(" ").first.split("-")
+    "#{array[1]}-#{array[2]}-#{array[0]}"
   end
 
 end
