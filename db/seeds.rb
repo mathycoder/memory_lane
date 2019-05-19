@@ -59,7 +59,7 @@ second_memory.save
 #### New lane ####
 new_lane = Lane.create()
 new_lane.users << adam
-new_lane.users << cathy
+new_lane.users << eric
 new_lane.users << alex
 new_lane.users << nathan
 new_lane.save
