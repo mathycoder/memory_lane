@@ -19,7 +19,17 @@
 
          </h6>
 
-      <br><br>
+      <br>
+
+      <div class="memoryimages">
+        <% memory.recollections.each do |recollection| %>
+          <% if !recollection.image.nil? %>
+            <img src="<%= recollection.image %>" />
+          <% end %>
+        <% end %>
+      </div>
+
+      <br>
 
       <% memory.recollections.each do |recollection| %>
         <p style="display: inline">Recollection by <%=recollection.user.name %>

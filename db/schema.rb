@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_143922) do
     t.string "joke"
     t.integer "user_id"
     t.integer "memory_id"
+    t.string "image"
   end
 
   create_table "user_lanes", force: :cascade do |t|

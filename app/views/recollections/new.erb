@@ -1,7 +1,7 @@
 
 
 
-<form method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections">
+<form enctype="multipart/form-data" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections">
 
   <p>
   Title: <%= @memory.title %><br>
@@ -10,6 +10,10 @@
   </p>
 
   <h3>Add Your Recollection</h3>
+
+  <p>Add an image<br>
+    <input type="file" name="file">
+  </p>
 
   <p>Anecdote<br>
   <textarea type='text' rows="4" cols="50" name="recollection[anecdote]" placeholder="Got any interesting stories from this memory?"></textarea>
