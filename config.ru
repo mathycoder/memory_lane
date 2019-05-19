@@ -10,5 +10,6 @@ begin
   use UsersController
   use MemoriesController
   use RecollectionsController
+  use ImagesController
   run ApplicationController
 end
