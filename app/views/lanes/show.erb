@@ -23,8 +23,8 @@
 
       <div class="memoryimages">
         <% memory.recollections.each do |recollection| %>
-          <% if !recollection.image.nil? %>
-            <img src="<%= recollection.image %>" />
+          <% if !recollection.image.nil?%>
+            <img src="../../../<%= recollection.image %>" />
           <% end %>
         <% end %>
       </div>
