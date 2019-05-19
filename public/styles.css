@@ -1,0 +1,7 @@
+.memoryimages{
+  display: flex;
+}
+
+.memoryimages div {
+  margin-right: 30px; 
+}
