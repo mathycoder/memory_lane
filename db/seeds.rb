@@ -23,6 +23,7 @@ first_memory.save
     adam_recollection.user = adam
     adam_recollection.memory = first_memory
     adam_recollection.quote = "\"I'm going to kill you.\" ~Cathy"
+    adam_recollection.image = "seed_images/IMG_7457.JPG"
     adam_recollection.save
 
     #create Cathy's recollection
@@ -54,6 +55,7 @@ second_memory.save
     cathy_recollection.memory = second_memory
     cathy_recollection.anecdote = "I remember running in the rain to a bar.  We didn't know where we were going...we were just trying to catch some refuge.  I made some joke about the sex shop near the bar that got you laughing.  The bar was so empty...just a bunch of old people and then us sitting down."
     cathy_recollection.joke = "There was a really loud lady at the bar.  At one point you joked about playing the piano."
+    cathy_recollection.image = "seed_images/IMG_8283.JPG"
     cathy_recollection.save
 
 #### New lane ####

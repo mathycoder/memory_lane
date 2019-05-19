@@ -19,12 +19,13 @@
 
          </h6>
 
-      <br>
+      <br><br>
 
       <div class="memoryimages">
         <% memory.recollections.each do |recollection| %>
           <% if !recollection.image.nil?%>
-            <img src="../../../<%= recollection.image %>" />
+            <img width="400" height="300" src="../../../<%= recollection.image %>" /><br>
+            <h6 style="display: inline">added by <%=recollection.user.name%></h6>
           <% end %>
         <% end %>
       </div>
