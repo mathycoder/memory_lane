@@ -55,7 +55,7 @@ second_memory.save
     cathy_recollection.memory = second_memory
     cathy_recollection.anecdote = "I remember running in the rain to a bar.  We didn't know where we were going...we were just trying to catch some refuge.  I made some joke about the sex shop near the bar that got you laughing.  The bar was so empty...just a bunch of old people and then us sitting down."
     cathy_recollection.joke = "There was a really loud lady at the bar.  At one point you joked about playing the piano."
-    cathy_recollection.image = "seed_images/IMG_8283.JPG"
+    cathy_recollection.image = "seed_images/IMG_1833.JPG"
     cathy_recollection.save
 
 #### New lane ####
@@ -79,6 +79,7 @@ first_memory.save
     adam_recollection.memory = first_memory
     adam_recollection.anecdote = "We turned Corbitt into 'Alex' by putting 1/4 of a can of hair product into his hair."
     adam_recollection.joke = "'Alex' is out of control."
+    adam_recollection.image = "seed_images/IMG_1831.JPG"
     adam_recollection.save
 
     #alex's recollection
@@ -87,6 +88,7 @@ first_memory.save
     alex_recollection.memory = first_memory
     alex_recollection.anecdote = "I remember playing for hours at the Craps table, while Weiss and I pretended we were true gamblers."
     alex_recollection.quote = "\"Put it all on black.\" ~Eric"
+    alex_recollection.image = "seed_images/IMG_1832.JPG"
     alex_recollection.save
 
     #nathan's recollection
@@ -96,6 +98,7 @@ first_memory.save
     nathan_recollection.anecdote = "I remember playing blackjack with Sarli and charming the table.  It was the first time I ever liked gambling."
     nathan_recollection.quote = "\"What should I do, Rhonda?\" ~me"
     nathan_recollection.joke = "The dealer thought Sarli's name was Charlie."
+    nathan_recollection.image = "seed_images/IMG_1833.JPG"
     nathan_recollection.save
 
     #eric's recollection
