@@ -134,6 +134,7 @@ second_memory.save
     adam_recollection.memory = second_memory
     adam_recollection.anecdote = "Weiss and I were combing the crowd of thousands, hoping not to miss you.  Of course, it was impossible to miss you guys; you came bounding up to us like kangaroos, among a sea of exhausted people slogging along.  How the hell did you find the energy?"
     adam_recollection.quote = "\"F@%$ yeah!\" ~Alex"
+    adam_recollection.image = "seed_images/IMG_1830.PNG"
     adam_recollection.save
 
     #eric's recollection
@@ -142,4 +143,5 @@ second_memory.save
     eric_recollection.memory = second_memory
     eric_recollection.anecdote = "Seeing the two of you running towards us with so much energy.  I remember how much it inspired me to be healthier.  Later at a restaurant with Adam, we tracked your progress on my phone.  I kept hoping you would break 4 hours...and you did!"
     eric_recollection.quote = "\"I hope they break 4 hours!\" ~Eric"
+    eric_recollection.image = "seed_images/IMG_1829.PNG"
     eric_recollection.save
