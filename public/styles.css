@@ -1,7 +1,8 @@
 .memoryimages{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .memoryimages div {
-  margin-right: 30px; 
+  margin-right: 30px;
 }
