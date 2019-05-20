@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "profile_pic_file_path"
   end
 

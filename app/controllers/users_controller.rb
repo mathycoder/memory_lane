@@ -21,10 +21,6 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:name].empty? || params[:email].empty? || params[:password].empty?
-      redirect '/signup'
-    end
-
     user = User.create(params[:user])
     user.profile_pic_file_path = params[:profile_pic][:filename]
     user.save
@@ -46,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:email]).authenticate(params[:password])
     session[:user_id] = user.id
 
     redirect "/users/#{user.id}"

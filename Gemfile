@@ -10,7 +10,7 @@ gem 'pry'
 gem 'sinatra-activerecord'
 gem 'require_all'
 gem 'shotgun'
-gem 'tux'
+gem 'bcrypt'
 
 
 #git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }

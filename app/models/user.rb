@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :memories, through: :lanes
   has_many :recollections, through: :memories
   has_many :photos, through: :memories
+  
+  has_secure_password
 
   def list(users)
     users_array = users.map {|user| user.name}
@@ -12,7 +14,7 @@ class User < ActiveRecord::Base
       users_array.join(", ")
     else
       users_array.join(" ")
-    end 
+    end
   end
 
 end
