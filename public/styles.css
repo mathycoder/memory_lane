@@ -1,3 +1,56 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-family: georgia, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 100px repeat(11, 1fr);
+  grid-template-rows: 80px auto 100px;
+  height: 100%;
+}
+
+.header {
+  grid-column: span 12;
+  background-color: red;
+  display: flex;
+  align-items: center;
+}
+
+.header #login {
+  margin-left: auto;
+}
+
+.header #logo {
+  margin: 20px;
+}
+
+.header h1 {
+  color: white;
+
+}
+
+.buttons {
+  margin-right: 20px;
+  color: white;
+}
+
+.sidebar {
+  grid-column: span 0;
+  display: none;
+
+}
+
+.content {
+  grid-column: span 12;
+  padding: 20px;
+}
+
+.footer {
+  grid-column: span 12;
+}
+
 .memoryimages{
   display: flex;
   flex-wrap: wrap;
