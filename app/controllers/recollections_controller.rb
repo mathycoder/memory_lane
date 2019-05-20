@@ -54,6 +54,10 @@ class RecollectionsController < ApplicationController
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
+  delete '/users/:user_id/memories/:memory_id/recollections/:recollection_id/image' do
+    
+  end
+
 end
 
 
