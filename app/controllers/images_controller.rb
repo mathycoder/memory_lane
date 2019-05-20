@@ -5,7 +5,16 @@ class ImagesController < ApplicationController
   get '/users/:user_id/memories/:memory_id/images/new' do
     @user = User.find(params[:user_id])
     @memory = Memory.find(params[:memory_id])
-    erb :'images/new'
+
+    #repeated code
+    if logged_in? && current_user == @user
+      erb :'images/new'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
+
   end
 
   post '/users/:user_id/memories/:memory_id/images' do
@@ -25,7 +34,17 @@ class ImagesController < ApplicationController
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
     @image = Photo.find(params[:image_id])
     @memory = Memory.find(params[:memory_id])
-    erb :'images/show'
+    @user = User.find(params[:user_id])
+
+    #repeated code
+    if logged_in? && current_user == @user
+      erb :'images/show'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
+
   end
 
   delete '/users/:user_id/memories/:memory_id/images/:image_id' do

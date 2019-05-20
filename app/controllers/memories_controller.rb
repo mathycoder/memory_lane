@@ -4,12 +4,29 @@ class MemoriesController < ApplicationController
 
   get '/users/:user_id/memories' do
     @user = User.find(params[:user_id])
-    erb :'memories/index'
+
+    #repeated code...
+    if logged_in? && current_user == @user
+      erb :'memories/index'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
   end
 
   get '/users/:user_id/memories/new' do
     @user = User.find(params[:user_id])
-    erb :'memories/new'
+
+    #repeated code...
+    if logged_in? && current_user == @user
+      erb :'memories/new'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
+
   end
 
   post '/users/:user_id/memories' do
@@ -33,7 +50,16 @@ class MemoriesController < ApplicationController
   get '/users/:user_id/memories/:memory_id/edit' do
     @memory = Memory.find(params[:memory_id])
     @user = User.find(params[:user_id])
-    erb :'memories/edit'
+
+    #repeated code...
+    if logged_in? && current_user == @user
+      erb :'memories/edit'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
+
   end
 
   patch '/users/:user_id/memories/:memory_id' do

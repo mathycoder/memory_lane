@@ -4,14 +4,29 @@ class LanesController < ApplicationController
 
   get '/users/:user_id/lanes' do
     @user = User.find(params[:user_id])
-    erb :'lanes/index'
+    
+    #repeated code
+    if logged_in? && current_user == @user
+      erb :'lanes/index'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
   end
 
   get '/users/:user_id/lanes/:lane_id' do
     @user = User.find(params[:user_id])
     @lane = Lane.find(params[:lane_id])
-    erb :'lanes/show'
-  end
 
+    #repeated code...
+    if logged_in? && current_user == @user
+      erb :'lanes/show'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
+  end
 
 end
