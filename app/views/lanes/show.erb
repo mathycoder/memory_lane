@@ -36,11 +36,9 @@
           <% end %>
 
           <div id="addapicture">
-            <% if memory.photos.none? {|photo| photo.user == @user}%>
-              <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/new">
-                <input type='submit' value='Add A Picture'>
-              </form>
-            <% end %>
+            <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/new">
+              <input type='submit' value='Add A Picture'>
+            </form>
           </div>
 
         </div>
