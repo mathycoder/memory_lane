@@ -1,18 +1,24 @@
-<div>
-  <h1 style="display: inline">Memory Lane</h1>
-  <br>
-  <h6 style="display: inline">
+<div class="lanetitle">
+  <div>
+    <h2 style="display: inline">Current Lane:</h2>
+  </div>
 
-    <span>
-      <% @lane.users.each do |user| %>
-        <img width="40" height="47" src="../../../<%= user.profile_pic_file_path %>">
-      <% end %>
-    </span>
+  <div>
+    <h6 style="display: inline">
 
-    <br>
+      <span>
+        <% @lane.users.each do |user| %>
+          <img width="60" height="72" src="../../../<%= user.profile_pic_file_path %>">
+        <% end %>
+      </span>
+    </h6>
+  </div>
 
-     <span> with <%= @user.list(@lane.users) %></span>
-  </h6>
+  <div>
+    <h6 style="display: inline">
+      <span> with <%= @user.list(@lane.users) %></span>
+    </h6>
+  </div>
 </div>
 
 <p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>

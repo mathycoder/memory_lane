@@ -1,7 +1,7 @@
 
 
 .memorydisplay {
-  display: block;
+  display: flex;
   flex-direction: column;
 }
 
@@ -11,6 +11,17 @@
   margin: 20px;
   height: 100%;
   padding: 20px;
+}
+
+.lanetitle {
+  display: flex;
+  flex-direction: column;
+  background-color: #bf4aa8;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  padding: 10px;
 }
 
 
@@ -43,13 +54,22 @@ html, body {
   margin: 20px;
 }
 
-.header h1 {
-  color: #bf4aa8;
 
+.header h1 {
+  color: white;
+}
+
+.header h1 span {
+  color: #bf4aa8;
 }
 
 .buttons {
   margin-right: 20px;
+  color: white;
+}
+
+.buttons a {
+  text-decoration: none;
   color: white;
 }
 
@@ -62,6 +82,7 @@ html, body {
 .content {
   grid-column: span 12;
   padding: 20px;
+  min-height: 500px;
 }
 
 .footer {
