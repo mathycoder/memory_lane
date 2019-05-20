@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect "/users/#{sessions[:user_id]}"
+      redirect "/users/#{session[:user_id]}"
     end
 
     erb :'users/login'
@@ -45,6 +45,11 @@ class UsersController < ApplicationController
     session[:user_id] = user.id
 
     redirect "/users/#{user.id}"
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/login'
   end
 
 end
