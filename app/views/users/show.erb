@@ -1,4 +1,7 @@
-<h1><%=@user.name%>'s Homepage</h1>
+<h1>
+  <img width="60" height="72" src="../../../<%= @user.profile_pic_file_path %>">
+  <%=@user.name%>'s Homepage
+</h1>
 
 <p><a href="/users/<%=@user.id%>/lanes">View Lanes</a></p>
 <p><a href="/users/<%=@user.id%>/memories">View All Memories</a></p>

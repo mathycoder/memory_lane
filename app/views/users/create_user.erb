@@ -1,0 +1,14 @@
+<h1>Create Your Account</h1>
+
+<form enctype="multipart/form-data" method="POST" action="/signup">
+
+  <p>Full Name: <input type="text" name="user[name]" required/> </p>
+  <p>Email: <input type="text" name="user[email]" required/> </p>
+  <p>Password: <input type="password" name="user[password]" required/> </p>
+
+  <p>Upload a profile picture:<br><input type="file" name="profile_pic">
+  </p>
+
+  <input type="submit" value="Sign Up"/>
+
+</form>
