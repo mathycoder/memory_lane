@@ -9,8 +9,6 @@ class ImagesController < ApplicationController
   end
 
   post '/users/:user_id/memories/:memory_id/images' do
-    #dealing with the image
-    
     image = Photo.create()
     image.user = User.find(params[:user_id])
     memory = Memory.find(params[:memory_id])
@@ -25,7 +23,6 @@ class ImagesController < ApplicationController
 
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
-
 
   delete '/users/:user_id/memories/:memory_id/image/:image_id' do
 

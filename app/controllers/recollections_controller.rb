@@ -19,15 +19,6 @@ class RecollectionsController < ApplicationController
     recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
     recollection.save
 
-    #dealing with the image
-    recollection.image = params[:file][:filename]
-    recollection.save
-    file = params[:file][:tempfile]
-
-    File.open("./public/#{recollection.image}", 'wb') do |f|
-      f.write(file.read)
-    end
-
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 

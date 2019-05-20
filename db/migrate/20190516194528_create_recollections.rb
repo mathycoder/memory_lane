@@ -6,7 +6,6 @@ class CreateRecollections < ActiveRecord::Migration[5.2]
       t.string :joke
       t.integer :user_id
       t.integer :memory_id
-      t.string :image
     end
   end
 end
