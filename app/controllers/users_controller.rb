@@ -4,15 +4,20 @@ class UsersController < ApplicationController
 
   get '/users/:user_id' do
     @user = User.find(params[:user_id])
-    erb :'users/show'
+    if current_user == @user
+      erb :'users/show'
+    else
+      erb :'users/noaccess'
+    end
   end
 
   get '/signup' do
-  # if logged_in?
-  #   redirect '/tweets'
-  # end
 
-  erb :'users/create_user'
+    if logged_in?
+      redirect "/users/#{session[:user_id]}"
+    end
+
+    erb :'users/create_user'
   end
 
   post '/signup' do

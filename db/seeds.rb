@@ -1,9 +1,9 @@
 #create users
-adam = User.create(name: "Adam Sarli", profile_pic_file_path: "seed_images/profile/adam.PNG")
-cathy = User.create(name: "Cathy Santos", profile_pic_file_path: "seed_images/profile/cathy.PNG" )
-alex = User.create(name: "Alex Corbitt", profile_pic_file_path: "seed_images/profile/alex.PNG")
-eric = User.create(name: "Eric Weiss", profile_pic_file_path: "seed_images/profile/eric.PNG")
-nathan = User.create(name: "Nathan Palmisano", profile_pic_file_path: "seed_images/profile/nathan.PNG")
+adam = User.create(name: "Adam Sarli", email: "adam@gmail.com", password: "adam", profile_pic_file_path: "seed_images/profile/adam.PNG")
+cathy = User.create(name: "Cathy Santos", email: "cathy@gmail.com", password: "cathy", profile_pic_file_path: "seed_images/profile/cathy.PNG" )
+alex = User.create(name: "Alex Corbitt", email: "alex@gmail.com", password: "alex", profile_pic_file_path: "seed_images/profile/alex.PNG")
+eric = User.create(name: "Eric Weiss", email: "eric@gmail.com", password: "eric", profile_pic_file_path: "seed_images/profile/eric.PNG")
+nathan = User.create(name: "Nathan Palmisano", email: "nathan@gmail.com", password: "nathan", profile_pic_file_path: "seed_images/profile/nathan.PNG")
 
 #create lane and link users
 our_lane = Lane.create()
