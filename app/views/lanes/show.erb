@@ -17,8 +17,10 @@
 
 <p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
 
-<div>
+<div class="memorydisplay">
   <% @lane.memories.sorted_by_newest.each do |memory| %>
+  <div class="memoryelement">
+    <div class="memorytitle">
     <h3 style="display: inline"> Memory: <%= memory.title %> <br>
          Location: <%= memory.location %> <br>
          Date: <%= memory.display_date %><br> </h3>
@@ -29,6 +31,7 @@
            <% end %>
 
          </h6>
+    </div>
 
       <br><br>
         <div class="memoryimages">
@@ -60,7 +63,7 @@
         </div>
 
       <br>
-
+      <div class="memoryrecollections">
       <% memory.recollections.each do |recollection| %>
         <p style="display: inline">
           <% if !recollection.user.profile_pic_file_path.nil?%>
@@ -96,9 +99,9 @@
           <input type='submit' value='Add Your Recollection'>
         </form><br>
       <% end %>
-
-    <% end %>
-
+      </div>
+  </div>
+  <% end %>
 </div>
 
 
