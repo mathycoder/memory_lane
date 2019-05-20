@@ -37,7 +37,7 @@
 
           <div id="addapicture">
             <% if memory.recollections.any? {|recollection| recollection.user == @user && recollection.image.nil?}%>
-              <form method="GET" action="">
+              <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/new">
                 <input type='submit' value='Add A Picture'>
               </form>
             <% end %>

@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
   create_table "photos", force: :cascade do |t|
     t.string "file_path"
     t.string "caption"
+    t.integer "user_id"
+    t.integer "memory_id"
   end
 
   create_table "recollections", force: :cascade do |t|

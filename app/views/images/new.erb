@@ -4,17 +4,11 @@ Location: <%= @memory.location %><br>
 Date: <%= @memory.display_date %><br>
 </p>
 
-<form enctype="multipart/form-data" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections/<%=@recollection.id%>/">
-
-  <p>
-  Title: <%= @memory.title %><br>
-  Location: <%= @memory.location %><br>
-  Date: <%= @memory.display_date %><br>
-  </p>
+<form enctype="multipart/form-data" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images">
 
   <h3>Add An Image</h3>
 
-  <p>Add an image<br>
+  <p>
     <input type="file" name="file">
     <input type="submit" name="Add Image">
   </p>
