@@ -28,7 +28,11 @@
                   <img width="300" height="200" src="../../../<%= photo.file_path %>" /><br>
                   <h6 style="display: inline">added by <%=photo.user.name%>
                   <% if photo.user == @user %>
-                    <a href="">delete</a>
+                    <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=photo.id%>">
+
+                      <input type="hidden" method="hidden" name="_method" value="DELETE">
+                      <input type="submit" value="delete">
+                    </form>
                   <% end %>
                   </h6>
                 </div>
@@ -73,7 +77,7 @@
       <% if memory.recollections.none? {|recollection| recollection.user == @user} %>
         <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/new">
           <input type='submit' value='Add Your Recollection'>
-        </form>
+        </form><br>
       <% end %>
 
     <% end %>

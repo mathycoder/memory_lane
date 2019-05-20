@@ -24,8 +24,11 @@ class ImagesController < ApplicationController
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
-  delete '/users/:user_id/memories/:memory_id/image/:image_id' do
-
+  delete '/users/:user_id/memories/:memory_id/images/:image_id' do
+    image = Photo.find(params[:image_id])
+    memory = Memory.find(params[:memory_id])
+    image.delete
+    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
 
