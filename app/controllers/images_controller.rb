@@ -16,12 +16,16 @@ class ImagesController < ApplicationController
     image.file_path = params[:file][:filename]
     image.save
     file = params[:file][:tempfile]
-
     File.open("./public/#{image.file_path}", 'wb') do |f|
       f.write(file.read)
     end
-
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+  end
+
+  get '/users/:user_id/memories/:memory_id/images/:image_id' do
+    @image = Photo.find(params[:image_id])
+    @memory = Memory.find(params[:memory_id])
+    erb :'images/show'
   end
 
   delete '/users/:user_id/memories/:memory_id/images/:image_id' do

@@ -1,7 +1,7 @@
 <div>
   <h1 style="display: inline">Memory Lane</h1>
   <br>
-  <h5 style="display: inline">
+  <h6 style="display: inline">
 
     <span>
       <% @lane.users.each do |user| %>
@@ -12,7 +12,7 @@
     <br>
 
      <span> with <%= @user.list(@lane.users) %></span>
-  </h5>
+  </h6>
 </div>
 
 <p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
@@ -36,7 +36,8 @@
 
             <% if !photo.file_path.nil?%>
                 <div>
-                  <img width="300" height="200" src="../../../<%= photo.file_path %>" /><br>
+                  <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=photo.id%>">
+                    <img width="300" height="200" src="../../../<%= photo.file_path %>" /></a><br>
                   <h6 style="display: inline">photo by <%=photo.user.name%>
                   <% if photo.user == @user %>
                     <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=photo.id%>">
