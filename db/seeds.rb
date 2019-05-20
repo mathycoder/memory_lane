@@ -1,9 +1,9 @@
 #create users
-adam = User.create(name: "Adam Sarli")
-cathy = User.create(name: "Cathy Santos")
-alex = User.create(name: "Alex Corbitt")
-eric = User.create(name: "Eric Weiss")
-nathan = User.create(name: "Nathan Palmisano")
+adam = User.create(name: "Adam Sarli", profile_pic_file_path: "seed_images/profile/adam.PNG")
+cathy = User.create(name: "Cathy Santos", profile_pic_file_path: "seed_images/profile/cathy.PNG" )
+alex = User.create(name: "Alex Corbitt", profile_pic_file_path: "seed_images/profile/alex.PNG")
+eric = User.create(name: "Eric Weiss", profile_pic_file_path: "seed_images/profile/eric.PNG")
+nathan = User.create(name: "Nathan Palmisano", profile_pic_file_path: "seed_images/profile/nathan.PNG")
 
 #create lane and link users
 our_lane = Lane.create()

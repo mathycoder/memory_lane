@@ -2,6 +2,14 @@
   <% @lane.users.each do |user| %>
     <%= user.name if user != @user %>
   <% end %>
+
+  <br>
+
+  <% @lane.users.each do |user| %>
+    <img width="40" height="47" src="../../../<%= user.profile_pic_file_path %>">
+  <% end %>
+
+
 </h1>
 
 <p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
@@ -26,7 +34,7 @@
             <% if !photo.file_path.nil?%>
                 <div>
                   <img width="300" height="200" src="../../../<%= photo.file_path %>" /><br>
-                  <h6 style="display: inline">added by <%=photo.user.name%>
+                  <h6 style="display: inline">photo by <%=photo.user.name%>
                   <% if photo.user == @user %>
                     <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=photo.id%>">
 
@@ -50,7 +58,12 @@
       <br>
 
       <% memory.recollections.each do |recollection| %>
-        <p style="display: inline">Recollection by <%=recollection.user.name %>
+        <p style="display: inline">
+          <% if !recollection.user.profile_pic_file_path.nil?%>
+          <img width="30" height="35" src="../../../<%= recollection.user.profile_pic_file_path %>" />
+          <% end %>
+
+          Recollection by <%=recollection.user.name %>
           <% if recollection.user == @user %>
             <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">Edit</a>
           <% end %>

@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
     t.string "name"
     t.string "email"
     t.string "password"
+    t.string "profile_pic_file_path"
   end
 
 end
