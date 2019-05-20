@@ -1,20 +1,18 @@
 class User < ActiveRecord::Base
-  # has_many :recollections
-  #
-  # #this next one is the only one I'm worried about.  Should it
-  # #go through recollections or lanes?
-  # has_many :memories, through: :recollections
-  # has_many :user_lanes
-  # has_many :lanes, through: :user_lanes
-
   has_many :user_lanes
   has_many :lanes, through: :user_lanes
   has_many :memories, through: :lanes
   has_many :recollections, through: :memories
   has_many :photos, through: :memories
 
+  def list(users)
+    users_array = users.map {|user| user.name}
+    users_array[-1].prepend("and ")
+    if users_array.length > 2
+      users_array.join(", ")
+    else
+      users_array.join(" ")
+    end 
+  end
 
 end
-
-
-# I want to be able to do adam.memories and see all his memories.

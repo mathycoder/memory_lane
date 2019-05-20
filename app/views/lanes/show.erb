@@ -1,16 +1,19 @@
-<h1>Memory Lane with:
-  <% @lane.users.each do |user| %>
-    <%= user.name if user != @user %>
-  <% end %>
-
+<div>
+  <h1 style="display: inline">Memory Lane</h1>
   <br>
+  <h5 style="display: inline">
 
-  <% @lane.users.each do |user| %>
-    <img width="40" height="47" src="../../../<%= user.profile_pic_file_path %>">
-  <% end %>
+    <span>
+      <% @lane.users.each do |user| %>
+        <img width="40" height="47" src="../../../<%= user.profile_pic_file_path %>">
+      <% end %>
+    </span>
 
+    <br>
 
-</h1>
+     <span> with <%= @user.list(@lane.users) %></span>
+  </h5>
+</div>
 
 <p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
 
