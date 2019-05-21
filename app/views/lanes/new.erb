@@ -1,1 +1,24 @@
-<h1>Create a New Lane</h1> 
+<div class="myforms newmemory">
+  <h1>Create a New Lane</h1>
+  <form method="POST" action="">
+
+    <p>
+      <input type="text" name="memory[title]" placeholder="Title" required/><br>
+    </p>
+
+    <p>Select a lane:
+    <select name="memory[lane_id]">
+      <% @user.lanes.each do |lane| %>
+        <option value=<%=lane.id%>>with
+
+          <% lane.users.each do |user| %>
+            <%= user.name if user != @user %>
+          <% end %>
+
+        </option>
+      <% end %>
+    </select></p>
+
+    <input type='submit' value="Create Lane"/>
+  </form>
+</div>
