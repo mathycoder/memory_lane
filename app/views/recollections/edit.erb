@@ -1,32 +1,35 @@
-<h1>Edit your recollection</h1>
+<div class="myforms newmemory">
 
-<form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections/<%=@recollection.id%>">
-  <input method="hidden" type="hidden" name="_method" value="PATCH"/>
+  <h1>Edit your recollection</h1>
 
-  <p>
-  Title: <%= @memory.title %><br>
-  Location: <%= @memory.location %><br>
-  Date: <%= @memory.display_date %><br>
-  </p>
+  <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections/<%=@recollection.id%>">
+    <input method="hidden" type="hidden" name="_method" value="PATCH"/>
 
-  <h3>Edit Your Recollection</h3>
+    <p>
+    Title: <%= @memory.title %><br>
+    Location: <%= @memory.location %><br>
+    Date: <%= @memory.display_date %><br>
+    </p>
 
-  <p>Anecdote<br>
-  <textarea type='text' rows="4" cols="50" name="recollection[anecdote]"><%=@recollection.anecdote%></textarea>
-  </p>
+    <h3>Edit Your Recollection</h3>
 
-  <p>Joke<br>
-  <textarea type='text' rows="2" cols="50" name="recollection[joke]"><%=@recollection.joke%></textarea>
-  </p>
+    <p>Anecdote<br>
+    <textarea type='text' rows="4" cols="50" name="recollection[anecdote]"><%=@recollection.anecdote%></textarea>
+    </p>
 
-  <p>Quote<br>
-  <textarea type='text' rows="2" cols="50" name="recollection[quote]"><%=@recollection.quote%></textarea>
-  </p>
+    <p>Joke<br>
+    <textarea type='text' rows="2" cols="50" name="recollection[joke]"><%=@recollection.joke%></textarea>
+    </p>
 
-  <input type='submit' value="Save"/>
-</form>
+    <p>Quote<br>
+    <textarea type='text' rows="2" cols="50" name="recollection[quote]"><%=@recollection.quote%></textarea>
+    </p>
 
-<form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections/<%=@recollection.id%>">
-  <input method="hidden" type="hidden" name="_method" value="DELETE"/>
-  <input type="submit" value="Delete"/>
-</form>
+    <input type='submit' value="Save"/>
+  </form>
+
+  <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections/<%=@recollection.id%>">
+    <input method="hidden" type="hidden" name="_method" value="DELETE"/>
+    <input type="submit" value="Delete"/>
+  </form>
+</div> 

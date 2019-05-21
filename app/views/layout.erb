@@ -14,12 +14,12 @@
       <div class="header">
         <h1 id="logo">Memory<span>Lane</span></h1>
         <% if logged_in? %>
-          <form method="POST" action="/users/<%=@user.id%>/lanes/jumpto">
+          <form method="POST" action="/users/<%=current_user.id%>/lanes/jumpto">
             <select name="lane">
-              <% @user.lanes.each do |lane| %>
+              <% current_user.lanes.each do |lane| %>
                 <option value="<%=lane.id%>">
                 <% lane.users.each do |user| %>
-                  <%= user.name.split(" ").first if user != @user %>
+                  <%= user.name.split(" ").first if user != current_user %>
                 <% end %>
                 </option>
               <% end %>
@@ -30,7 +30,7 @@
         <% end %>
 
         <% if logged_in? %>
-          <span class="profilephoto"><a href="/users/current_user.id"><img width="40" height="47" src="../../../<%= @user.profile_pic_file_path %>"></a></span>
+          <span class="profilephoto"><a href="/users/<%=current_user.id%>"><img width="40" height="47" src="../../../<%= current_user.profile_pic_file_path %>"></a></span>
         <% else %>
           <span class="profilephoto"><a href="/login"><img width="40" height="47" src="../../../silhouette.png"><a></span>
         <% end %>

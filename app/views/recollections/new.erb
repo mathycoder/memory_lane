@@ -1,27 +1,29 @@
 
+<div class="myforms newmemory">
 
+  <form method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections">
 
-<form method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections">
+    <p>
+    Title: <%= @memory.title %><br>
+    Location: <%= @memory.location %><br>
+    Date: <%= @memory.display_date %><br>
+    </p>
 
-  <p>
-  Title: <%= @memory.title %><br>
-  Location: <%= @memory.location %><br>
-  Date: <%= @memory.display_date %><br>
-  </p>
+    <h3>Add Your Recollection</h3>
 
-  <h3>Add Your Recollection</h3>
+    <p>Anecdote<br>
+    <textarea type='text' rows="4" cols="50" name="recollection[anecdote]" placeholder="Got any interesting stories from this memory?"></textarea>
+    </p>
 
-  <p>Anecdote<br>
-  <textarea type='text' rows="4" cols="50" name="recollection[anecdote]" placeholder="Got any interesting stories from this memory?"></textarea>
-  </p>
+    <p>Joke<br>
+    <textarea type='text' rows="2" cols="50" name="recollection[joke]" placeholder="Optional: Add a memorable joke!"></textarea>
+    </p>
 
-  <p>Joke<br>
-  <textarea type='text' rows="2" cols="50" name="recollection[joke]" placeholder="Optional: Add a memorable joke!"></textarea>
-  </p>
+    <p>Quote<br>
+    <textarea type='text' rows="2" cols="50" name="recollection[quote]" placeholder="Optional: Think of a memorable quote?"></textarea>
+    </p>
 
-  <p>Quote<br>
-  <textarea type='text' rows="2" cols="50" name="recollection[quote]" placeholder="Optional: Think of a memorable quote?"></textarea>
-  </p>
+    <input type='submit' value="Add Recollection"/>
+  </form>
 
-  <input type='submit' value="Add Recollection"/>
-</form>
+</div>
