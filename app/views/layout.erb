@@ -14,6 +14,7 @@
       <div class="header">
         <h1 id="logo">Memory<span>Lane</span></h1>
         <% if logged_in? %>
+          <div id="lanenav">
           <form method="POST" action="/users/<%=current_user.id%>/lanes/jumpto">
             <select name="lane">
               <% current_user.lanes.each do |lane| %>
@@ -27,6 +28,7 @@
 
             <input type="submit" value="Go To Lane">
           </form>
+          </div>
         <% end %>
 
         <% if logged_in? %>

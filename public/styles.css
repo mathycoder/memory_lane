@@ -1,6 +1,7 @@
   /*font-family: 'Playfair Display', serif;*/
+
   .keybuttons {
-    width: 15vw;
+    width: 150px;
     background-color: rgb(124, 166, 147);
     color: white;
     padding: 14px 20px;
@@ -200,9 +201,41 @@ html, body {
   align-items: center;
 }
 
-.header #login {
-  /*margin-left: auto;*/
+.header #lanenav {
+  width: 50%;
+  margin-left: auto;
+  margin-right: 10px;
+  justify-content: center;
 }
+
+select {
+  display: inline;
+  font-size: 14px;
+  font-family: georgia;
+  width: 50%;
+  height: 35px;
+  padding: 16px 20px;
+  border: rgb(49, 79, 77) solid 3px;
+  border-radius: 4px;
+  background-color: rgb(224, 224, 197);
+  margin: 0 10px;
+}
+
+#lanenav input[type=submit] {
+  width: auto;
+  background-color: rgb(49, 79, 77);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  height: 30px;
+  padding: 5px 20px ;
+  cursor: pointer;
+}
+
+#lanenav input[type=submit]:hover {
+  background-color: black;
+}
+
 
 .profilephoto {
   margin-left: auto;
@@ -219,12 +252,6 @@ html, body {
 }
 
 .header h1 span {
-  /*color: #bf4aa8;*/
-  /*color: #FDF811;*/
-  /*color: #FDD711;*/
-
-  /*color: #ECE81C;*/
-  /*color: #F6ED88;*/
   color: #E4DC83;
   font-family: 'Allura', cursive;
   font-size: 54px;
