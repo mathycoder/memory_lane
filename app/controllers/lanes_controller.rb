@@ -15,6 +15,18 @@ class LanesController < ApplicationController
     end
   end
 
+  get '/users/:user_id/lanes/new' do
+    @user = User.find(params[:user_id])
+    if logged_in? && current_user == @user
+      erb :'lanes/new'
+    elsif !logged_in?
+      redirect :'/login'
+    else
+      erb :'users/noaccess'
+    end
+  end
+
+
   get '/users/:user_id/lanes/:lane_id' do
     @user = User.find(params[:user_id])
     @lane = Lane.find(params[:lane_id])
@@ -31,8 +43,13 @@ class LanesController < ApplicationController
 
   post '/users/:user_id/lanes/jumpto' do
     user = User.find(params[:user_id])
-    lane = Lane.find(params[:lane])
-    redirect "/users/#{user.id}/lanes/#{lane.id}"
+
+    if params[:lane] == "new_lane"
+      redirect "/users/#{user.id}/lanes/new"
+    else
+      lane = Lane.find(params[:lane])
+      redirect "/users/#{user.id}/lanes/#{lane.id}"
+    end
   end
 
 end

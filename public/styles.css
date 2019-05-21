@@ -127,6 +127,7 @@
   color: black;
   margin: 0 auto;
   width: 90%;
+  margin-right: 0px; 
 
   font-family: 'Allura', cursive;
 
@@ -142,6 +143,7 @@
 
 .lanetitle .right {
   flex: 1;
+  margin-top: 25px;
   width: 100%;
   height: auto;
   justify-content: space-around;
