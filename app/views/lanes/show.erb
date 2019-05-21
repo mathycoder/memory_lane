@@ -5,7 +5,7 @@
       <span id="title">Your Lane with</span><br>
       <span id="little"><%= @user.list(@lane.users) %></span>
       <form action="/users/<%=@user.id%>/memories/new" method="GET">
-        <input type='submit' value="Create New Memory"/>
+          <input class ="keybuttons" type='submit' value="Create New Memory"/>
       </form>
     </h1>
 
@@ -43,6 +43,11 @@
     </div>
 
       <br><br>
+      <div id="addapicture">
+        <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/new">
+          <input type='submit' value='Add A Picture'>
+        </form>
+      </div>
         <div class="memoryimages">
           <% memory.photos.each do |photo| %>
 
@@ -63,12 +68,6 @@
             <% end %>
           <% end %>
 
-          <div id="addapicture">
-            <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/new">
-              <input type='submit' value='Add A Picture'>
-            </form>
-          </div>
-
         </div>
 
       <br>
@@ -81,7 +80,9 @@
 
           Recollection by <%=recollection.user.name %>
           <% if recollection.user == @user %>
-            <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">Edit</a>
+            <form style="display: inline" method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">
+              <input type='submit' value='Edit'>
+            </form>
           <% end %>
 
           <br>
