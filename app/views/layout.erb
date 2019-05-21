@@ -13,9 +13,20 @@
 
       <div class="header">
         <h1 id="logo">Memory<span>Lane</span></h1>
-        <h5 id="login" class="buttons"><a href="/login">Log in</a></h5>
-        <h5 class="buttons"><a href="/logout">Logout</a></h5>
-        <h5 class="buttons"><a href="/signup">Sign Up</a></h5>
+
+        <% if logged_in? %>
+          <span class="profilephoto"><a href="/users/current_user.id"><img width="40" height="47" src="../../../<%= @user.profile_pic_file_path %>"></a></span>
+        <% else %>
+          <span class="profilephoto"><a href="/login"><img width="40" height="47" src="../../../silhouette.png"><a></span>
+        <% end %>
+
+        <% if !logged_in? %>
+          <h5 id="login" class="buttons"><a href="/login">Log in</a></h5>
+          <h5 class="buttons"><a href="/signup">Sign Up</a></h5>  
+        <% else %>
+          <h5 class="buttons"><a href="/logout">Logout</a></h5>
+        <% end %>
+
       </div>
 
       <div class="sidebar">

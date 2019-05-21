@@ -9,7 +9,9 @@
 
   <div class="right">
     <% @lane.users.each do |user| %>
-      <img width="40" height="50" src="../../../<%= user.profile_pic_file_path %>">
+      <% if user != @user %>
+        <img width="60" height="70" src="../../../<%= user.profile_pic_file_path %>">
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -102,6 +104,3 @@
   </div>
   <% end %>
 </div>
-
-
-<p><a href="/users/<%=@user.id%>/lanes">Back to Lanes</a></p>
