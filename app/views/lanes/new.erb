@@ -3,13 +3,13 @@
 
   <br>
 
-  <form method="POST" action="">
+  <form method="POST" action="/users/<%=@user.id%>/lanes">
 
     <h3 style="text-align: left">Select users to invite to your lane:</h3>
     <div id="dropdownusers">
       <% @users.each do |user| %>
         <% if user != @user %>
-          <input type="checkbox"><%= user.name%></input><br>
+          <input type="checkbox" name="users[]" value="<%=user.id%>"><%= user.name%></input><br>
         <% end %>
       <% end %>
     </div><br><br>
