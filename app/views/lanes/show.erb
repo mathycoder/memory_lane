@@ -4,20 +4,27 @@
     <h1>
       <span id="title">Your Lane with</span><br>
       <span id="little"><%= @user.list(@lane.users) %></span>
+      <form action="/users/<%=@user.id%>/memories/new" method="GET">
+        <input type='submit' value="Create New Memory"/>
+      </form>
     </h1>
+
   </div>
 
   <div class="lanetitle right">
+    <div id="laneimages">
     <% @lane.users.each do |user| %>
       <% if user != @user %>
         <img width="60" height="70" src="../../../<%= user.profile_pic_file_path %>">
       <% end %>
     <% end %>
+    </div>
+    <div id="typewriter">
+      <img src="../../../typewriter.png">
+    </div>
   </div>
 
 </div>
-
-<p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
 
 <div class="memorydisplay">
   <% @lane.memories.sorted_by_newest.each do |memory| %>
