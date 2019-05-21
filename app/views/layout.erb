@@ -13,6 +13,21 @@
 
       <div class="header">
         <h1 id="logo">Memory<span>Lane</span></h1>
+        <% if logged_in? %>
+          <form method="POST" action="/users/<%=@user.id%>/lanes/jumpto">
+            <select name="lane">
+              <% @user.lanes.each do |lane| %>
+                <option value="<%=lane.id%>">
+                <% lane.users.each do |user| %>
+                  <%= user.name.split(" ").first if user != @user %>
+                <% end %>
+                </option>
+              <% end %>
+            </select>
+
+            <input type="submit" value="Go To Lane">
+          </form>
+        <% end %>
 
         <% if logged_in? %>
           <span class="profilephoto"><a href="/users/current_user.id"><img width="40" height="47" src="../../../<%= @user.profile_pic_file_path %>"></a></span>
@@ -22,7 +37,7 @@
 
         <% if !logged_in? %>
           <h5 id="login" class="buttons"><a href="/login">Log in</a></h5>
-          <h5 class="buttons"><a href="/signup">Sign Up</a></h5>  
+          <h5 class="buttons"><a href="/signup">Sign Up</a></h5>
         <% else %>
           <h5 class="buttons"><a href="/logout">Logout</a></h5>
         <% end %>
