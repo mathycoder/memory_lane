@@ -49,7 +49,16 @@ class RecollectionsController < ApplicationController
 
   patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
     recollection = Recollection.find(params[:recollection_id])
-    recollection.update(params[:recollection])
+    #recollection.update(params[:recollection])
+
+    recollection.anecdote = params[:recollection][:anecdote]
+    recollection.anecdote = nil if recollection.anecdote.empty?
+    recollection.joke = params[:recollection][:joke]
+    recollection.joke = nil if recollection.joke.empty?
+    recollection.quote = params[:recollection][:quote]
+    recollection.quote = nil if recollection.quote.empty?
+
+    recollection.save
     memory = Memory.find(params[:memory_id])
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
