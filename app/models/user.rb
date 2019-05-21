@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
   has_many :memories, through: :lanes
   has_many :recollections, through: :memories
   has_many :photos, through: :memories
-  
+
   has_secure_password
 
   def list(users)
     users_array = users.map {|user| user.name}
-    users_array[-1].prepend("and ")
+    users_array.delete(self.name)
+    users_array[-1].prepend("and  ") if users_array.length > 1
     if users_array.length > 2
       users_array.join(", ")
     else
