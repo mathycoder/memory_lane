@@ -1,19 +1,20 @@
 <div class="lanetitle">
 
-  <div class="left">
+  <div class="lanetitle left">
     <h1>
-    <span id="title" style="display: inline">Your Lane</span>
-    <span> with <%= @user.list(@lane.users) %></span>
+      <span id="title">Your Lane with</span><br>
+      <span id="little"><%= @user.list(@lane.users) %></span>
     </h1>
   </div>
 
-  <div class="right">
+  <div class="lanetitle right">
     <% @lane.users.each do |user| %>
       <% if user != @user %>
         <img width="60" height="70" src="../../../<%= user.profile_pic_file_path %>">
       <% end %>
     <% end %>
   </div>
+
 </div>
 
 <p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>

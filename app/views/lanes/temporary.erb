@@ -1,0 +1,18 @@
+<div class="lanetitle">
+
+  <div class="left">
+    <h1>
+      <span id="title">Your Lane</span>
+      <span> with <%= @user.list(@lane.users) %></span>
+    </h1>
+  </div>
+
+  <div class="right">
+    <% @lane.users.each do |user| %>
+      <% if user != @user %>
+        <img width="60" height="70" src="../../../<%= user.profile_pic_file_path %>">
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
