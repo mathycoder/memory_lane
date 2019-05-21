@@ -18,6 +18,7 @@ class LanesController < ApplicationController
   get '/users/:user_id/lanes/new' do
     @user = User.find(params[:user_id])
     if logged_in? && current_user == @user
+      @users = User.alphabetize 
       erb :'lanes/new'
     elsif !logged_in?
       redirect :'/login'

@@ -1,5 +1,7 @@
   /*font-family: 'Playfair Display', serif;*/
 
+
+
   .keybuttons {
     width: 150px;
     background-color: rgb(124, 166, 147);
@@ -127,7 +129,7 @@
   color: black;
   margin: 0 auto;
   width: 90%;
-  margin-right: 0px; 
+  margin-right: 0px;
 
   font-family: 'Allura', cursive;
 
@@ -300,4 +302,9 @@ select {
 
 #addapicture{
   margin-bottom: 10px;
+}
+
+#dropdownusers {
+  text-align: left;
+  justify-content: left;
 }

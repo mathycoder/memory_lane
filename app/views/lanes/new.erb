@@ -1,23 +1,18 @@
 <div class="myforms newmemory">
   <h1>Create a New Lane</h1>
+
+  <br>
+
   <form method="POST" action="">
 
-    <p>
-      <input type="text" name="memory[title]" placeholder="Title" required/><br>
-    </p>
-
-    <p>Select a lane:
-    <select name="memory[lane_id]">
-      <% @user.lanes.each do |lane| %>
-        <option value=<%=lane.id%>>with
-
-          <% lane.users.each do |user| %>
-            <%= user.name if user != @user %>
-          <% end %>
-
-        </option>
+    <h3 style="text-align: left">Select users to invite to your lane:</h3>
+    <div id="dropdownusers">
+      <% @users.each do |user| %>
+        <% if user != @user %>
+          <input type="checkbox"><%= user.name%></input><br>
+        <% end %>
       <% end %>
-    </select></p>
+    </div><br><br>
 
     <input type='submit' value="Create Lane"/>
   </form>

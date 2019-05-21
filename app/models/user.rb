@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.alphabetize
+    self.all.sort_by{|user| user.name}
+  end
+
 end
