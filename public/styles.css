@@ -5,7 +5,11 @@
   width: 40%;
   padding: 20px;
   margin: 100px auto;
-  text-align: center; 
+  text-align: center;
+}
+
+.myforms.newmemory {
+  width: 60%;
 }
 
 .myforms input[type=text], .myforms input[type=password]  {
@@ -15,7 +19,47 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   display: block;
-  /*box-sizing: border-box;*/
+}
+
+.myforms input[type=submit] {
+  width: 80%;
+  background-color: rgb(124, 166, 147);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.myforms input[type=button] {
+  width: 80%;
+  background-color: rgb(124, 166, 147);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.myforms input[type=submit]:hover {
+  /*background-color: #45a049;*/
+  background-color: rgb(49, 79, 77);
+}
+
+.myforms textarea {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.tbox {
+  text-align: left;
 }
 
 .myforms h1 {

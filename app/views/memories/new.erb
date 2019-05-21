@@ -1,42 +1,44 @@
-<h1>Create a New Memory</h1>
 
 
-<form method="POST" action="/users/<%=@user.id%>/memories">
+<div class="myforms newmemory">
+  <h1>Create a New Memory</h1>
+  <form method="POST" action="/users/<%=@user.id%>/memories">
 
-  <p>
-  Title: <input type="text" name="memory[title]"/><br>
-  Location: <input type="text" name="memory[location]"/><br>
-  Date: <input type="text" name="memory[date]" placeholder="mm-dd-yyyy" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"/><br>
-  example: 03-28-1984
+    <p>
+      <input type="text" name="memory[title]" placeholder="Title" required/><br>
+      <input type="text" name="memory[location]"placeholder="Location" required/><br>
+      <input type="text" name="memory[date]" placeholder="Date: mm-dd-yyyy          ex: 03-28-1984" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"/><br>
+    </p>
 
-  </p>
+    <p>Select a lane:
+    <select name="memory[lane_id]">
+      <% @user.lanes.each do |lane| %>
+        <option value=<%=lane.id%>>with
 
-  <p>Select a lane:
-  <select name="memory[lane_id]">
-    <% @user.lanes.each do |lane| %>
-      <option value=<%=lane.id%>>with
+          <% lane.users.each do |user| %>
+            <%= user.name if user != @user %>
+          <% end %>
 
-        <% lane.users.each do |user| %>
-          <%= user.name if user != @user %>
-        <% end %>
+        </option>
+      <% end %>
+    </select></p>
 
-      </option>
-    <% end %>
-  </select></p>
+    <br>
 
-  <p>Add Your recollection<p>
+    <h1>Add Your recollection</h1>
 
-  <p>Anecdote<br>
-  <textarea type='text' rows="4" cols="50" name="recollection[anecdote]" placeholder="Got any interesting stories from this memory?"></textarea>
-  </p>
+    <p class="tbox">Add an Anecdote<br>
+    <textarea type='text' rows="16" cols="50" name="recollection[anecdote]" placeholder="Got any interesting stories from this memory?"></textarea>
+    </p>
 
-  <p>Joke<br>
-  <textarea type='text' rows="2" cols="50" name="recollection[joke]" placeholder="Optional: Add a memorable joke!"></textarea>
-  </p>
+    <p class="tbox">Add a Joke<br>
+    <textarea type='text' rows="2" cols="50" name="recollection[joke]" placeholder="Optional: Add a memorable joke!"></textarea>
+    </p>
 
-  <p>Quote<br>
-  <textarea type='text' rows="2" cols="50" name="recollection[quote]" placeholder="Optional: Think of a memorable quote?"></textarea>
-  </p>
+    <p class="tbox">Add a Quote<br>
+    <textarea type='text' rows="2" cols="50" name="recollection[quote]" placeholder="Optional: Think of a memorable quote?"></textarea>
+    </p>
 
-  <input type='submit' value="Create Memory"/>
-</form>
+    <input type='submit' value="Create Memory"/>
+  </form>
+</div>
