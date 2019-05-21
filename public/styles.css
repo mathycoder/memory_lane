@@ -82,7 +82,17 @@ html, body {
 }
 
 .header h1 span {
-  color: #bf4aa8;
+  /*color: #bf4aa8;*/
+  /*color: #FDF811;*/
+  /*color: #FDD711;*/
+
+  /*color: #ECE81C;*/
+  /*color: #F6ED88;*/
+  color: #E4DC83;
+  font-family: 'Allura', cursive;
+  font-size: 54px;
+  color: black;
+
 }
 
 .buttons {
