@@ -1,23 +1,14 @@
 <div class="lanetitle">
-  <div>
-    <h2 style="display: inline">Current Lane:</h2>
+
+  <div class="left">
+    <span id="title" style="display: inline">Your Lane</span>
+    <span> with <%= @user.list(@lane.users) %></span>
   </div>
 
-  <div>
-    <h6 style="display: inline">
-
-      <span>
-        <% @lane.users.each do |user| %>
-          <img width="60" height="72" src="../../../<%= user.profile_pic_file_path %>">
-        <% end %>
-      </span>
-    </h6>
-  </div>
-
-  <div>
-    <h6 style="display: inline">
-      <span> with <%= @user.list(@lane.users) %></span>
-    </h6>
+  <div class="right">
+    <% @lane.users.each do |user| %>
+      <img width="40" height="50" src="../../../<%= user.profile_pic_file_path %>">
+    <% end %>
   </div>
 </div>
 
