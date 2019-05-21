@@ -66,6 +66,16 @@
   font-size: 25px;
 }
 
+.showpic {
+  width: 100%;
+  height: 100%;
+}
+
+.showpic img {
+  max-height: 550px;
+  margin: 0 auto; 
+}
+
 .memorydisplay {
   display: flex;
   flex-direction: column;

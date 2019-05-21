@@ -41,7 +41,7 @@
             <% if !photo.file_path.nil?%>
                 <div>
                   <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=photo.id%>">
-                    <img width="300" height="200" src="../../../<%= photo.file_path %>" /></a><br>
+                    <img height="200" src="../../../<%= photo.file_path %>" /></a><br>
                   <h6 style="display: inline">photo by <%=photo.user.name%>
                   <% if photo.user == @user %>
                     <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=photo.id%>">
