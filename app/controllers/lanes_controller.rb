@@ -39,13 +39,18 @@ class LanesController < ApplicationController
 
   post '/users/:user_id/lanes' do
     @user = User.find(params[:user_id])
-    lane = Lane.create()
-    lane.users << @user
-    params[:users].each do |user_id|
-      user = User.find(user_id)
-      lane.users << user
+
+    users = []
+    users = params[:users].map {|user_id| User.find(user_id)}
+    users << @user
+
+    if @user.lanes.none?{|lane| lane.users.sort == users.sort}
+      lane = Lane.create()
+      lane.users << users
+      lane.save
+    else
+      lane = @user.lanes.find{|lane| lane.users.sort == users.sort}
     end
-    lane.save
 
     redirect "/users/#{@user.id}/lanes/#{lane.id}"
   end
