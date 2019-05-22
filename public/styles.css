@@ -113,7 +113,7 @@
 .memorydisplay {
   display: flex;
   flex-direction: column;
-  margin-top: -80px;
+  margin-top: -50px;
 }
 
 .memoryelement{
@@ -182,7 +182,7 @@
 #typewriter img {
   position: relative;
   width: 100%;
-  bottom: 40%;
+  bottom: 35%;
   z-index: 1;
 
 
