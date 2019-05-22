@@ -15,7 +15,7 @@
     <div id="laneimages">
     <% @lane.users.each do |user| %>
       <%# if user != @user %>
-        <img width="60" height="70" src="../../../<%= user.profile_pic_file_path %>">
+        <img width="60" height="70" src="/<%= user.profile_pic_file_path %>">
       <%# end %>
     <% end %>
     </div>
@@ -73,7 +73,7 @@
       <% memory.recollections.each do |recollection| %>
         <p style="display: inline">
           <% if !recollection.user.profile_pic_file_path.nil?%>
-          <img width="30" height="35" src="../../../<%= recollection.user.profile_pic_file_path %>" />
+          <img width="30" height="35" src="/<%= recollection.user.profile_pic_file_path %>" />
           <% end %>
 
           Recollection by <%=recollection.user.name %>
