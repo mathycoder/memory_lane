@@ -103,11 +103,13 @@
 .showpic {
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 
 .showpic img {
-  max-height: 550px;
-  margin: 0 auto;
+  max-width: 90vw;
+  max-height: 90vh;
+
 }
 
 .memorydisplay {
