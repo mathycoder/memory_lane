@@ -6,23 +6,26 @@
     <input method="hidden" type="hidden" name="_method" value="PATCH"/>
 
     <p>
-    Title: <%= @memory.title %><br>
-    Location: <%= @memory.location %><br>
-    Date: <%= @memory.display_date %><br>
+      Title: <%= @memory.title %><br>
+      Location: <%= @memory.location %><br>
+      Date: <%= @memory.display_date %><br>
     </p>
 
     <h3>Edit Your Recollection</h3>
 
-    <p>Anecdote<br>
-    <textarea type='text' rows="4" cols="50" name="recollection[anecdote]"><%=@recollection.anecdote%></textarea>
+    <p>
+      Anecdote<br>
+      <textarea type='text' rows="4" cols="50" name="recollection[anecdote]"><%=@recollection.anecdote%></textarea>
     </p>
 
-    <p>Joke<br>
-    <textarea type='text' rows="2" cols="50" name="recollection[joke]"><%=@recollection.joke if !@recollection.joke.nil?%></textarea>
+    <p>
+      Joke<br>
+      <textarea type='text' rows="2" cols="50" name="recollection[joke]"><%=@recollection.joke if !@recollection.joke.nil?%></textarea>
     </p>
 
-    <p>Quote<br>
-    <textarea type='text' rows="2" cols="50" name="recollection[quote]"><%=@recollection.quote if !@recollection.joke.nil?%></textarea>
+    <p>
+      Quote<br>
+      <textarea type='text' rows="2" cols="50" name="recollection[quote]"><%=@recollection.quote if !@recollection.joke.nil?%></textarea>
     </p>
 
     <input type='submit' value="Save"/>

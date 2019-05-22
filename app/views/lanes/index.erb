@@ -1,14 +1,9 @@
 <h1>All of <%=@user.name %>'s lanes</h1>
 
 <% @user.lanes.each do |lane| %>
-
   <h3>Your Lane with:
-
-  <% lane.users.each do |user| %>
-    <a href = "/users/<%=@user.id%>/lanes/<%=lane.id%>"><%= user.name if user != @user %></a>
-
-  <% end %>
-
+    <% lane.users.each do |user| %>
+      <a href = "/users/<%=@user.id%>/lanes/<%=lane.id%>"><%= user.name if user != @user %></a>
+    <% end %>
   </h3>
-
 <% end %>

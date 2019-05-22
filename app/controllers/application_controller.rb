@@ -8,7 +8,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    "Hello World!"
+    if logged_in?
+      redirect "/users/#{current_user.id}"
+    else
+      redirect "/login"
+    end
   end
 
   get '/noaccess' do
