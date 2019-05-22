@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Memory Lane</title>
     <link rel="stylesheet" href="/styles.css" type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Allura&display=swap" rel="stylesheet">
   </head>
 
   <body>
-
     <div class="container">
-
       <div class="header">
         <h1 id="logo">Memory<span>Lane</span></h1>
         <% if logged_in? %>
           <div id="lanenav">
-          <form method="POST" action="/users/<%=current_user.id%>/lanes/jumpto">
-            <select name="lane">
-              <% current_user.lanes.each do |lane| %>
-                <option value="<%=lane.id%>">
-                <% lane.users.each do |user| %>
-                  <%= user.name.split(" ").first if user != current_user %>
+            <form method="POST" action="/users/<%=current_user.id%>/lanes/jumpto">
+              <select name="lane">
+                <% current_user.lanes.each do |lane| %>
+                  <option value="<%=lane.id%>">
+                  <% lane.users.each do |user| %>
+                    <%= user.name.split(" ").first if user != current_user %>
+                  <% end %>
+                  </option>
                 <% end %>
-                </option>
-              <% end %>
-              <option value="new_lane">Create New Lane</option>
-            </select>
-
-            <input type="submit" value="Go To Lane">
-          </form>
+                <option value="new_lane">Create New Lane</option>
+              </select>
+              <input type="submit" value="Go To Lane">
+            </form>
           </div>
         <% end %>
 
@@ -44,13 +41,6 @@
         <% else %>
           <h5 class="buttons"><a href="/logout">Logout</a></h5>
         <% end %>
-
-      </div>
-
-      <div class="sidebar">
-        <h3>Lane</h3>
-        <h3>Another Lane</h3>
-        <h3>More Lanes</h3>
       </div>
 
       <div class="content">
@@ -60,8 +50,7 @@
       <div class="footer">
         <h6>Created by Adam Sarli</h6>
       </div>
-
+      
     </div>
-
   </body>
 </html>
