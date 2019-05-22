@@ -3,28 +3,36 @@ require_relative "./application_controller.rb"
 class MemoriesController < ApplicationController
 
   get '/users/:user_id/memories' do
-    @user = User.find(params[:user_id])
+    if User.ids.include?(params[:user_id].to_i)
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code...
     if logged_in? && current_user == @user
       erb :'memories/index'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
   end
 
   get '/users/:user_id/memories/new' do
-    @user = User.find(params[:user_id])
+    if User.ids.include?(params[:user_id].to_i)
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code...
     if logged_in? && current_user == @user
       erb :'memories/new'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
 
   end
@@ -48,16 +56,20 @@ class MemoriesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/edit' do
-    @memory = Memory.find(params[:memory_id])
-    @user = User.find(params[:user_id])
+    if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i)
+      @memory = Memory.find(params[:memory_id])
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code...
     if logged_in? && current_user == @user
       erb :'memories/edit'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
 
   end

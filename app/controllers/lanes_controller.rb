@@ -3,27 +3,37 @@ require_relative "./application_controller.rb"
 class LanesController < ApplicationController
 
   get '/users/:user_id/lanes' do
-    @user = User.find(params[:user_id])
+
+    if User.ids.include?(params[:user_id].to_i)
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code
     if logged_in? && current_user == @user
       erb :'lanes/index'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
   end
 
   get '/users/:user_id/lanes/new' do
-    @user = User.find(params[:user_id])
+    if User.ids.include?(params[:user_id].to_i)
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
+
     if logged_in? && current_user == @user
       @users = User.alphabetize
       erb :'lanes/new'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
   end
 
@@ -42,16 +52,21 @@ class LanesController < ApplicationController
 
 
   get '/users/:user_id/lanes/:lane_id' do
-    @user = User.find(params[:user_id])
-    @lane = Lane.find(params[:lane_id])
+
+    if User.ids.include?(params[:user_id].to_i) && Lane.ids.include?(params[:lane_id].to_i)
+      @user = User.find(params[:user_id])
+      @lane = Lane.find(params[:lane_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code...
     if logged_in? && current_user == @user
       erb :'lanes/show'
-    elsif !logged_in?
-      redirect "/login"
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
   end
 

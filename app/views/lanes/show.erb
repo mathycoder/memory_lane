@@ -14,9 +14,7 @@
   <div class="lanetitle right">
     <div id="laneimages">
     <% @lane.users.each do |user| %>
-      <%# if user != @user %>
         <img width="60" height="70" src="/<%= user.profile_pic_file_path %>">
-      <%# end %>
     <% end %>
     </div>
 

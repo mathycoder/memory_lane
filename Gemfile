@@ -11,6 +11,8 @@ gem 'sinatra-activerecord'
 gem 'require_all'
 gem 'shotgun'
 gem 'bcrypt'
+gem 'rack-flash3'
+gem 'sinatra-flash'
 
 
 #git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }

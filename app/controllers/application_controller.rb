@@ -11,6 +11,10 @@ class ApplicationController < Sinatra::Base
     "Hello World!"
   end
 
+  get '/noaccess' do
+    erb :'users/noaccess'
+  end
+
   helpers do
     def logged_in?
       !session[:user_id].nil?

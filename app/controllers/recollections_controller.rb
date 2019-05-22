@@ -3,16 +3,20 @@ require_relative "./application_controller.rb"
 class RecollectionsController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/recollections/new' do
-    @memory = Memory.find(params[:memory_id])
-    @user = User.find(params[:user_id])
+    if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i)
+      @user = User.find(params[:user_id])
+      @memory = Memory.find(params[:memory_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code...
     if logged_in? && current_user == @user
       erb :'recollections/new'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
 
   end
@@ -32,17 +36,22 @@ class RecollectionsController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
-    @recollection = Recollection.find(params[:recollection_id])
-    @user = @recollection.user
-    @memory = @recollection.memory
+    if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i) && Recollection.ids.include?(params[:recollection_id].to_i)
+      @recollection = Recollection.find(params[:recollection_id])
+      @user = @recollection.user
+      @memory = @recollection.memory
+    else
+      redirect '/noaccess'
+    end
+
 
     #first if statement is a bit different; the rest is repeated code
     if logged_in? && current_user == User.find(params[:user_id])
       erb :'recollections/edit'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
 
   end

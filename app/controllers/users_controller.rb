@@ -3,7 +3,12 @@ require_relative "./application_controller.rb"
 class UsersController < ApplicationController
 
   get '/users/:user_id' do
-    @user = User.find(params[:user_id])
+    if User.ids.include?(params[:user_id].to_i)
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
+
     if current_user == @user
       erb :'users/show'
     else

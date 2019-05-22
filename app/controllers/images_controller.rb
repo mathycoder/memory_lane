@@ -3,16 +3,20 @@ require_relative "./application_controller.rb"
 class ImagesController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/images/new' do
-    @user = User.find(params[:user_id])
-    @memory = Memory.find(params[:memory_id])
+    if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i)
+      @memory = Memory.find(params[:memory_id])
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code
     if logged_in? && current_user == @user
       erb :'images/new'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
 
   end
@@ -32,17 +36,22 @@ class ImagesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
-    @image = Photo.find(params[:image_id])
-    @memory = Memory.find(params[:memory_id])
-    @user = User.find(params[:user_id])
+
+    if Photo.ids.include?(params[:image_id].to_i) && Memory.ids.include?(params[:memory_id].to_i) && User.ids.include?(params[:user_id].to_i)
+      @image = Photo.find(params[:image_id])
+      @memory = Memory.find(params[:memory_id])
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
 
     #repeated code
     if logged_in? && current_user == @user
       erb :'images/show'
-    elsif !logged_in?
-      redirect :'/login'
-    else
+    elsif logged_in? && current_user != @user
       erb :'users/noaccess'
+    else
+      redirect '/login'
     end
 
   end
