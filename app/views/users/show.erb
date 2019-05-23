@@ -1,6 +1,11 @@
-<h1>
-  <img width="60" height="72" src="../../../<%= @user.profile_pic_file_path %>">
-  <%=@user.name%>'s Homepage
-</h1>
-
-<p><a href="/users/<%=@user.id%>/lanes">View Lanes</a></p>
+<div class="myforms">
+  <img width="80" height="95" src="../../../<%= @user.profile_pic_file_path %>">
+  <h1><%=@user.name%>'s Profile</h1>
+  <h3><%=@user.email%></h3>
+  <form method="POST" action="">
+    <input type="submit" value="Edit Profile Pic"/>
+  </form>
+  <form method="POST" action="">
+    <input type="submit" value="Delete User"/>
+  </form>
+</div>
