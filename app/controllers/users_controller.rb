@@ -44,6 +44,7 @@ class UsersController < ApplicationController
       f.write(file.read)
     end
 
+    flash[:alert] = "Profile image changed"
     redirect "/users/#{user.id}"
   end
 
