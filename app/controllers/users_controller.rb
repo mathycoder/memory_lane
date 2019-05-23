@@ -1,4 +1,5 @@
 require_relative "./application_controller.rb"
+require 'sinatra/flash'
 
 class UsersController < ApplicationController
 
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if User.find_by(email: params[:user][:email])
+      flash[:notice] = "There's already an account registered to that email address"
       redirect '/signup'
     end
     user = User.create(params[:user])

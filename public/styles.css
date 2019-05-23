@@ -1,4 +1,10 @@
   /*font-family: 'Playfair Display', serif;*/
+
+.flash {
+  background-color: green;
+  color: blue; 
+}
+
   .keybuttons {
     width: 150px;
     background-color: rgb(124, 166, 147);
