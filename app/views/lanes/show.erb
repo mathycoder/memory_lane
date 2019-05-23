@@ -50,7 +50,7 @@
           <% if !photo.file_path.nil?%>
             <div>
               <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=photo.id%>">
-                <img height="200" src="../../../<%= photo.file_path %>" />
+                <img src="../../../<%= photo.file_path %>" />
               </a><br>
               <h6 style="display: inline">photo by <%=photo.user.name%>
                 <% if photo.user == @user %>
@@ -89,15 +89,15 @@
             <br>
 
             <% if !recollection.anecdote.nil? %>
-              <%= "Anecdote: " + recollection.anecdote %><br>
+              <%= recollection.anecdote %><br>
             <% end %>
 
             <% if !recollection.quote.nil? %>
-              <br><%= "Quote: " + recollection.quote%><br>
+              <br><b>Quote: </b><%=recollection.quote%><br>
             <% end %>
 
             <% if !recollection.joke.nil? %>
-              <br><%= "Joke: " + recollection.joke %><br>
+              <br><b>Joke: </b><%= recollection.joke %><br>
             <% end %>
 
           </div>
