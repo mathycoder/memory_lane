@@ -134,6 +134,30 @@
   padding: 20px;
 }
 
+.memoryimages{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.memoryimages div {
+  margin: 0 10px; 
+  flex: 1 1 200px;
+}
+
+.memoryimages div img {
+  object-fit: cover;
+  width: 100%;
+  height: 80%;
+  max-width: 300px;
+}
+
+
+#addapicture{
+  margin-bottom: 10px;
+}
+
 .lanetitle {
   display: flex;
   color: black;
@@ -166,7 +190,7 @@
 
 .lanetitle .left #button {
   margin: 0;
-  margin-bottom: 0.3em; 
+  margin-bottom: 0.3em;
 }
 
 .lanetitle .right {
@@ -308,18 +332,6 @@ select {
   color: white;
 }
 
-.memoryimages{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.memoryimages div {
-  margin-right: 30px;
-}
-
-#addapicture{
-  margin-bottom: 10px;
-}
 
 #dropdownusers {
   text-align: left;
