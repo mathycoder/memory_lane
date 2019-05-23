@@ -134,6 +134,22 @@
   padding: 20px;
 }
 
+/* These selectors make a scrollable display of pictures */
+.memoryimages{
+  display: flex;
+  overflow-x: scroll;
+}
+
+.memoryimages div {
+  margin: 0 10px;
+}
+
+.memoryimages div img {
+  height: 200px;
+}
+
+
+/* These selectors make a 2D layout version of all the pictures
 .memoryimages{
   display: flex;
   flex-wrap: wrap;
@@ -142,7 +158,7 @@
 }
 
 .memoryimages div {
-  margin: 0 10px; 
+  margin: 0 10px;
   flex: 1 1 200px;
 }
 
@@ -152,6 +168,7 @@
   height: 80%;
   max-width: 300px;
 }
+*/
 
 
 #addapicture{
