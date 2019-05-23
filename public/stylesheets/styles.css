@@ -238,6 +238,7 @@
 
 .memoryrecollections {
   width: 100%;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
 }
@@ -247,13 +248,15 @@
   width: 40%;
   margin: 2%;
   padding: 2%;
+  background-color: #FFFFF0;
+  font-size: 14px;
 }
 
 .memoryrecollections #recollectionby {
   font-family: 'Allura', cursive;
   font-size: 22px;
   margin-bottom: 5px;
-  float: right; 
+  float: right;
 }
 
 .memoryrecollections img {
@@ -378,4 +381,10 @@ select {
 #dropdownusers {
   text-align: left;
   justify-content: left;
+}
+
+@media screen and (max-width: 700px) {
+  .memoryrecollections .recollection {
+    width: 90%;
+  }
 }

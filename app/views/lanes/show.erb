@@ -86,7 +86,6 @@
               <% end %>
             </div>
 
-
             <br>
 
             <% if !recollection.anecdote.nil? %>
@@ -94,14 +93,12 @@
             <% end %>
 
             <% if !recollection.quote.nil? %>
-              <%= "Quote: " + recollection.quote%><br>
+              <br><%= "Quote: " + recollection.quote%><br>
             <% end %>
 
             <% if !recollection.joke.nil? %>
-              <%= "Joke: " + recollection.joke %><br>
+              <br><%= "Joke: " + recollection.joke %><br>
             <% end %>
-
-            <br>
 
           </div>
         <% end %>
