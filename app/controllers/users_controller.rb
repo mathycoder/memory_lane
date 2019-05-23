@@ -3,6 +3,7 @@ require_relative "./application_controller.rb"
 class UsersController < ApplicationController
 
   get '/users/:user_id' do
+    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i)
       @user = User.find(params[:user_id])
     else
@@ -17,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
-
     if logged_in?
       redirect "/users/#{session[:user_id]}"
     end

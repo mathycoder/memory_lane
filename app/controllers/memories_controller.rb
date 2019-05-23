@@ -3,6 +3,7 @@ require_relative "./application_controller.rb"
 class MemoriesController < ApplicationController
 
   get '/users/:user_id/memories' do
+    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i)
       @user = User.find(params[:user_id])
     else
@@ -20,6 +21,7 @@ class MemoriesController < ApplicationController
   end
 
   get '/users/:user_id/memories/new' do
+    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i)
       @user = User.find(params[:user_id])
     else
@@ -56,6 +58,7 @@ class MemoriesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/edit' do
+    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i)
       @memory = Memory.find(params[:memory_id])
       @user = User.find(params[:user_id])
