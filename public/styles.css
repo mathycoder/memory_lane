@@ -230,11 +230,15 @@
 
 #laneimages img {
   border: none;
-  border-radius: 50px;
+  border-radius: 5px;
   height: 6vw;
-  width: auto;
+  width: 5vw;
+  padding: 1px;
 }
 
+.memoryrecollections img {
+  border-radius: 5px;
+}
 
 html, body {
   margin: 0px;
