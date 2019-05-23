@@ -16,11 +16,7 @@
             <form method="POST" action="/users/<%=current_user.id%>/lanes/jumpto">
               <select name="lane">
                 <% current_user.lanes.each do |lane| %>
-                  <option value="<%=lane.id%>">
-                  <% lane.alphabetized_firstnames(current_user).each do |firstname| %>
-                    <%= firstname %>
-                  <% end %>
-                  </option>
+                  <option value="<%=lane.id%>"><%=lane.alphabetized_firstnames(current_user)%></option>
                 <% end %>
                 <option value="new_lane">Create New Lane</option>
               </select>

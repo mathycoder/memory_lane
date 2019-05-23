@@ -8,7 +8,7 @@ class Lane < ActiveRecord::Base
   def alphabetized_firstnames(current_user)
     list = self.users.sort_by{|user| user.name}.map{|user| user.name.split(" ").first}
     list.delete(current_user.name.split(" ").first)
-    list
+    list.join("-")
   end
 
 end

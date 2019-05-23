@@ -1,6 +1,4 @@
   /*font-family: 'Playfair Display', serif;*/
-
-
 .flash {
   background-color: rgb(55, 190, 204);
   width: 100%;
@@ -10,9 +8,8 @@
 }
 
 .flash a {
-  right: 100px; 
+  right: 100px;
 }
-
 
   .keybuttons {
     width: 150px;
