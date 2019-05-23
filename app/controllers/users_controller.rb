@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if User.find_by(email: params[:user][:email])
-      flash[:notice] = "There's already an account registered to that email address"
+      flash[:alert] = "There's already an account registered to that email address"
       redirect '/signup'
     end
     user = User.create(params[:user])
@@ -52,9 +52,18 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(email: params[:email]).authenticate(params[:password])
-    session[:user_id] = user.id
+    user = User.find_by(email: params[:email])
+    if !user
+      flash[:alert] = "There's no user with that email address"
+      redirect '/login'
+    end
 
+    if !user.authenticate(params[:password])
+      flash[:alert] = "The password you entered is incorrect"
+      redirect '/login'
+    end
+
+    session[:user_id] = user.id
     redirect "/users/#{user.id}"
   end
 
