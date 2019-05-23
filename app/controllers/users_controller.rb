@@ -26,6 +26,9 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
+    if User.find_by(email: params[:user][:email])
+      redirect '/signup'
+    end
     user = User.create(params[:user])
     user.profile_pic_file_path = params[:profile_pic][:filename]
     user.save
