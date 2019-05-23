@@ -43,9 +43,30 @@ class UsersController < ApplicationController
     File.open("./public/#{user.profile_pic_file_path}", 'wb') do |f|
       f.write(file.read)
     end
-
     flash[:alert] = "Profile image changed"
     redirect "/users/#{user.id}"
+  end
+
+  get '/users/:user_id/delete' do
+    redirect "/login" if !logged_in?
+    if User.ids.include?(params[:user_id].to_i)
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
+
+    if current_user == @user
+      erb :'users/delete'
+    else
+      erb :'users/noaccess'
+    end
+  end
+
+  delete '/users/:user_id' do
+    user = User.find(params[:user_id])
+    user.email = ""
+    user.save 
+    redirect '/logout'
   end
 
   get '/signup' do

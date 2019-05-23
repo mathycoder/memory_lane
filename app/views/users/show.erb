@@ -5,7 +5,7 @@
   <form method="GET" action="/users/<%=@user.id%>/edit">
     <input type="submit" value="Edit Profile Pic"/>
   </form>
-  <form method="POST" action="">
-    <input type="submit" value="Delete User"/>
+  <form method="GET" action="/users/<%=@user.id%>/delete">
+    <input type="submit" value="Delete Your Account"/>
   </form>
 </div>
