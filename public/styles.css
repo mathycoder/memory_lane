@@ -161,10 +161,12 @@
 
 .lanetitle .left #little {
   font-size: 3vw;
+  margin-bottom: -0.5em;
 }
 
 .lanetitle .left #button {
   margin: 0;
+  margin-bottom: 0.3em; 
 }
 
 .lanetitle .right {
