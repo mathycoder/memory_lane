@@ -17,8 +17,8 @@
               <select name="lane">
                 <% current_user.lanes.each do |lane| %>
                   <option value="<%=lane.id%>">
-                  <% lane.users.each do |user| %>
-                    <%= user.name.split(" ").first if user != current_user %>
+                  <% lane.alphabetized_firstnames(current_user).each do |firstname| %>
+                    <%= firstname %>
                   <% end %>
                   </option>
                 <% end %>
