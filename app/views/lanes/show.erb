@@ -65,46 +65,46 @@
         <% end %>
       </div>
 
-      <br>
+      <br><br>
+
+      <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/new">
+        <input type='submit' value='Add A Recollection'>
+      </form>
 
       <div class="memoryrecollections">
-      <% memory.recollections.each do |recollection| %>
-        <div style="display: inline">
-          <% if !recollection.user.profile_pic_file_path.nil?%>
-            <img width="30" height="35" src="/<%= recollection.user.profile_pic_file_path %>" />
-          <% end %>
+        <% memory.recollections.each do |recollection| %>
+          <div class="recollection">
+            <% if !recollection.user.profile_pic_file_path.nil?%>
+              <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
+            <% end %>
 
-          Recollection by <%=recollection.user.name %>
-          <% if recollection.user == @user %>
-            <form style="display: inline" method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">
-              <input type='submit' value='Edit'>
-            </form>
-          <% end %>
+            <div id="recollectionby">Recollection by <%=recollection.user.name %>
+              <% if recollection.user == @user %>
+                <form style="display: inline" method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">
+                  <input type='submit' value='Edit'>
+                </form>
+              <% end %>
+            </div>
 
-          <br>
 
-          <% if !recollection.anecdote.nil? %>
-            <%= "Anecdote: " + recollection.anecdote %><br>
-          <% end %>
+            <br>
 
-          <% if !recollection.quote.nil? %>
-            <%= "Quote: " + recollection.quote%><br>
-          <% end %>
+            <% if !recollection.anecdote.nil? %>
+              <%= "Anecdote: " + recollection.anecdote %><br>
+            <% end %>
 
-          <% if !recollection.joke.nil? %>
-            <%= "Joke: " + recollection.joke %><br>
-          <% end %>
+            <% if !recollection.quote.nil? %>
+              <%= "Quote: " + recollection.quote%><br>
+            <% end %>
 
-          <br>
+            <% if !recollection.joke.nil? %>
+              <%= "Joke: " + recollection.joke %><br>
+            <% end %>
 
-        </div>
-      <% end %>
+            <br>
 
-      <%# if memory.recollections.none? {|recollection| recollection.user == @user} %>
-        <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/new">
-          <input type='submit' value='Add A Recollection'>
-        </form><br>
-      <%# end %>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>

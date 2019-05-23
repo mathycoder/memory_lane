@@ -236,6 +236,26 @@
   padding: 1px;
 }
 
+.memoryrecollections {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.memoryrecollections .recollection {
+  border: 2px black solid;
+  width: 40%;
+  margin: 2%;
+  padding: 2%;
+}
+
+.memoryrecollections #recollectionby {
+  font-family: 'Allura', cursive;
+  font-size: 22px;
+  margin-bottom: 5px;
+  float: right; 
+}
+
 .memoryrecollections img {
   border-radius: 5px;
 }
