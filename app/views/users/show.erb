@@ -1,8 +1,8 @@
 <div class="myforms">
-  <img width="80" height="95" src="../../../<%= @user.profile_pic_file_path %>">
+  <img width="80" height="95" src="/<%= @user.profile_pic_file_path %>">
   <h1><%=@user.name%>'s Profile</h1>
   <h3><%=@user.email%></h3>
-  <form method="POST" action="">
+  <form method="GET" action="/users/<%=@user.id%>/edit">
     <input type="submit" value="Edit Profile Pic"/>
   </form>
   <form method="POST" action="">

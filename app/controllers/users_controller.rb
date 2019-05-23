@@ -18,6 +18,35 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/users/:user_id/edit' do
+    redirect "/login" if !logged_in?
+    if User.ids.include?(params[:user_id].to_i)
+      @user = User.find(params[:user_id])
+    else
+      redirect '/noaccess'
+    end
+
+    if current_user == @user
+      erb :'users/edit'
+    else
+      erb :'users/noaccess'
+    end
+  end
+
+  patch '/users/:user_id' do
+    user = User.find(params[:user_id])
+
+    File.delete("./public/#{user.profile_pic_file_path}")
+    user.profile_pic_file_path = params[:profile_pic][:filename]
+    user.save
+    file = params[:profile_pic][:tempfile]
+    File.open("./public/#{user.profile_pic_file_path}", 'wb') do |f|
+      f.write(file.read)
+    end
+
+    redirect "/users/#{user.id}"
+  end
+
   get '/signup' do
     if logged_in?
       redirect "/users/#{session[:user_id]}"

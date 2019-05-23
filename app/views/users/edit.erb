@@ -1,0 +1,17 @@
+<div class="myforms">
+  <h1>Edit Your Profile Pic</h1>
+  <img width="80" height="95" src="/<%= @user.profile_pic_file_path %>">
+  <form enctype="multipart/form-data" method="POST" action="/users/<%=@user.id%>">
+    <input type="hidden" method="hidden" name="_method" value="PATCH"/>
+
+    <p>
+      Select a new profile picture:<br><br><input type="file" name="profile_pic">
+    </p>
+
+    <input type="submit" value="Upload New Image"/>
+  </form>
+  <form method="GET" action="/users/<%=@user.id%>">
+    <input type="submit" value="Cancel"/>
+  </form>
+
+</div>
