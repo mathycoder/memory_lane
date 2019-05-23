@@ -49,8 +49,10 @@ class LanesController < ApplicationController
       lane = Lane.create()
       lane.users << users
       lane.save
+      flash[:alert] = "Lane successfully created"
     else
       lane = @user.lanes.find{|lane| lane.users.sort == users.sort}
+      flash[:alert] = "That lane already exists"
     end
 
     redirect "/users/#{@user.id}/lanes/#{lane.id}"

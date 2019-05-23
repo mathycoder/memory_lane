@@ -33,6 +33,7 @@ class ImagesController < ApplicationController
     File.open("./public/#{image.file_path}", 'wb') do |f|
       f.write(file.read)
     end
+    flash[:alert] = "Photo successfully added to Memory"
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
@@ -63,6 +64,7 @@ class ImagesController < ApplicationController
     memory = Memory.find(params[:memory_id])
     File.delete("./public/#{image.file_path}")
     image.delete
+    flash[:alert] = "Photo deleted from Memory"
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 

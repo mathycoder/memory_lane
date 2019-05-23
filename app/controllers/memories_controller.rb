@@ -54,6 +54,7 @@ class MemoriesController < ApplicationController
     recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
     recollection.save
 
+    flash[:alert] = "New Memory successfully added"
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
@@ -84,12 +85,14 @@ class MemoriesController < ApplicationController
     date = params[:memory][:date].split("-")
     memory.date = DateTime.new(date[2].to_i,date[0].to_i,date[1].to_i)
     memory.save
+    flash[:alert] = "Memory edited"
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
   delete '/users/:user_id/memories/:memory_id' do
     memory = Memory.find(params[:memory_id])
     memory.delete
+    flash[:alert] = "Memory successfully deleted" 
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 
