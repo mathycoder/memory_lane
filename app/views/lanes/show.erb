@@ -2,10 +2,10 @@
 
   <div class="lanetitle left">
     <h1>
-      <span id="title">Your Lane with</span><br>
-      <span id="little"><%= @user.list(@lane.users) %></span>
+      <div id="big">Your Lane with</div><br>
+      <div id="little"><%= @user.list(@lane.users) %></div>
       <form action="/users/<%=@user.id%>/memories/new" method="GET">
-        <input class ="keybuttons" type='submit' value="Create New Memory"/>
+        <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
       </form>
     </h1>
   </div>

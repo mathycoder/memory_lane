@@ -6,7 +6,7 @@
   width: 100%;
   color: white;
   padding: 20px;
-  margin-left: -20px; 
+  margin-left: -20px;
 }
 
 
@@ -141,9 +141,7 @@
   width: 98%;
   margin-right: 0px;
   margin-top: -20px;
-
   font-family: 'Allura', cursive;
-
 }
 
 .lanetitle .left {
@@ -153,10 +151,20 @@
   text-align: center;
   justify-content: center;
   margin-left: 12%;
+
 }
 
-#little {
+.lanetitle .left #big {
+  margin: 0;
+  margin-bottom: -1.2em;
+}
+
+.lanetitle .left #little {
   font-size: 3vw;
+}
+
+.lanetitle .left #button {
+  margin: 0;
 }
 
 .lanetitle .right {
@@ -174,7 +182,6 @@
 
 #laneimages {
   flex: 1;
-  z-index: 2;
 }
 
 #laneimages img {
@@ -182,18 +189,6 @@
   border-radius: 50px;
   height: 6vw;
   width: auto;
-  z-index: 2;
-}
-
-#typewriter {
-  flex: 2;
-}
-
-#typewriter img {
-  position: relative;
-  width: 100%;
-  bottom: 35%;
-  z-index: 1;
 }
 
 
