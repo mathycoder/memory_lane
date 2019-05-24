@@ -41,11 +41,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def created_memory?
-      @memory.creator != @user
+      @memory.creator == @user
     end
 
     def part_of_memory?
-      @memory.users.include?(@user)
+      @memory.lane.users.include?(@user)
     end
 
     def my_recollection?
