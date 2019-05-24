@@ -10,14 +10,7 @@ class MemoriesController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code...
-    if logged_in? && current_user == @user
-      erb :'memories/index'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
+    verify_the_render("memories/index", @user)
   end
 
   get '/users/:user_id/memories/new' do
@@ -28,15 +21,7 @@ class MemoriesController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code...
-    if logged_in? && current_user == @user
-      erb :'memories/new'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
-
+    verify_the_user("memories/new", @user)
   end
 
   post '/users/:user_id/memories' do
@@ -67,15 +52,7 @@ class MemoriesController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code...
-    if logged_in? && current_user == @user
-      erb :'memories/edit'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
-
+    verify_the_user("memories/edit", @user)
   end
 
   patch '/users/:user_id/memories/:memory_id' do
@@ -92,7 +69,7 @@ class MemoriesController < ApplicationController
   delete '/users/:user_id/memories/:memory_id' do
     memory = Memory.find(params[:memory_id])
     memory.delete
-    flash[:alert] = "Memory successfully deleted" 
+    flash[:alert] = "Memory successfully deleted"
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
 

@@ -391,4 +391,18 @@ select {
   .memoryrecollections .recollection {
     width: 90%;
   }
+
+  .lanetitle {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .lanetitle .left #button {
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+  }
+
+  #lanenav input[type=submit] {
+    content: "I Changed it!";
+  }
 }

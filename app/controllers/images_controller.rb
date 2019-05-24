@@ -11,15 +11,7 @@ class ImagesController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code
-    if logged_in? && current_user == @user
-      erb :'images/new'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
-
+    verify_the_user("images/new", @user)
   end
 
   post '/users/:user_id/memories/:memory_id/images' do
@@ -48,15 +40,7 @@ class ImagesController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code
-    if logged_in? && current_user == @user
-      erb :'images/show'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
-
+    verify_the_user("images/show", @user)
   end
 
   delete '/users/:user_id/memories/:memory_id/images/:image_id' do

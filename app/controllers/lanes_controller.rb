@@ -10,14 +10,7 @@ class LanesController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code
-    if logged_in? && current_user == @user
-      erb :'lanes/index'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
+    verify_the_user("lanes/index")
   end
 
   get '/users/:user_id/lanes/new' do
@@ -28,14 +21,8 @@ class LanesController < ApplicationController
       redirect '/noaccess'
     end
 
-    if logged_in? && current_user == @user
-      @users = User.alphabetize
-      erb :'lanes/new'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
+    @users = User.alphabetize
+    verify_the_user("lanes/new")
   end
 
   post '/users/:user_id/lanes' do
@@ -68,14 +55,7 @@ class LanesController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code...
-    if logged_in? && current_user == @user
-      erb :'lanes/show'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
+    verify_the_user("lanes/show", @user)
   end
 
   post '/users/:user_id/lanes/jumpto' do

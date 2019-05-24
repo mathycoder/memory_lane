@@ -11,15 +11,7 @@ class RecollectionsController < ApplicationController
       redirect '/noaccess'
     end
 
-    #repeated code...
-    if logged_in? && current_user == @user
-      erb :'recollections/new'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
-
+    verify_the_user("recollections/new", @user)
   end
 
   post '/users/:user_id/memories/:memory_id/recollections' do
@@ -47,14 +39,7 @@ class RecollectionsController < ApplicationController
       redirect '/noaccess'
     end
 
-    #first if statement is a bit different; the rest is repeated code
-    if logged_in? && current_user == User.find(params[:user_id])
-      erb :'recollections/edit'
-    elsif logged_in? && current_user != @user
-      erb :'users/noaccess'
-    else
-      redirect '/login'
-    end
+    verify_the_user("recollections/edit", User.find(params[:user_id]))
   end
 
   patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
@@ -66,7 +51,7 @@ class RecollectionsController < ApplicationController
     recollection.quote = params[:recollection][:quote]
     recollection.quote = nil if recollection.quote.empty?
     recollection.save
-    
+
     memory = Memory.find(params[:memory_id])
     flash[:alert] = "Recollection edited"
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
