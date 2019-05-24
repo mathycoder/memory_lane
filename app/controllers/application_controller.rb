@@ -30,6 +30,15 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def find_previous_and_next
+      @memory.images.each_with_index do |image, index|
+        if image == @image
+          @next = @memory.images[index+1] unless @memory.images[index+1].nil?
+          @previous = @memory.images[index-1] unless index == 0
+        end
+      end
+    end
+
     def verify_the_user(view_to_render)
       if logged_in? && current_user == @user
         erb :"#{view_to_render}"

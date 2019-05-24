@@ -113,8 +113,8 @@
 
 .showpic img {
   max-width: 90vw;
-  max-height: 90vh;
-
+  max-height: 70vh;
+  box-shadow: 3px 5px 10px #888888;
 }
 
 .memorydisplay {
@@ -129,22 +129,40 @@
   margin: 20px;
   height: 100%;
   padding: 20px;
+  box-shadow: 5px 10px 18px #888888;
+  /*box-shadow: 10px 10px 5px #aaaaaa;*/
 }
 
 /* These selectors make a scrollable display of pictures */
 .memoryimages{
   display: flex;
   overflow-x: scroll;
+  /*
+  height: 300px;
+  padding: 20px;
+  */
 }
 
 .memoryimages div {
   margin: 0 10px;
+  margin-bottom: 14px;
 }
 
 .memoryimages div img {
-  height: 280px;
+  height: 300px;
+  box-shadow: 3px 5px 10px #888888;
 
 }
+
+/*
+div.polaroid {
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  box-shadow: 10px 10px 5px #aaaaaa;
+  height: 250px;
+}
+*/
 
 
 /* These selectors make a 2D layout version of all the pictures
@@ -248,6 +266,7 @@
   padding: 2%;
   background-color: #FFFFF0;
   font-size: 14px;
+  box-shadow: 5px 10px 18px #888888;
 }
 
 .memoryrecollections #recollectionby {
@@ -311,7 +330,7 @@ select {
   margin: 0 10px;
 }
 
-#lanenav input[type=submit] {
+#lanenav input[type=submit], .picnav input[type=submit] {
   width: auto;
   background-color: rgb(49, 79, 77);
   color: white;
@@ -326,6 +345,14 @@ select {
   background-color: black;
 }
 
+.picnav {
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
+
+.picnav form {
+  display: inline;
+}
 
 .profilephoto {
   margin-left: auto;

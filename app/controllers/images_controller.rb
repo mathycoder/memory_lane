@@ -28,6 +28,7 @@ class ImagesController < ApplicationController
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     redirect '/noaccess' if !part_of_memory?
+    find_previous_and_next()
     verify_the_user("images/show")
   end
 

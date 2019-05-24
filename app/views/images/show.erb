@@ -1,3 +1,17 @@
+<div class="picnav"/>
+  <% if !@previous.nil?%>
+    <form method="GET" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images/<%=@previous.id%>">
+      <input type="submit" value="Previous"/>
+    </form>
+  <% end %>
+
+  <% if !@next.nil?%>
+    <form method="GET" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images/<%=@next.id%>">
+      <input type="submit" value="Next"/>
+    </form>
+  <% end %>
+</div>
+
 <div class="showpic">
   <img src="/<%= @image.file_path %>" />
 </div>

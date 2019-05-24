@@ -48,7 +48,7 @@
       <div class="memoryimages">
         <% memory.images.each do |image| %>
           <% if !image.file_path.nil?%>
-            <div>
+            <div class="polaroid rotate_right">
               <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=image.id%>">
                 <img src="../../../<%= image.file_path %>" />
               </a><br>
