@@ -1,4 +1,11 @@
 <div class="picnav"/>
+
+<div class="backtolane">
+  <form method="GET" action="/users/<%=@user.id%>/lanes/<%=@memory.lane.id%>">
+    <input type="submit" value="Back to Lane"/>
+  </form>
+</div>
+
   <% if !@previous.nil?%>
     <form method="GET" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images/<%=@previous.id%>">
       <input type="submit" value="Previous"/>

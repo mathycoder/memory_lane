@@ -341,7 +341,7 @@ select {
   cursor: pointer;
 }
 
-#lanenav input[type=submit]:hover {
+#lanenav input[type=submit]:hover, .picnav input[type=submit]:hover  {
   background-color: black;
 }
 
@@ -352,6 +352,11 @@ select {
 
 .picnav form {
   display: inline;
+}
+
+.backtolane {
+  position: absolute;
+  left: 20px;
 }
 
 .profilephoto {
