@@ -3,7 +3,6 @@ require_relative "./application_controller.rb"
 class LanesController < ApplicationController
 
   get '/users/:user_id/lanes' do
-    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i)
       @user = User.find(params[:user_id])
     else
@@ -14,7 +13,6 @@ class LanesController < ApplicationController
   end
 
   get '/users/:user_id/lanes/new' do
-    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i)
       @user = User.find(params[:user_id])
     else
@@ -47,7 +45,6 @@ class LanesController < ApplicationController
 
 
   get '/users/:user_id/lanes/:lane_id' do
-    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i) && Lane.ids.include?(params[:lane_id].to_i)
       @user = User.find(params[:user_id])
       @lane = Lane.find(params[:lane_id])
@@ -55,7 +52,7 @@ class LanesController < ApplicationController
       redirect '/noaccess'
     end
 
-    verify_the_user("lanes/show", @user)
+    verify_the_user("lanes/show")
   end
 
   post '/users/:user_id/lanes/jumpto' do

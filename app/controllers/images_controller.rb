@@ -3,15 +3,14 @@ require_relative "./application_controller.rb"
 class ImagesController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/images/new' do
-    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i)
       @memory = Memory.find(params[:memory_id])
       @user = User.find(params[:user_id])
     else
       redirect '/noaccess'
     end
-
-    verify_the_user("images/new", @user)
+    verify_the_memory()
+    verify_the_user("images/new")
   end
 
   post '/users/:user_id/memories/:memory_id/images' do
@@ -30,8 +29,6 @@ class ImagesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
-    redirect "/login" if !logged_in?
-
     if Photo.ids.include?(params[:image_id].to_i) && Memory.ids.include?(params[:memory_id].to_i) && User.ids.include?(params[:user_id].to_i)
       @image = Photo.find(params[:image_id])
       @memory = Memory.find(params[:memory_id])
@@ -39,8 +36,8 @@ class ImagesController < ApplicationController
     else
       redirect '/noaccess'
     end
-
-    verify_the_user("images/show", @user)
+    verify_the_memory()
+    verify_the_user("images/show")
   end
 
   delete '/users/:user_id/memories/:memory_id/images/:image_id' do
@@ -51,6 +48,5 @@ class ImagesController < ApplicationController
     flash[:alert] = "Photo deleted from Memory"
     redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
   end
-
 
 end

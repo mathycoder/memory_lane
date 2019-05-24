@@ -30,14 +30,18 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
-    def verify_the_user(view_to_render, user)
-      if logged_in? && current_user == user
+    def verify_the_user(view_to_render)
+      if logged_in? && current_user == @user
         erb :"#{view_to_render}"
-      elsif logged_in? && current_user != user
+      elsif logged_in? && current_user != @user
         erb :'users/noaccess'
       else
         redirect '/login'
       end
+    end
+
+    def verify_the_memory
+      redirect '/noaccess' if @memory.creator != @user
     end
   end
 end

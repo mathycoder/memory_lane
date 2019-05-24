@@ -3,7 +3,6 @@ require_relative "./application_controller.rb"
 class RecollectionsController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/recollections/new' do
-    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i)
       @user = User.find(params[:user_id])
       @memory = Memory.find(params[:memory_id])
@@ -11,7 +10,8 @@ class RecollectionsController < ApplicationController
       redirect '/noaccess'
     end
 
-    verify_the_user("recollections/new", @user)
+    verify_the_memory()
+    verify_the_user("recollections/new")
   end
 
   post '/users/:user_id/memories/:memory_id/recollections' do
@@ -30,7 +30,6 @@ class RecollectionsController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
-    redirect "/login" if !logged_in?
     if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i) && Recollection.ids.include?(params[:recollection_id].to_i)
       @recollection = Recollection.find(params[:recollection_id])
       @user = @recollection.user
@@ -39,7 +38,8 @@ class RecollectionsController < ApplicationController
       redirect '/noaccess'
     end
 
-    verify_the_user("recollections/edit", User.find(params[:user_id]))
+    verify_the_memory()
+    verify_the_user("recollections/edit")
   end
 
   patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
