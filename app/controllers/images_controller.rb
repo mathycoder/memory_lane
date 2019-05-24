@@ -3,7 +3,7 @@ require_relative "./application_controller.rb"
 class ImagesController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/images/new' do
-    redirect '/noaccess' if !user_id_exists?(params[:user_id]) || !memory_id_exists?(params[:memory_id])
+    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory)
     @user = User.find(params[:user_id])
     @memory = Memory.find(params[:memory_id])
 
@@ -27,7 +27,7 @@ class ImagesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
-    redirect '/noaccess' if !user_id_exists?(params[:user_id]) || !memory_id_exists?(params[:memory_id]) || !image_id_exists?(params[:image_id])
+    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory) || !id_exists?(params[:image_id], Photo)
     @user = User.find(params[:user_id])
     @memory = Memory.find(params[:memory_id])
     @image = Photo.find(params[:image_id])

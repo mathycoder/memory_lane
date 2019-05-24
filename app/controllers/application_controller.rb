@@ -52,24 +52,8 @@ class ApplicationController < Sinatra::Base
       @recollection.user == @user
     end
 
-    def user_id_exists?(id)
-      User.ids.include?(id.to_i)
+    def id_exists?(id, the_class)
+      the_class.ids.include?(id.to_i)
     end
-
-    def lane_id_exists?(id)
-      Lane.ids.include?(id.to_i)
-    end
-
-    def memory_id_exists?(id)
-      Memory.ids.include?(id.to_i)
-    end
-
-    def image_id_exists?(id)
-      Photo.ids.include?(id.to_i)
-    end
-
-    def recollection_id_exists?(id)
-      Recollection.ids.include?(id.to_i)
-    end 
   end
 end

@@ -3,7 +3,7 @@ require_relative "./application_controller.rb"
 class RecollectionsController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/recollections/new' do
-    redirect '/noaccess' if !user_id_exists?(params[:user_id]) || !memory_id_exists?(params[:memory_id])
+    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory)
     @user = User.find(params[:user_id])
     @memory = Memory.find(params[:memory_id])
 
@@ -27,7 +27,7 @@ class RecollectionsController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
-    redirect '/noaccess' if !user_id_exists?(params[:user_id]) || !memory_id_exists?(params[:memory_id]) || !recollection_id_exists?(params[:recollection_id])
+    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory) || !id_exists?(params[:recollection_id], Recollection)
     @user = User.find(params[:user_id])
     @memory = Memory.find(params[:memory_id])
     @recollection = Recollection.find(params[:recollection_id])
