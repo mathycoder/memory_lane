@@ -37,7 +37,6 @@ class MemoriesController < ApplicationController
   get '/users/:user_id/memories/:memory_id/edit' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
-
     redirect '/noaccess' if !created_memory?
     verify_the_user("memories/edit")
   end

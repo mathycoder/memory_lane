@@ -27,7 +27,6 @@ class RecollectionsController < ApplicationController
   get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
-
     redirect '/noaccess' if !my_recollection? || !part_of_memory?
     verify_the_user("recollections/edit")
   end

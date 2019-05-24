@@ -134,13 +134,12 @@
 }
 
 /* These selectors make a scrollable display of pictures */
+.memoryimagescontainer {
+}
+
 .memoryimages{
   display: flex;
   overflow-x: scroll;
-  /*
-  height: 300px;
-  padding: 20px;
-  */
 }
 
 .memoryimages div {
@@ -251,10 +250,13 @@ div.polaroid {
   padding: 1px;
 }
 
+.imagesandrecollections {
+
+}
+
 .memoryrecollections {
-  float: right;
   width: 100%;
-  justify-content: center;
+  justify-content: left;
   display: flex;
   flex-wrap: wrap;
 }
@@ -421,8 +423,18 @@ select {
   }
 
   .lanetitle {
-    margin-top: 0;
+    margin-top: -10px;
     margin-bottom: 20px;
+  }
+
+  .lanetitle .left #big {
+    font-size: 8vw;
+    margin-bottom: -1em;
+  }
+
+  .lanetitle .left #little {
+    font-size: 4vw;
+    margin-bottom: -0.5em;
   }
 
   .lanetitle .left #button {

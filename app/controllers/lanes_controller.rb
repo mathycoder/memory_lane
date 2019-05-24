@@ -4,23 +4,19 @@ class LanesController < ApplicationController
 
   get '/users/:user_id/lanes' do
     redirect '/noaccess' if !ids_exist?(params)
-    #redirect '/noaccess' if !id_exists?(params[:user_id], User)
-    # @user = User.find(params[:user_id])
     create_instance_variables(params)
     verify_the_user("lanes/index")
   end
 
   get '/users/:user_id/lanes/new' do
     redirect '/noaccess' if !ids_exist?(params)
-    @user = User.find(params[:user_id])
+    create_instance_variables(params)
     @users = User.alphabetize
     verify_the_user("lanes/new")
   end
 
   post '/users/:user_id/lanes' do
-    @user = User.find(params[:user_id])
-
-    users = []
+    create_instance_variables(params)
     users = params[:users].map {|user_id| User.find(user_id)}
     users << @user
 
@@ -45,13 +41,13 @@ class LanesController < ApplicationController
   end
 
   post '/users/:user_id/lanes/jumpto' do
-    user = User.find(params[:user_id])
+    create_instance_variables(params)
 
     if params[:lane] == "new_lane"
-      redirect "/users/#{user.id}/lanes/new"
+      redirect "/users/#{@user.id}/lanes/new"
     else
       lane = Lane.find(params[:lane])
-      redirect "/users/#{user.id}/lanes/#{lane.id}"
+      redirect "/users/#{@user.id}/lanes/#{lane.id}"
     end
   end
 
