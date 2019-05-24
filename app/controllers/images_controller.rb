@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
     else
       redirect '/noaccess'
     end
-    verify_the_memory()
+    redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/new")
   end
 
@@ -36,7 +36,7 @@ class ImagesController < ApplicationController
     else
       redirect '/noaccess'
     end
-    verify_the_memory()
+    redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/show")
   end
 

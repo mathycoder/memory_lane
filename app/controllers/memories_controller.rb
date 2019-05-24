@@ -9,7 +9,7 @@ class MemoriesController < ApplicationController
       redirect '/noaccess'
     end
 
-    verify_the_render("memories/index")
+    verify_the_user("memories/index")
   end
 
   get '/users/:user_id/memories/new' do
@@ -48,7 +48,7 @@ class MemoriesController < ApplicationController
     else
       redirect '/noaccess'
     end
-    verify_the_memory
+    redirect '/noaccess' if !created_memory?
     verify_the_user("memories/edit")
   end
 

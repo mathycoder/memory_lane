@@ -40,8 +40,16 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def verify_the_memory
-      redirect '/noaccess' if @memory.creator != @user
+    def created_memory?
+      @memory.creator != @user
+    end
+
+    def part_of_memory?
+      @memory.users.include?(@user)
+    end
+
+    def my_recollection?
+      @recollection.user == @user
     end
   end
 end
