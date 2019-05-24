@@ -4,21 +4,15 @@ require 'sinatra/flash'
 class UsersController < ApplicationController
 
   get '/users/:user_id' do
-    if User.ids.include?(params[:user_id].to_i)
-      @user = User.find(params[:user_id])
-    else
-      redirect '/noaccess'
-    end
+    redirect '/noaccess' if !user_id_exists?(params[:user_id])
+    @user = User.find(params[:user_id])
 
     verify_the_user("users/show")
   end
 
   get '/users/:user_id/edit' do
-    if User.ids.include?(params[:user_id].to_i)
-      @user = User.find(params[:user_id])
-    else
-      redirect '/noaccess'
-    end
+    redirect '/noaccess' if !user_id_exists?(params[:user_id])
+    @user = User.find(params[:user_id])
 
     verify_the_user("users/edit")
   end
@@ -38,11 +32,8 @@ class UsersController < ApplicationController
   end
 
   get '/users/:user_id/delete' do
-    if User.ids.include?(params[:user_id].to_i)
-      @user = User.find(params[:user_id])
-    else
-      redirect '/noaccess'
-    end
+    redirect '/noaccess' if !user_id_exists?(params[:user_id])
+    @user = User.find(params[:user_id])
 
     verify_the_user("users/delete")
   end
@@ -55,10 +46,7 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
-    if logged_in?
-      redirect "/users/#{session[:user_id]}"
-    end
-
+    redirect "/users/#{session[:user_id]}" if logged_in?
     erb :'users/create_user'
   end
 
@@ -80,10 +68,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    if logged_in?
-      redirect "/users/#{session[:user_id]}"
-    end
-
+    redirect "/users/#{session[:user_id]}" if logged_in?
     erb :'users/login'
   end
 

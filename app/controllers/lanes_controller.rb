@@ -3,22 +3,14 @@ require_relative "./application_controller.rb"
 class LanesController < ApplicationController
 
   get '/users/:user_id/lanes' do
-    if User.ids.include?(params[:user_id].to_i)
-      @user = User.find(params[:user_id])
-    else
-      redirect '/noaccess'
-    end
-
+    redirect '/noaccess' if !user_id_exists?(params[:user_id])
+    @user = User.find(params[:user_id])
     verify_the_user("lanes/index")
   end
 
   get '/users/:user_id/lanes/new' do
-    if User.ids.include?(params[:user_id].to_i)
-      @user = User.find(params[:user_id])
-    else
-      redirect '/noaccess'
-    end
-
+    redirect '/noaccess' if !user_id_exists?(params[:user_id])
+    @user = User.find(params[:user_id])
     @users = User.alphabetize
     verify_the_user("lanes/new")
   end
@@ -45,12 +37,9 @@ class LanesController < ApplicationController
 
 
   get '/users/:user_id/lanes/:lane_id' do
-    if User.ids.include?(params[:user_id].to_i) && Lane.ids.include?(params[:lane_id].to_i)
-      @user = User.find(params[:user_id])
-      @lane = Lane.find(params[:lane_id])
-    else
-      redirect '/noaccess'
-    end
+    redirect '/noaccess' if !user_id_exists?(params[:user_id]) || !lane_id_exists?(params[:lane_id])
+    @user = User.find(params[:user_id])
+    @lane = Lane.find(params[:lane_id])
 
     verify_the_user("lanes/show")
   end

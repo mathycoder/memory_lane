@@ -3,12 +3,10 @@ require_relative "./application_controller.rb"
 class ImagesController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/images/new' do
-    if User.ids.include?(params[:user_id].to_i) && Memory.ids.include?(params[:memory_id].to_i)
-      @memory = Memory.find(params[:memory_id])
-      @user = User.find(params[:user_id])
-    else
-      redirect '/noaccess'
-    end
+    redirect '/noaccess' if !user_id_exists?(params[:user_id]) || !memory_id_exists?(params[:memory_id])
+    @user = User.find(params[:user_id])
+    @memory = Memory.find(params[:memory_id])
+
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/new")
   end
@@ -29,13 +27,12 @@ class ImagesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
-    if Photo.ids.include?(params[:image_id].to_i) && Memory.ids.include?(params[:memory_id].to_i) && User.ids.include?(params[:user_id].to_i)
-      @image = Photo.find(params[:image_id])
-      @memory = Memory.find(params[:memory_id])
-      @user = User.find(params[:user_id])
-    else
-      redirect '/noaccess'
-    end
+    redirect '/noaccess' if !user_id_exists?(params[:user_id]) || !memory_id_exists?(params[:memory_id]) || !image_id_exists?(params[:image_id])
+    @user = User.find(params[:user_id])
+    @memory = Memory.find(params[:memory_id])
+    @image = Photo.find(params[:image_id])
+
+
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/show")
   end
