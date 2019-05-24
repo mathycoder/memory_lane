@@ -29,12 +29,12 @@ first_memory.save
     adam_recollection.quote = "\"I'm going to kill you.\" ~Cathy"
     adam_recollection.save
 
-    #create my photo
-    adam_photo = Photo.create()
-    adam_photo.file_path = "seed_images/IMG_7457.JPG"
-    adam_photo.user = adam
-    adam_photo.memory = first_memory
-    adam_photo.save
+    #create my image
+    adam_image = Image.create()
+    adam_image.file_path = "seed_images/IMG_7457.JPG"
+    adam_image.user = adam
+    adam_image.memory = first_memory
+    adam_image.save
 
     #create Cathy's recollection
     cathy_recollection = Recollection.create(anecdote: "You talked about video games.  At one point you offered me the chance to take the fork in the road after telling me you had played Zelda all weekend.")
@@ -67,11 +67,11 @@ second_memory.save
     cathy_recollection.joke = "There was a really loud lady at the bar.  At one point you joked about playing the piano."
     cathy_recollection.save
 
-    cathy_photo = Photo.create()
-    cathy_photo.file_path = "seed_images/IMG_1833.JPG"
-    cathy_photo.user = cathy
-    cathy_photo.memory = second_memory
-    cathy_photo.save
+    cathy_image = Image.create()
+    cathy_image.file_path = "seed_images/IMG_1833.JPG"
+    cathy_image.user = cathy
+    cathy_image.memory = second_memory
+    cathy_image.save
 
 #### New lane ####
 new_lane = Lane.create()
@@ -96,11 +96,11 @@ first_memory.save
     adam_recollection.joke = "'Alex' is out of control."
     adam_recollection.save
 
-    adam_photo = Photo.create()
-    adam_photo.file_path = "seed_images/IMG_1831.JPG"
-    adam_photo.user = adam
-    adam_photo.memory = first_memory
-    adam_photo.save
+    adam_image = Image.create()
+    adam_image.file_path = "seed_images/IMG_1831.JPG"
+    adam_image.user = adam
+    adam_image.memory = first_memory
+    adam_image.save
 
     #alex's recollection
     alex_recollection = Recollection.create()
@@ -110,11 +110,11 @@ first_memory.save
     alex_recollection.quote = "\"Put it all on black.\" ~Eric"
     alex_recollection.save
 
-    alex_photo = Photo.create()
-    alex_photo.file_path = "seed_images/IMG_1832.JPG"
-    alex_photo.user = alex
-    alex_photo.memory = first_memory
-    alex_photo.save
+    alex_image = Image.create()
+    alex_image.file_path = "seed_images/IMG_1832.JPG"
+    alex_image.user = alex
+    alex_image.memory = first_memory
+    alex_image.save
 
     #nathan's recollection
     nathan_recollection = Recollection.create()
@@ -125,11 +125,11 @@ first_memory.save
     nathan_recollection.joke = "The dealer thought Sarli's name was Charlie."
     nathan_recollection.save
 
-    nathan_photo = Photo.create()
-    nathan_photo.file_path = "seed_images/IMG_8241.JPG"
-    nathan_photo.user = nathan
-    nathan_photo.memory = first_memory
-    nathan_photo.save
+    nathan_image = Image.create()
+    nathan_image.file_path = "seed_images/IMG_8241.JPG"
+    nathan_image.user = nathan
+    nathan_image.memory = first_memory
+    nathan_image.save
 
     #eric's recollection
     eric_recollection = Recollection.create()
@@ -169,11 +169,11 @@ second_memory.save
     adam_recollection.quote = "\"F@%$ yeah!\" ~Alex"
     adam_recollection.save
 
-    adam_photo = Photo.create()
-    adam_photo.file_path = "seed_images/IMG_1830.PNG"
-    adam_photo.user = adam
-    adam_photo.memory = second_memory
-    adam_photo.save
+    adam_image = Image.create()
+    adam_image.file_path = "seed_images/IMG_1830.PNG"
+    adam_image.user = adam
+    adam_image.memory = second_memory
+    adam_image.save
 
     #eric's recollection
     eric_recollection = Recollection.create()
@@ -183,11 +183,11 @@ second_memory.save
     eric_recollection.quote = "\"I hope they break 4 hours!\" ~Eric"
     eric_recollection.save
 
-    eric_photo = Photo.create()
-    eric_photo.file_path = "seed_images/IMG_1829.PNG"
-    eric_photo.user = eric
-    eric_photo.memory = second_memory
-    eric_photo.save
+    eric_image = Image.create()
+    eric_image.file_path = "seed_images/IMG_1829.PNG"
+    eric_image.user = eric
+    eric_image.memory = second_memory
+    eric_image.save
 
 
 
@@ -208,59 +208,59 @@ second_memory.save
     first_memory.creator_user_id = guy.id
     first_memory.save
 
-        #create recollections and photos
+        #create recollections and images
         sue_recollection = Recollection.create()
         sue_recollection.user = sue
         sue_recollection.memory = first_memory
         sue_recollection.anecdote = "We spent a fun hour at the hotel bar while the bride and groom took a million pictures.  They were stressed out and we were relaxed!"
         sue_recollection.joke = "Jordan's speech was hilarious!"
         sue_recollection.save
-        sue_photo = Photo.create()
-        sue_photo.file_path = "seed_images/IMG_1300.png"
-        sue_photo.user = sue
-        sue_photo.memory = first_memory
-        sue_photo.save
+        sue_image = Image.create()
+        sue_image.file_path = "seed_images/IMG_1300.png"
+        sue_image.user = sue
+        sue_image.memory = first_memory
+        sue_image.save
 
         adam_recollection = Recollection.create()
         adam_recollection.user = adam
         adam_recollection.memory = first_memory
         adam_recollection.anecdote = "I remember dancing for hours with Cathy on the dance floor, and some wonderful moments where we were all dancing together."
         adam_recollection.save
-        adam_photo = Photo.create()
-        adam_photo.file_path = "seed_images/IMG_1389.png"
-        adam_photo.user = danielle
-        adam_photo.memory = first_memory
-        adam_photo.save
+        adam_image = Image.create()
+        adam_image.file_path = "seed_images/IMG_1389.png"
+        adam_image.user = danielle
+        adam_image.memory = first_memory
+        adam_image.save
 
         tracy_recollection = Recollection.create()
         tracy_recollection.user = tracy
         tracy_recollection.memory = first_memory
         tracy_recollection.anecdote = "Cathy was a really good dancer!  Also, dad and Adam dance like identical dorks to Beyonce ;-)"
         tracy_recollection.save
-        tracy_photo = Photo.create()
-        tracy_photo.file_path = "seed_images/IMG_1406.png"
-        tracy_photo.user = tracy
-        tracy_photo.memory = first_memory
-        tracy_photo.save
+        tracy_image = Image.create()
+        tracy_image.file_path = "seed_images/IMG_1406.png"
+        tracy_image.user = tracy
+        tracy_image.memory = first_memory
+        tracy_image.save
 
         guy_recollection = Recollection.create()
         guy_recollection.user = guy
         guy_recollection.memory = first_memory
         guy_recollection.anecdote = "Dillon's speech was pretty funny.  It was amazing seeing Jason get married."
         guy_recollection.save
-        guy_photo = Photo.create()
-        guy_photo.file_path = "seed_images/IMG_1415.png"
-        guy_photo.user = danielle
-        guy_photo.memory = first_memory
-        guy_photo.save
+        guy_image = Image.create()
+        guy_image.file_path = "seed_images/IMG_1415.png"
+        guy_image.user = danielle
+        guy_image.memory = first_memory
+        guy_image.save
 
         danielle_recollection = Recollection.create()
         danielle_recollection.user = danielle
         danielle_recollection.memory = first_memory
         danielle_recollection.anecdote = "I loved dancing with my sister.  It felt good to spend some time with her."
         danielle_recollection.save
-        danielle_photo = Photo.create()
-        danielle_photo.file_path = "seed_images/IMG_1433.png"
-        danielle_photo.user = danielle
-        danielle_photo.memory = first_memory
-        danielle_photo.save
+        danielle_image = Image.create()
+        danielle_image.file_path = "seed_images/IMG_1433.png"
+        danielle_image.user = danielle
+        danielle_image.memory = first_memory
+        danielle_image.save

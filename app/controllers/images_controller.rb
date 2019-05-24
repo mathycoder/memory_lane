@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
   end
 
   post '/users/:user_id/memories/:memory_id/images' do
-    image = Photo.create()
+    image = Image.create()
     image.user = User.find(params[:user_id])
     memory = Memory.find(params[:memory_id])
     image.memory = memory
@@ -25,17 +25,17 @@ class ImagesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory) || !id_exists?(params[:image_id], Photo)
+    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory) || !id_exists?(params[:image_id], Image)
     @user = User.find(params[:user_id])
     @memory = Memory.find(params[:memory_id])
-    @image = Photo.find(params[:image_id])
+    @image = Image.find(params[:image_id])
 
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/show")
   end
 
   delete '/users/:user_id/memories/:memory_id/images/:image_id' do
-    image = Photo.find(params[:image_id])
+    image = Image.find(params[:image_id])
     memory = Memory.find(params[:memory_id])
     File.delete("./public/#{image.file_path}")
     image.delete

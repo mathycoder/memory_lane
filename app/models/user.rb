@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :lanes, through: :user_lanes
   has_many :memories, through: :lanes
   has_many :recollections, through: :memories
-  has_many :photos, through: :memories
+  has_many :images, through: :memories
 
   has_secure_password
 

@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2019_05_20_125048) do
 
+  create_table "images", force: :cascade do |t|
+    t.string "file_path"
+    t.string "caption"
+    t.integer "user_id"
+    t.integer "memory_id"
+  end
+
   create_table "lanes", force: :cascade do |t|
   end
 
@@ -21,13 +28,6 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
     t.string "location"
     t.integer "lane_id"
     t.integer "creator_user_id"
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.string "file_path"
-    t.string "caption"
-    t.integer "user_id"
-    t.integer "memory_id"
   end
 
   create_table "recollections", force: :cascade do |t|

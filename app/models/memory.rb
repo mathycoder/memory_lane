@@ -3,7 +3,7 @@ require 'active_support/core_ext/integer/inflections'
 class Memory < ActiveRecord::Base
   belongs_to :lane
   has_many :recollections
-  has_many :photos
+  has_many :images
   #may or may not need this one...
   has_many :users, through: :recollections
 
