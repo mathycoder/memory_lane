@@ -52,10 +52,6 @@ class ApplicationController < Sinatra::Base
       @recollection.user == @user
     end
 
-    def id_exists?(id, the_class)
-      the_class.ids.include?(id.to_i)
-    end
-
     def ids_exist?(params)
       params.all? do |key, value|
         if key.include?("id")

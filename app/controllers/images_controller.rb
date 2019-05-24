@@ -25,11 +25,8 @@ class ImagesController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory) || !id_exists?(params[:image_id], Image)
-    @user = User.find(params[:user_id])
-    @memory = Memory.find(params[:memory_id])
-    @image = Image.find(params[:image_id])
-
+    redirect '/noaccess' if !ids_exist?(params)
+    create_instance_variables(params)
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/show")
   end
