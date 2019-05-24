@@ -3,9 +3,8 @@ require_relative "./application_controller.rb"
 class RecollectionsController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/recollections/new' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory)
+    redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
-
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("recollections/new")
   end
@@ -26,7 +25,7 @@ class RecollectionsController < ApplicationController
   end
 
   get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory) || !id_exists?(params[:recollection_id], Recollection)
+    redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
 
     redirect '/noaccess' if !my_recollection? || !part_of_memory?

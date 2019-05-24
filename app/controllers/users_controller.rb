@@ -4,16 +4,14 @@ require 'sinatra/flash'
 class UsersController < ApplicationController
 
   get '/users/:user_id' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User)
+    redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
-
     verify_the_user("users/show")
   end
 
   get '/users/:user_id/edit' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User)
+    redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
-
     verify_the_user("users/edit")
   end
 
@@ -32,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:user_id/delete' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User)
+    redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     verify_the_user("users/delete")
   end

@@ -3,7 +3,7 @@ require_relative "./application_controller.rb"
 class ImagesController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/images/new' do
-    redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory)
+    redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/new")
