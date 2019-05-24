@@ -55,5 +55,14 @@ class ApplicationController < Sinatra::Base
     def id_exists?(id, the_class)
       the_class.ids.include?(id.to_i)
     end
+
+    def create_instance_variables(params)
+      params.each do |key, value|
+        if key.include?("id")
+          the_class = key.split("_").first
+          instance_variable_set("@#{the_class}", Object.const_get(the_class.capitalize).find(value))
+        end
+      end
+    end
   end
 end

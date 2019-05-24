@@ -4,7 +4,7 @@ class MemoriesController < ApplicationController
 
   get '/users/:user_id/memories' do
     redirect '/noaccess' if !id_exists?(params[:user_id], User)
-    @user = User.find(params[:user_id])
+    create_instance_variables(params)
 
     verify_the_user("memories/index")
   end
@@ -37,8 +37,7 @@ class MemoriesController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/edit' do
     redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory)
-    @user = User.find(params[:user_id])
-    @memory = Memory.find(params[:memory_id])
+    create_instance_variables(params)
 
     redirect '/noaccess' if !created_memory?
     verify_the_user("memories/edit")

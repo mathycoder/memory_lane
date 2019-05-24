@@ -3,9 +3,9 @@ require_relative "./application_controller.rb"
 class LanesController < ApplicationController
 
   get '/users/:user_id/lanes' do
-    #redirect '/noaccess' if !user_id_exists?(params[:user_id])
     redirect '/noaccess' if !id_exists?(params[:user_id], User)
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
+    create_instance_variables(params)
     verify_the_user("lanes/index")
   end
 
@@ -39,9 +39,7 @@ class LanesController < ApplicationController
 
   get '/users/:user_id/lanes/:lane_id' do
     redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:lane_id], Lane)
-    @user = User.find(params[:user_id])
-    @lane = Lane.find(params[:lane_id])
-
+    create_instance_variables(params)
     verify_the_user("lanes/show")
   end
 

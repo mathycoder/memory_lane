@@ -4,9 +4,7 @@ class ImagesController < ApplicationController
 
   get '/users/:user_id/memories/:memory_id/images/new' do
     redirect '/noaccess' if !id_exists?(params[:user_id], User) || !id_exists?(params[:memory_id], Memory)
-    @user = User.find(params[:user_id])
-    @memory = Memory.find(params[:memory_id])
-
+    create_instance_variables(params)
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/new")
   end
@@ -31,7 +29,6 @@ class ImagesController < ApplicationController
     @user = User.find(params[:user_id])
     @memory = Memory.find(params[:memory_id])
     @image = Photo.find(params[:image_id])
-
 
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("images/show")
