@@ -10,7 +10,13 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1 id="logo">Memory<span>Lane</span></h1>
+        <h1 id="logo">
+          <% if logged_in? %>
+            <a href="/users/<%=current_user.id%>/memories"/memories>Memory<span>Lane</span></a>
+          <% else %>
+            Memory<span>Lane</span>
+          <% end %>
+        </h1>
         <% if logged_in? %>
           <div id="lanenav">
             <form method="POST" action="/users/<%=current_user.id%>/lanes/jumpto">
