@@ -1,4 +1,33 @@
   /*font-family: 'Playfair Display', serif;*/
+  .memoryindextitle {
+    color: black;
+    font-size: 3vw;
+    margin: -20px auto;
+    width: 100%;
+    font-family: 'Allura', cursive;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+.memoryheader {
+  display: flex;
+}
+
+.memoryheader .memorytitle {
+  flex: 1;
+}
+
+.memoryheader .right {
+  flex: 1;
+  text-align: right;
+  font-family: 'Allura', cursive;
+}
+
+.memoryheader .right #big {
+  font-size: 2.2vw;
+}
+
 .flash {
   background-color: rgb(55, 190, 204);
   width: 100%;

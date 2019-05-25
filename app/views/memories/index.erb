@@ -1,54 +1,115 @@
-<h1><%=@user.name%>'s Memories</h1>
+<div class="memoryindextitle">
 
-<p><a href="/users/<%=@user.id%>/memories/new">Create New Memory</a></p>
+  <div class="memoryindextitle left">
+    <h1>
+      <div>Your Latest Memories</div>
+      <form action="/users/<%=@user.id%>/memories/new" method="GET">
+        <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
+      </form>
+    </h1>
+  </div>
+</div>
 
-<div>
+<div class="memorydisplay">
   <% @user.memories.sorted_by_newest.each do |memory| %>
-    <h3 style="display: inline"> Memory: <%= memory.title %> <br>
-         With:
-          <% memory.lane.users.each do |user| %>
-            <%=user.name if user != @user %>
-          <% end %><br>
-         Location: <%= memory.location %> <br>
-         Date: <%= memory.display_date%><br></h3>
-    <h6 style="display: inline">Created by <%=memory.creator.name %>
+    <div class="memoryelement">
 
-      <% if memory.creator == @user %>
-        <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/edit">Edit</a>
-      <% end %>
+      <div class="memoryheader">
+        <div class="memorytitle">
+          <h3 style="display: inline">
+            Memory: <%= memory.title %> <br>
+            Location: <%= memory.location %> <br>
+            Date: <%= memory.display_date %><br>
+          </h3>
+          <h6 style="display: inline">
+            Created by <%=memory.creator.name %>
+            <% if memory.creator == @user %>
+              <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/edit">Edit</a>
+            <% end %>
+          </h6>
+        </div>
 
-    </h6>
+        <div class="right">
+          <div id="big">Your Lane with</div>
+          <div id="laneimages">
+            <% memory.lane.users.each do |user| %>
+              <img width="60" height="70" src="/<%= user.profile_pic_file_path %>">
+            <% end %>
+          </div>
+          <div id="little"><%= @user.list(memory.lane.users) %></div>
+        </div>
+      </div>
 
-    <br>
+      <br><br>
 
-      <% memory.recollections.each do |recollection| %>
-        <p>Recollection by <%=recollection.user.name %>:
+      <div class="memoryimagescontainer">
+        <div id="addapicture">
+          <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/new">
+            <input type='submit' value='Add A Picture'>
+          </form>
+        </div>
 
-          <% if recollection.user == @user %>
-            <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">Edit</a>
+        <div class="memoryimages">
+          <% memory.images.each do |image| %>
+            <% if !image.file_path.nil?%>
+              <div>
+                <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=image.id%>">
+                  <img src="../../../<%= image.file_path %>" />
+                </a><br>
+                <h6 style="display: inline">photo by <%=image.user.name%>
+                  <% if image.user == @user %>
+                    <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=image.id%>">
+                      <input type="hidden" method="hidden" name="_method" value="DELETE">
+                      <input type="submit" value="delete">
+                    </form>
+                  <% end %>
+                </h6>
+              </div>
+            <% end %>
           <% end %>
+        </div>
+      </div>
 
-          <br>
+      <br><br>
 
-          <% if !recollection.anecdote.nil? %>
-            <%= "Anecdote: " + recollection.anecdote %><br>
-          <% end %>
-
-          <% if !recollection.quote.nil? %>
-            <%= "Quote: " + recollection.quote%><br>
-          <% end %>
-
-          <% if !recollection.joke.nil? %>
-            <%= "Joke: " + recollection.joke %>
-          <% end %>
-        </p>
-      <% end %>
-
-      <% if memory.recollections.none? {|recollection| recollection.user == @user} %>
+      <div class="memoryrecollectionscontainer">
         <form method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/new">
-          <input type='submit' value='Add Your Recollection'>
+          <input type='submit' value='Add A Recollection'>
         </form>
-      <% end %>
 
+        <div class="memoryrecollections">
+          <% memory.recollections.each do |recollection| %>
+            <div class="recollection">
+              <% if !recollection.user.profile_pic_file_path.nil?%>
+                <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
+              <% end %>
+
+              <div id="recollectionby">Recollection by <%=recollection.user.name %>
+                <% if recollection.user == @user %>
+                  <form style="display: inline" method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">
+                    <input type='submit' value='Edit'>
+                  </form>
+                <% end %>
+              </div>
+
+              <br>
+
+              <% if !recollection.anecdote.nil? %>
+                <%= recollection.anecdote %><br>
+              <% end %>
+
+              <% if !recollection.quote.nil? %>
+                <br><b>Quote: </b><%=recollection.quote%><br>
+              <% end %>
+
+              <% if !recollection.joke.nil? %>
+                <br><b>Joke: </b><%= recollection.joke %><br>
+              <% end %>
+
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>

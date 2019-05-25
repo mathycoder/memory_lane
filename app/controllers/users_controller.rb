@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     end
 
     session[:user_id] = user.id
-    redirect "/users/#{user.id}"
+    redirect "/users/#{user.id}/memories"
   end
 
   get '/logout' do
