@@ -1,13 +1,5 @@
   /*font-family: 'Playfair Display', serif;*/
-  .memoryindextitle {
-    color: black;
-    font-size: 3vw;
-    margin: -20px auto;
-    width: 100%;
-    font-family: 'Allura', cursive;
-    text-align: center;
-    justify-content: center;
-  }
+
 
 
 .memoryheader {
@@ -401,7 +393,7 @@ select {
 
 .header #logo a {
   text-decoration: none;
-  color: white; 
+  color: white;
 }
 
 
@@ -450,6 +442,43 @@ select {
   text-align: left;
   justify-content: left;
 }
+
+.memoryindextitle {
+  color: black;
+  font-size: 40px;
+  margin: -20px auto;
+  width: 100%;
+  font-family: 'Allura', cursive;
+  text-align: center;
+  justify-content: center;
+}
+.memoryindexbody .big {
+  font-size: 24px;
+}
+
+.memoryindexbody .memorydisplay {
+  width: 50%;
+}
+
+.memoryindexbody .memoryrecollections .recollection {
+  width: 90%;
+}
+
+.memoryindexbody #laneimages img {
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  width: 40px;
+  padding: 1px;
+}
+
+.memoryindexbody .memorytitle p {
+  font-size: 12px;
+  display: inline-block; 
+}
+
+
+
 
 @media screen and (max-width: 700px) {
   .memoryrecollections .recollection {
