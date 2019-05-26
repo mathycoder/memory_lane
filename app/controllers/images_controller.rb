@@ -2,6 +2,13 @@ require_relative "./application_controller.rb"
 
 class ImagesController < ApplicationController
 
+  get '/users/:user_id/images' do
+    redirect '/noaccess' if !ids_exist?(params)
+    create_instance_variables(params)
+    all_images_find_previous_and_next()
+    verify_the_user("images/index_show")
+  end
+
   get '/users/:user_id/memories/:memory_id/images/new' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)

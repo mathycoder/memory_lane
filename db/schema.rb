@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
     t.string "caption"
     t.integer "user_id"
     t.integer "memory_id"
+    t.datetime "timestamp"
   end
 
   create_table "lanes", force: :cascade do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
     t.string "joke"
     t.integer "user_id"
     t.integer "memory_id"
+    t.datetime "timestamp"
   end
 
   create_table "user_lanes", force: :cascade do |t|

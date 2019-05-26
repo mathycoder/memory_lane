@@ -27,6 +27,7 @@ first_memory.save
     adam_recollection.user = adam
     adam_recollection.memory = first_memory
     adam_recollection.quote = "\"I'm going to kill you.\" ~Cathy"
+    adam_recollection.timestamp = DateTime.new(2017, 05, 07)
     adam_recollection.save
 
     #create my image
@@ -41,6 +42,7 @@ first_memory.save
     cathy_recollection.user = cathy
     cathy_recollection.memory = first_memory
     cathy_recollection.joke = "I kept joking about how I loved killing mice."
+    cathy_recollection.timestamp = DateTime.new(2017, 05, 07)
     cathy_recollection.save
 
 
@@ -57,6 +59,7 @@ second_memory.save
     adam_recollection.memory = second_memory
     adam_recollection.anecdote = "You tried talking to a squirrel, who wouldn't cooperate.  The rain came suddenly, and we ran to a bar.  I remember wanting to play the piano for you."
     adam_recollection.quote = "\"squirrel noises\" ~Cathy"
+    adam_recollection.timestamp = DateTime.new(2017, 05, 14)
     adam_recollection.save
 
     #create Cathy's recollection
@@ -65,6 +68,7 @@ second_memory.save
     cathy_recollection.memory = second_memory
     cathy_recollection.anecdote = "I remember running in the rain to a bar.  We didn't know where we were going...we were just trying to catch some refuge.  I made some joke about the sex shop near the bar that got you laughing.  The bar was so empty...just a bunch of old people and then us sitting down."
     cathy_recollection.joke = "There was a really loud lady at the bar.  At one point you joked about playing the piano."
+    cathy_recollection.timestamp = DateTime.new(2017, 05, 14)
     cathy_recollection.save
 
     cathy_image = Image.create()
@@ -94,6 +98,7 @@ first_memory.save
     adam_recollection.memory = first_memory
     adam_recollection.anecdote = "We turned Corbitt into 'Alex' by putting 1/4 of a can of hair product into his hair."
     adam_recollection.joke = "'Alex' is out of control."
+    adam_recollection.timestamp = DateTime.new(2018, 8, 4)
     adam_recollection.save
 
     adam_image = Image.create()
@@ -108,6 +113,7 @@ first_memory.save
     alex_recollection.memory = first_memory
     alex_recollection.anecdote = "I remember playing for hours at the Craps table, while Weiss and I pretended we were true gamblers."
     alex_recollection.quote = "\"Put it all on black.\" ~Eric"
+    alex_recollection.timestamp = DateTime.new(2018, 8, 4)
     alex_recollection.save
 
     alex_image = Image.create()
@@ -123,6 +129,7 @@ first_memory.save
     nathan_recollection.anecdote = "I remember playing blackjack with Sarli and charming the table.  It was the first time I ever liked gambling."
     nathan_recollection.quote = "\"What should I do, Rhonda?\" ~me"
     nathan_recollection.joke = "The dealer thought Sarli's name was Charlie."
+    nathan_recollection.timestamp = DateTime.new(2018, 8, 4)
     nathan_recollection.save
 
     nathan_image = Image.create()
@@ -136,6 +143,7 @@ first_memory.save
     eric_recollection.user = eric
     eric_recollection.memory = first_memory
     eric_recollection.anecdote = "I remember our long busride back to NYC.  We had a heart-to-heart about love, and of course all we could talk about was BitCoin."
+    eric_recollection.timestamp = DateTime.new(2018, 8, 4)
     eric_recollection.save
 
 #create second memory
@@ -151,6 +159,7 @@ second_memory.save
     alex_recollection.memory = second_memory
     alex_recollection.anecdote = "I remember Nathan running at my pace for the entire race, and how amazing that was to me."
     alex_recollection.quote = "\"Let's run another one!\" ~Nathan"
+    alex_recollection.timestamp = DateTime.new(2018, 11, 4)
     alex_recollection.save
 
     #nathan's recollection
@@ -159,6 +168,7 @@ second_memory.save
     nathan_recollection.memory = second_memory
     nathan_recollection.anecdote = "Corbitt and I were absolutely dying at mile 14.  But then we knew ahead of time that Sarli and Weiss were going to be on the sidelines.  When we saw you guys, we both got a burst of energy.  It was really nice you guys came."
     nathan_recollection.quote = "\"Friends are like batteries.\" ~Alex"
+    nathan_recollection.timestamp = DateTime.new(2018, 11, 4)
     nathan_recollection.save
 
     #adam's recollection
@@ -167,6 +177,7 @@ second_memory.save
     adam_recollection.memory = second_memory
     adam_recollection.anecdote = "Weiss and I were combing the crowd of thousands, hoping not to miss you.  Of course, it was impossible to miss you guys; you came bounding up to us like kangaroos, among a sea of exhausted people slogging along.  How the hell did you find the energy?"
     adam_recollection.quote = "\"F@%$ yeah!\" ~Alex"
+    adam_recollection.timestamp = DateTime.new(2018, 11, 4)
     adam_recollection.save
 
     adam_image = Image.create()
@@ -181,6 +192,7 @@ second_memory.save
     eric_recollection.memory = second_memory
     eric_recollection.anecdote = "Seeing the two of you running towards us with so much energy.  I remember how much it inspired me to be healthier.  Later at a restaurant with Adam, we tracked your progress on my phone.  I kept hoping you would break 4 hours...and you did!"
     eric_recollection.quote = "\"I hope they break 4 hours!\" ~Eric"
+    eric_recollection.timestamp = DateTime.new(2018, 11, 4)
     eric_recollection.save
 
     eric_image = Image.create()
@@ -214,6 +226,7 @@ second_memory.save
         sue_recollection.memory = first_memory
         sue_recollection.anecdote = "We spent a fun hour at the hotel bar while the bride and groom took a million pictures.  They were stressed out and we were relaxed!"
         sue_recollection.joke = "Jordan's speech was hilarious!"
+        sue_recollection.timestamp = DateTime.new(2018, 5, 5)
         sue_recollection.save
         sue_image = Image.create()
         sue_image.file_path = "seed_images/IMG_1300.png"
@@ -225,6 +238,7 @@ second_memory.save
         adam_recollection.user = adam
         adam_recollection.memory = first_memory
         adam_recollection.anecdote = "I remember dancing for hours with Cathy on the dance floor, and some wonderful moments where we were all dancing together."
+        adam_recollection.timestamp = DateTime.new(2018, 5, 5)
         adam_recollection.save
         adam_image = Image.create()
         adam_image.file_path = "seed_images/IMG_1389.png"
@@ -236,6 +250,7 @@ second_memory.save
         tracy_recollection.user = tracy
         tracy_recollection.memory = first_memory
         tracy_recollection.anecdote = "Cathy was a really good dancer!  Also, dad and Adam dance like identical dorks to Beyonce ;-)"
+        tracy_recollection.timestamp = DateTime.new(2018, 5, 5)
         tracy_recollection.save
         tracy_image = Image.create()
         tracy_image.file_path = "seed_images/IMG_1406.png"
@@ -247,6 +262,7 @@ second_memory.save
         guy_recollection.user = guy
         guy_recollection.memory = first_memory
         guy_recollection.anecdote = "Dillon's speech was pretty funny.  It was amazing seeing Jason get married."
+        guy_recollection.timestamp = DateTime.new(2018, 5, 5)
         guy_recollection.save
         guy_image = Image.create()
         guy_image.file_path = "seed_images/IMG_1415.png"
@@ -258,6 +274,7 @@ second_memory.save
         danielle_recollection.user = danielle
         danielle_recollection.memory = first_memory
         danielle_recollection.anecdote = "I loved dancing with my sister.  It felt good to spend some time with her."
+        danielle_recollection.timestamp = DateTime.new(2018, 5, 5)
         danielle_recollection.save
         danielle_image = Image.create()
         danielle_image.file_path = "seed_images/IMG_1433.png"

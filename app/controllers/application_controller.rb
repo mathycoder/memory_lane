@@ -30,6 +30,9 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def all_images_find_previous_and_next
+    end
+
     def find_previous_and_next
       @memory.images.each_with_index do |image, index|
         if image == @image
@@ -37,6 +40,17 @@ class ApplicationController < Sinatra::Base
           @previous = @memory.images[index-1] unless index == 0
         end
       end
+    end
+
+    def recent_recollections
+      recollections = []
+      @user.lanes.each do |lane|
+        lane.recollections.each do |recollection|
+          recollections << recollection
+        end
+      end
+      recollections.sort_by{|recollection| recollection.timestamp}.reverse[0..3]
+
     end
 
     def verify_the_user(view_to_render)
