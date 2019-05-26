@@ -155,8 +155,7 @@
 }
 
 /* These selectors make a scrollable display of pictures */
-.memoryimagescontainer {
-}
+
 
 .memoryimages{
   display: flex;
@@ -269,10 +268,6 @@ div.polaroid {
   height: 6vw;
   width: 5vw;
   padding: 1px;
-}
-
-.imagesandrecollections {
-
 }
 
 .memoryrecollections {
@@ -446,12 +441,17 @@ select {
 .memoryindextitle {
   color: black;
   font-size: 40px;
-  margin: -20px auto;
+  margin: 0 auto;
   width: 100%;
   font-family: 'Allura', cursive;
   text-align: center;
   justify-content: center;
 }
+
+.memoryindexbody .memoryheader {
+  margin-bottom: -30px;
+}
+
 .memoryindexbody .big {
   font-size: 24px;
 }
@@ -467,14 +467,40 @@ select {
 .memoryindexbody #laneimages img {
   border: none;
   border-radius: 5px;
-  height: 50px;
-  width: 40px;
+  height: 40px;
+  width: 32px;
   padding: 1px;
 }
 
 .memoryindexbody .memorytitle p {
   font-size: 12px;
-  display: inline-block; 
+  display: inline-block;
+}
+
+.memoryindexbody .memoryimages {
+  width: 100%;
+  height: 230px;
+  margin-bottom: -50px;
+}
+
+.memoryindexbody .memoryimages img {
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 3px 5px 10px #888888;
+}
+
+.memoryindexbody .memorydisplay a {
+  text-decoration: none;
+  color: black;
+}
+
+.memoryindexbody .memoryelement:hover{
+  border-color: rgb(49, 79, 77);
+}
+
+.memoryindexbody .recollection img {
+  margin-top: 5px;
 }
 
 
