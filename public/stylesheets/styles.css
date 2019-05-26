@@ -460,10 +460,13 @@ select {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center; 
 }
 
 .allimages img {
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .memoryindextitle {

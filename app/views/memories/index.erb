@@ -92,10 +92,8 @@
 
   <div class="imagesandrecollections">
     <div class="allimages">
-      <% @user.memories.sorted_by_newest.each do |memory| %>
-        <% memory.images.each do |image| %>
-          <img height="100px" width="150px" src="/<%= image.file_path %>">
-        <% end %>
+      <% @recent_images.each do |image| %>
+        <img height="100px" width="150px" src="/<%= image.file_path %>">
       <% end %>
     </div>
   </div>
