@@ -42,6 +42,21 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def recent_images
+      images = []
+      @user.memories.each do |memory|
+        memory.images.each do |image|
+          images << image
+        end
+      end
+      images = images.sort_by{|image| image.timestamp}.reverse
+      if images.length > 6
+        images[0..5]
+      else
+        images
+      end
+    end
+
     def recent_recollections
       recollections = []
       @user.lanes.each do |lane|
@@ -49,8 +64,12 @@ class ApplicationController < Sinatra::Base
           recollections << recollection
         end
       end
-      recollections.sort_by{|recollection| recollection.timestamp}.reverse[0..3]
-
+      recollections = recollections.sort_by{|recollection| recollection.timestamp}.reverse
+      if recollections.length > 4
+        recollections[0..3]
+      else
+        recollections
+      end
     end
 
     def verify_the_user(view_to_render)

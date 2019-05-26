@@ -35,6 +35,7 @@ first_memory.save
     adam_image.file_path = "seed_images/IMG_7457.JPG"
     adam_image.user = adam
     adam_image.memory = first_memory
+    adam_image.timestamp = DateTime.new(2017, 05, 07)
     adam_image.save
 
     #create Cathy's recollection
@@ -75,6 +76,7 @@ second_memory.save
     cathy_image.file_path = "seed_images/IMG_1833.JPG"
     cathy_image.user = cathy
     cathy_image.memory = second_memory
+    cathy_image.timestamp = DateTime.new(2017, 05, 14)
     cathy_image.save
 
 #### New lane ####
@@ -105,6 +107,7 @@ first_memory.save
     adam_image.file_path = "seed_images/IMG_1831.JPG"
     adam_image.user = adam
     adam_image.memory = first_memory
+    adam_image.timestamp = DateTime.new(2018, 8, 4)
     adam_image.save
 
     #alex's recollection
@@ -120,6 +123,7 @@ first_memory.save
     alex_image.file_path = "seed_images/IMG_1832.JPG"
     alex_image.user = alex
     alex_image.memory = first_memory
+    alex_image.timestamp = DateTime.new(2018, 8, 4)
     alex_image.save
 
     #nathan's recollection
@@ -136,6 +140,7 @@ first_memory.save
     nathan_image.file_path = "seed_images/IMG_8241.JPG"
     nathan_image.user = nathan
     nathan_image.memory = first_memory
+    nathan_image.timestamp = DateTime.new(2018, 8, 4)
     nathan_image.save
 
     #eric's recollection
@@ -184,6 +189,7 @@ second_memory.save
     adam_image.file_path = "seed_images/IMG_1830.PNG"
     adam_image.user = adam
     adam_image.memory = second_memory
+    adam_image.timestamp = DateTime.new(2018, 11, 4)
     adam_image.save
 
     #eric's recollection
@@ -199,6 +205,7 @@ second_memory.save
     eric_image.file_path = "seed_images/IMG_1829.PNG"
     eric_image.user = eric
     eric_image.memory = second_memory
+    eric_image.timestamp = DateTime.new(2018, 11, 4)
     eric_image.save
 
 
@@ -232,6 +239,7 @@ second_memory.save
         sue_image.file_path = "seed_images/IMG_1300.png"
         sue_image.user = sue
         sue_image.memory = first_memory
+        sue_image.timestamp = DateTime.new(2018, 5, 5)
         sue_image.save
 
         adam_recollection = Recollection.create()
@@ -244,6 +252,7 @@ second_memory.save
         adam_image.file_path = "seed_images/IMG_1389.png"
         adam_image.user = danielle
         adam_image.memory = first_memory
+        adam_image.timestamp = DateTime.new(2018, 5, 5)
         adam_image.save
 
         tracy_recollection = Recollection.create()
@@ -256,6 +265,7 @@ second_memory.save
         tracy_image.file_path = "seed_images/IMG_1406.png"
         tracy_image.user = tracy
         tracy_image.memory = first_memory
+        tracy_image.timestamp = DateTime.new(2018, 5, 5)
         tracy_image.save
 
         guy_recollection = Recollection.create()
@@ -268,6 +278,7 @@ second_memory.save
         guy_image.file_path = "seed_images/IMG_1415.png"
         guy_image.user = danielle
         guy_image.memory = first_memory
+        guy_image.timestamp = DateTime.new(2018, 5, 5)
         guy_image.save
 
         danielle_recollection = Recollection.create()
@@ -280,4 +291,5 @@ second_memory.save
         danielle_image.file_path = "seed_images/IMG_1433.png"
         danielle_image.user = danielle
         danielle_image.memory = first_memory
+        danielle_image.timestamp = DateTime.new(2018, 5, 5)
         danielle_image.save
