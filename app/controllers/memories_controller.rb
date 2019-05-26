@@ -31,6 +31,7 @@ class MemoriesController < ApplicationController
     recollection.anecdote = params[:recollection][:anecdote] if !params[:recollection][:anecdote].empty?
     recollection.joke = params[:recollection][:joke] if !params[:recollection][:joke].empty?
     recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
+    recollection.timestamp = DateTime.now
     recollection.save
 
     flash[:alert] = "New Memory successfully added"
