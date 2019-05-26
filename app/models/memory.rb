@@ -27,4 +27,18 @@ class Memory < ActiveRecord::Base
     Memory.all.sort_by{|memory| memory.date}.reverse
   end
 
+  def self.all_images_chronologically
+    images = []
+    self.sorted_by_newest.each do |memory|
+      memory.images.each do |image|
+        images << image
+      end
+    end
+    images
+  end
+
+  def self.most_recent_images
+    self.all_images_chronologically[0..5]
+  end
+
 end
