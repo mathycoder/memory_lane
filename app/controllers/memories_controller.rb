@@ -7,6 +7,7 @@ class MemoriesController < ApplicationController
     create_instance_variables(params)
     @recent_images = recent_images()
     @recent_recollections = recent_recollections()
+    @all_quotes = all_quotes
     verify_the_user("memories/index")
   end
 

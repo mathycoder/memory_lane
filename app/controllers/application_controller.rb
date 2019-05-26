@@ -31,6 +31,16 @@ class ApplicationController < Sinatra::Base
     end
 
 
+    def all_quotes
+      quotes = []
+      @user.lanes.each do |lane|
+        lane.recollections.each do |recollection|
+          quotes << recollection.quote if !recollection.quote.nil?
+        end
+      end
+      quotes
+    end
+
     def find_previous_and_next
       @memory.images.each_with_index do |image, index|
         if image == @image

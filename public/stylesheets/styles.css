@@ -538,6 +538,7 @@ select {
   padding-right: 50px;
   padding-left: 20px;
   height: 80%;
+  justify-content: center; 
 }
 
 .memoryindextitle {
