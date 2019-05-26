@@ -1,19 +1,19 @@
 <div class="picnav"/>
 
 <div class="backtolane">
-  <form method="GET" action="/users/<%=@user.id%>/lanes/<%=@memory.lane.id%>">
-    <input type="submit" value="Back to Lane"/>
+  <form method="GET" action="/users/<%=@user.id%>/memories">
+    <input type="submit" value="Back to Memories"/>
   </form>
 </div>
 
   <% if !@previous.nil?%>
-    <form method="GET" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images/<%=@previous.id%>">
+    <form method="GET" action="/users/<%=@user.id%>/images/<%=@previous.id%>">
       <input type="submit" value="Previous"/>
     </form>
   <% end %>
 
   <% if !@next.nil?%>
-    <form method="GET" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images/<%=@next.id%>">
+    <form method="GET" action="/users/<%=@user.id%>/images/<%=@next.id%>">
       <input type="submit" value="Next"/>
     </form>
   <% end %>

@@ -30,8 +30,6 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
-    def all_images_find_previous_and_next
-    end
 
     def find_previous_and_next
       @memory.images.each_with_index do |image, index|
@@ -42,7 +40,7 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-    def recent_images
+    def all_images_sorted
       images = []
       @user.memories.each do |memory|
         memory.images.each do |image|
@@ -50,10 +48,24 @@ class ApplicationController < Sinatra::Base
         end
       end
       images = images.sort_by{|image| image.timestamp}.reverse
+    end
+
+    def recent_images
+      images = all_images_sorted()
       if images.length > 6
         images[0..5]
       else
         images
+      end
+    end
+
+    def all_images_find_previous_and_next
+      images = all_images_sorted()
+      images.each_with_index do |image, index|
+        if image == @image
+          @next = images[index+1] unless images[index+1].nil?
+          @previous = images[index-1] unless index == 0
+        end
       end
     end
 

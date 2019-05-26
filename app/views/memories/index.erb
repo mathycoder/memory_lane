@@ -92,7 +92,9 @@
       </div>
       <div class="flexcontainer">
         <% @recent_images.each do |image| %>
-          <img height="100px" width="150px" src="/<%= image.file_path %>">
+          <a href="/users/<%=@user.id%>/images/<%=image.id%>">
+            <img height="100px" width="150px" src="/<%= image.file_path %>">
+          </a>
         <% end %>
       </div>
     </div>
