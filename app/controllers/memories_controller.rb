@@ -6,6 +6,7 @@ class MemoriesController < ApplicationController
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     @recent_images = @user.memories.most_recent_images
+    @recent_recollections = @user.memories.most_recent_recollections
     verify_the_user("memories/index")
   end
 

@@ -452,21 +452,67 @@ select {
 .memoryindexcontainer .imagesandrecollections .allimages{
   background-color: rgb(224, 224, 197);
   border: rgb(124, 166, 147) solid 3px;
-  margin: 20px;
-  margin-top: -30px;
-  height: 300px;
-  padding: 20px;
+  margin: 30px;
+  height: 330px;
+  padding: 20 10px;
   box-shadow: 5px 10px 18px #888888;
+
+
+}
+
+
+.allimages .flexcontainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
-  justify-content: center; 
+  justify-content: center;
+}
+
+.allimages#top {
+  margin-top: -30px;
+}
+
+.allimagesheader {
+  font-family: 'Allura', cursive;
+  text-align: center;
+  font-size: 20px;
+}
+
+.allimages#bottom {
+  height: auto;
+  padding-bottom: 30px;
 }
 
 .allimages img {
   object-fit: cover;
+  width: 12vw;
+  height: 9vw;
+  margin: 3px;
+}
+
+.allimages .recollection {
+  width: 80%;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.allimages .recollection img {
+  height: 60px;
+  width: 50px;
+}
+
+.allimages .recollection #recollectionby {
+  text-align: right;
+}
+
+.allimages .recollection #recollectionby p {
+  display: block;
+  font-family: georgia;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -3px;
 }
 
 .memoryindextitle {

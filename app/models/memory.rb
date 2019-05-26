@@ -38,7 +38,28 @@ class Memory < ActiveRecord::Base
   end
 
   def self.most_recent_images
-    self.all_images_chronologically[0..5]
+    if self.all_images_chronologically.length > 6
+      self.all_images_chronologically[0..5]
+    else
+      self.all_images_chronologically
+    end
   end
 
+  def self.all_recollections_chronologically
+    recollections = []
+    self.sorted_by_newest.each do |memory|
+      memory.recollections.each do |recollection|
+        recollections << recollection
+      end
+    end
+    recollections
+  end
+
+  def self.most_recent_recollections
+    if self.all_recollections_chronologically.length > 6
+      self.all_recollections_chronologically[0..5]
+    else
+      self.all_recollections_chronologically
+    end
+  end
 end

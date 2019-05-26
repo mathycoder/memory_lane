@@ -61,11 +61,6 @@
                 <% end %>
 
                 <div id="recollectionby">Recollection by <%=recollection.user.name %>
-                  <% if recollection.user == @user %>
-                    <form style="display: inline" method="GET" action="/users/<%=@user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">
-                      <input type='submit' value='Edit'>
-                    </form>
-                  <% end %>
                 </div>
 
                 <br>
@@ -91,10 +86,49 @@
   </div>
 
   <div class="imagesandrecollections">
-    <div class="allimages">
-      <% @recent_images.each do |image| %>
-        <img height="100px" width="150px" src="/<%= image.file_path %>">
-      <% end %>
+    <div class="allimages" id="top">
+      <div class="allimagesheader">
+        <p>Recent Images</p>
+      </div>
+      <div class="flexcontainer">
+        <% @recent_images.each do |image| %>
+          <img height="100px" width="150px" src="/<%= image.file_path %>">
+        <% end %>
+      </div>
+    </div>
+
+    <div class="allimages" id="bottom">
+      <div class="allimagesheader">
+        <p>Recent Recollections</p>
+      </div>
+      <div class="memoryrecollections">
+        <% @recent_recollections.each do |recollection| %>
+          <div class="recollection">
+            <% if !recollection.user.profile_pic_file_path.nil?%>
+              <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
+            <% end %>
+
+            <div id="recollectionby">Recollection by <%=recollection.user.name %><br>
+              <p>Memory: <%=recollection.memory.title%></p>
+            </div>
+
+            <br>
+
+            <% if !recollection.anecdote.nil? %>
+              <%= recollection.anecdote %><br>
+            <% end %>
+
+            <% if !recollection.quote.nil? %>
+              <br><b>Quote: </b><%=recollection.quote%><br>
+            <% end %>
+
+            <% if !recollection.joke.nil? %>
+              <br><b>Joke: </b><%= recollection.joke %><br>
+            <% end %>
+
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
