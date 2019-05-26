@@ -523,9 +523,27 @@ select {
   margin-top: -3px;
 }
 
+
+
+.memoryindextitlecontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.memoryindextitlequote {
+  column-span: 1;
+  font-size: 2.2vw;
+  text-align: center;
+  margin: 0 auto;
+  padding-right: 50px;
+  padding-left: 20px;
+  height: 80%;
+}
+
 .memoryindextitle {
+  column-span: 1;
   color: black;
-  font-size: 40px;
+  font-size: 30px;
   margin: 0 auto;
   margin-bottom: 60px;
   width: 100%;
@@ -576,7 +594,7 @@ select {
 .memoryindexbody .memoryimages img {
   height: 200px;
   width: 300px;
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
   margin: 0 auto;
   box-shadow: 3px 5px 10px #888888;
@@ -637,6 +655,14 @@ select {
 
   #lanenav input[type=submit] {
     content: "I Changed it!";
+  }
+
+  .memoryindextitlecontainer {
+    grid-template-columns: 1fr;
+  }
+
+  .memoryindextitlequote {
+    display: none;
   }
 
 

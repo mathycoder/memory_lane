@@ -1,8 +1,13 @@
-<div class="memoryindextitle">
-    <h1>Your Memories</h1>
-    <form action="/users/<%=@user.id%>/memories/new" method="GET">
-      <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
-    </form>
+<div class="memoryindextitlecontainer">
+  <div class="memoryindextitle">
+      <h1>Your Memories</h1>
+      <form action="/users/<%=@user.id%>/memories/new" method="GET">
+        <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
+      </form>
+  </div>
+  <div class="memoryindextitlequote lanetitle">
+    <h3>"I can't believe you didn't tell me about the peanuts." ~Cathy</h3> 
+  </div>
 </div>
 
 <div class="memoryindexcontainer">
