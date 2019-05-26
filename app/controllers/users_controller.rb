@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     end
 
     session[:user_id] = user.id
-    redirect "/users/#{user.id}"
+    redirect "/users/#{user.id}/lanes"
   end
 
   get '/login' do

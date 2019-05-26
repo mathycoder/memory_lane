@@ -45,9 +45,11 @@
           <div class="memoryimagescontainer">
 
             <div class="memoryimages">
-              <% image = memory.images.sample %>
-              <% if !image.file_path.nil?%>
-                <img src="/<%= image.file_path %>" /><br>
+              <% if !memory.images.empty? %>
+                <% image = memory.images.sample %>
+                <% if !image.file_path.nil?%>
+                  <img src="/<%= image.file_path %>" /><br>
+                <% end %>
               <% end %>
             </div>
           </div>

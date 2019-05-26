@@ -5,6 +5,7 @@ class MemoriesController < ApplicationController
   get '/users/:user_id/memories' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
+    new_user?()
     @recent_images = recent_images()
     @recent_recollections = recent_recollections()
     @all_quotes = all_quotes

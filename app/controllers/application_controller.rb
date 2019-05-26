@@ -30,6 +30,9 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def new_user?
+      redirect "/users/#{@user.id}/lanes" if @user.lanes.empty?
+    end
 
     def all_quotes
       quotes = []
