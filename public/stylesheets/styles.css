@@ -494,6 +494,13 @@ select {
   width: 80%;
   margin: 10px auto;
   padding: 20px;
+  display: block;
+  justify-content: center;
+}
+
+.allimages .recollection .anecdote {
+  display: inline-block;
+  min-width: 350px;
 }
 
 .allimages .recollection:hover {
@@ -538,7 +545,7 @@ select {
   padding-right: 50px;
   padding-left: 20px;
   height: 80%;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .memoryindextitle {

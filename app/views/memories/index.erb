@@ -59,7 +59,7 @@
           <div class="memoryrecollectionscontainer">
             <div class="memoryrecollections">
             <% recollection = memory.recollections.sample %>
-              <div class="recollection">
+              <div class="recollection" id="homepage">
                 <% if !recollection.user.profile_pic_file_path.nil?%>
                   <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
                 <% end %>
@@ -114,15 +114,17 @@
               <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
             <% end %>
 
-            <div id="recollectionby">Recollection by <%=recollection.user.name %><br>
+            <div id="recollectionby" class="recollectionby">Recollection by <%=recollection.user.name %><br>
               <p>Memory: <%=recollection.memory.title%></p>
             </div>
 
             <br>
 
-            <% if !recollection.anecdote.nil? %>
-              <%= recollection.anecdote %><br>
-            <% end %>
+            <div class="anecdote">
+              <% if !recollection.anecdote.nil? %>
+                <%= recollection.anecdote %><br>
+              <% end %>
+            </div>
 
             <% if !recollection.quote.nil? %>
               <br><b>Quote: </b><%=recollection.quote%><br>
