@@ -1,5 +1,28 @@
 /*font-family: 'Playfair Display', serif;*/
+.yourlanes.lanetitle h1 {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 60px;
+}
 
+
+
+.yourlanes a
+{
+  text-decoration: none;
+  color: black;
+}
+
+.yourlanes h3 {
+  margin: 3px;
+  padding: 10px;
+}
+
+.yourlanes h3:hover {
+  padding: 7px; 
+  border: rgb(49, 79, 77) 3px solid;
+}
 
 
 .memoryheader {
@@ -535,10 +558,15 @@ select {
   color: black;
   font-size: 40px;
   margin: 0 auto;
+  margin-bottom: 60px;
   width: 100%;
   font-family: 'Allura', cursive;
   text-align: center;
   justify-content: center;
+}
+
+.memoryindextitle h1 {
+  display: inline;
 }
 
 .memoryindexbody .memoryheader {

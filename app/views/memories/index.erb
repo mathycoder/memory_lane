@@ -1,12 +1,8 @@
 <div class="memoryindextitle">
-  <div class="memoryindextitle left">
-    <h1>
-      <div>Your Latest Memories</div>
-      <form action="/users/<%=@user.id%>/memories/new" method="GET">
-        <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
-      </form>
-    </h1>
-  </div>
+    <h1>Your Memories</h1>
+    <form action="/users/<%=@user.id%>/memories/new" method="GET">
+      <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
+    </form>
 </div>
 
 <div class="memoryindexcontainer">

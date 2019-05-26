@@ -45,6 +45,8 @@ class LanesController < ApplicationController
 
     if params[:lane] == "new_lane"
       redirect "/users/#{@user.id}/lanes/new"
+    elsif params[:lane] == "Your Lanes"
+      redirect "/users/#{@user.id}/lanes"
     else
       lane = Lane.find(params[:lane])
       redirect "/users/#{@user.id}/lanes/#{lane.id}"
