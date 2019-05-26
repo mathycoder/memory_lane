@@ -489,7 +489,13 @@ select {
   object-fit: cover;
   width: 12vw;
   height: 9vw;
-  margin: 3px;
+  margin: 5px;
+
+}
+
+.allimages img:hover {
+  margin: 2px;
+  border: rgb(49, 79, 77) solid 3px;
 }
 
 .allimages .recollection {
