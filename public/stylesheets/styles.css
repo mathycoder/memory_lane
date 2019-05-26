@@ -580,8 +580,20 @@ select {
   margin-top: 5px;
 }
 
+@media screen and (max-width: 900px) {
+  .memoryindexcontainer {
+    grid-template-columns: 1fr;
+  }
 
+  .memoryindexcontainer .memoryindexbody {
+    column-span: 1;
+  }
 
+  .memoryindexcontainer .imagesandrecollections{
+    column-span: 0;
+    display: none; 
+  }
+}
 
 @media screen and (max-width: 700px) {
   .memoryrecollections .recollection {
@@ -611,4 +623,6 @@ select {
   #lanenav input[type=submit] {
     content: "I Changed it!";
   }
+
+
 }

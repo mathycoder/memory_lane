@@ -56,8 +56,8 @@ class Memory < ActiveRecord::Base
   end
 
   def self.most_recent_recollections
-    if self.all_recollections_chronologically.length > 6
-      self.all_recollections_chronologically[0..5]
+    if self.all_recollections_chronologically.length > 4
+      self.all_recollections_chronologically[0..3]
     else
       self.all_recollections_chronologically
     end
