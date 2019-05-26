@@ -498,19 +498,29 @@ select {
   padding: 20px;
 }
 
+.allimages .recollection:hover {
+  border-color: rgb(49, 79, 77);
+}
+
 .allimages .recollection img {
   height: 60px;
   width: 50px;
 }
 
+.allimages .memoryrecollections a {
+  text-decoration: none;
+  color: black;
+}
+
 .allimages .recollection #recollectionby {
   text-align: right;
+  font-size: 2vw;
 }
 
 .allimages .recollection #recollectionby p {
   display: block;
   font-family: georgia;
-  font-size: 12px;
+  font-size: 1vw;
   font-weight: bold;
   margin-top: -3px;
 }
@@ -591,7 +601,7 @@ select {
 
   .memoryindexcontainer .imagesandrecollections{
     column-span: 0;
-    display: none; 
+    display: none;
   }
 }
 

@@ -103,7 +103,7 @@
       </div>
       <div class="memoryrecollections">
         <% @recent_recollections.each do |recollection| %>
-          <div class="recollection">
+          <a href="/users/<%=@user.id%>/lanes/<%=recollection.memory.lane.id%>"><div class="recollection">
             <% if !recollection.user.profile_pic_file_path.nil?%>
               <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
             <% end %>
@@ -126,7 +126,7 @@
               <br><b>Joke: </b><%= recollection.joke %><br>
             <% end %>
 
-          </div>
+          </div></a>
         <% end %>
       </div>
     </div>
