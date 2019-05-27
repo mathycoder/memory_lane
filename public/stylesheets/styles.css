@@ -1,12 +1,11 @@
 /*font-family: 'Playfair Display', serif;*/
+
 .yourlanes.lanetitle h1 {
   display: block;
   text-align: center;
   margin: 20px auto;
   font-size: 60px;
 }
-
-
 
 .yourlanes a
 {
@@ -43,12 +42,18 @@
   font-size: 2.2vw;
 }
 
+
 .flash {
   background-color: rgb(55, 190, 204);
   width: 100%;
   color: white;
   padding: 20px;
   margin-left: -20px;
+  margin-top: -20px;
+  text-decoration: none;
+}
+
+.close {
 }
 
   .keybuttons {
@@ -673,5 +678,8 @@ select {
     display: none;
   }
 
+  .searchbar {
+    display: none;
+  }
 
 }

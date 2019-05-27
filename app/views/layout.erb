@@ -49,8 +49,8 @@
       <div class="content">
         <% flash.keys.each do |type| %>
           <div onclick="style.display='none';" data-alert class="flash <%= type %> alert-box radius">
-            <%= flash[type] %>
             <a href="#" class="close">&times;</a>
+            <span><%= flash[type] %></span>
           </div>
         <% end %>
         <%= yield %>
