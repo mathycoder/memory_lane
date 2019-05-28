@@ -53,13 +53,16 @@ class UsersController < ApplicationController
       redirect '/signup'
     end
     user = User.create(params[:user])
-    user.profile_pic_file_path = params[:profile_pic][:filename]
-    user.save
-    file = params[:profile_pic][:tempfile]
-    File.open("./public/#{user.profile_pic_file_path}", 'wb') do |f|
-      f.write(file.read)
+    if params.include?(:profile_pic)
+      user.profile_pic_file_path = params[:profile_pic][:filename]
+      file = params[:profile_pic][:tempfile]
+      File.open("./public/#{user.profile_pic_file_path}", 'wb') do |f|
+        f.write(file.read)
+      end
+    else
+      user.profile_pic_file_path = "faux_profile_pic.PNG"
     end
-
+    user.save
     session[:user_id] = user.id
     redirect "/users/#{user.id}/lanes"
   end
