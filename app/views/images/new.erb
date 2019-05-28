@@ -6,12 +6,12 @@
   </p>
 
   <form enctype="multipart/form-data" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images">
-
     <h3>Add An Image</h3>
+    <input type="file" name="file" required><br><br>
+    <input type="submit" name="Add Image">
+  </form>
 
-    <p>
-      <input type="file" name="file"><br><br>
-      <input type="submit" name="Add Image">
-    </p>
+  <form method="GET" action="/users/<%=@user.id%>/lanes/<%=@memory.lane.id%>">
+    <input type="submit" value="Cancel"/>
   </form>
 </div>
