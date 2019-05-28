@@ -55,34 +55,37 @@
 
           <br><br>
 
-          <div class="memoryrecollectionscontainer">
-            <div class="memoryrecollections">
-            <% recollection = memory.recollections.sample %>
-              <div class="recollection" id="homepage">
-                <% if !recollection.user.profile_pic_file_path.nil?%>
-                  <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
-                <% end %>
+          <% if !memory.recollections.empty?%>
+            <div class="memoryrecollectionscontainer">
+              <div class="memoryrecollections">
+              <% recollection = memory.recollections.sample %>
+                <div class="recollection" id="homepage">
+                  <% if !recollection.user.profile_pic_file_path.nil?%>
+                    <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
+                  <% end %>
 
-                <div id="recollectionby">Recollection by <%=recollection.user.name %>
+                  <div id="recollectionby">Recollection by <%=recollection.user.name %>
+                  </div>
+
+                  <br>
+
+                  <% if !recollection.anecdote.nil? %>
+                    <%= recollection.anecdote %><br>
+                  <% end %>
+
+                  <% if !recollection.quote.nil? %>
+                    <br><b>Quote: </b><%=recollection.quote%><br>
+                  <% end %>
+
+                  <% if !recollection.joke.nil? %>
+                    <br><b>Joke: </b><%= recollection.joke %><br>
+                  <% end %>
+
                 </div>
-
-                <br>
-
-                <% if !recollection.anecdote.nil? %>
-                  <%= recollection.anecdote %><br>
-                <% end %>
-
-                <% if !recollection.quote.nil? %>
-                  <br><b>Quote: </b><%=recollection.quote%><br>
-                <% end %>
-
-                <% if !recollection.joke.nil? %>
-                  <br><b>Joke: </b><%= recollection.joke %><br>
-                <% end %>
-
               </div>
             </div>
-          </div>
+          <% end %>
+
         </div></a>
       <% end %>
     </div>

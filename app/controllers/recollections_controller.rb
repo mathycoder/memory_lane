@@ -12,7 +12,6 @@ class RecollectionsController < ApplicationController
   post '/users/:user_id/memories/:memory_id/recollections' do
     recollection = Recollection.create
     recollection.user = User.find(params[:user_id])
-
     memory = Memory.find(params[:memory_id])
     recollection.memory = memory
     recollection.anecdote = params[:recollection][:anecdote] if !params[:recollection][:anecdote].empty?
@@ -34,14 +33,18 @@ class RecollectionsController < ApplicationController
 
   patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
     recollection = Recollection.find(params[:recollection_id])
-    recollection.anecdote = params[:recollection][:anecdote]
-    recollection.anecdote = nil if recollection.anecdote.empty?
-    recollection.joke = params[:recollection][:joke]
-    recollection.joke = nil if recollection.joke.empty?
-    recollection.quote = params[:recollection][:quote]
-    recollection.quote = nil if recollection.quote.empty?
-    recollection.timestamp = DateTime.now
-    recollection.save
+    if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
+      recollection.delete
+    else
+      recollection.anecdote = params[:recollection][:anecdote]
+      recollection.anecdote = nil if recollection.anecdote.empty?
+      recollection.joke = params[:recollection][:joke]
+      recollection.joke = nil if recollection.joke.empty?
+      recollection.quote = params[:recollection][:quote]
+      recollection.quote = nil if recollection.quote.empty?
+      recollection.timestamp = DateTime.now
+      recollection.save
+    end
 
     memory = Memory.find(params[:memory_id])
     flash[:alert] = "Recollection edited"
