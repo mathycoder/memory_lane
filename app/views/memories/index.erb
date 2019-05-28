@@ -90,6 +90,7 @@
   </div>
 
   <div class="imagesandrecollections">
+
     <div class="allimages" id="top">
       <div class="allimagesheader">
         <p>Recent Images</p>
@@ -100,6 +101,23 @@
             <img height="100px" width="150px" src="/<%= image.file_path %>">
           </a>
         <% end %>
+      </div>
+    </div>
+
+    <div class="allimages recentmemories" id="recent">
+      <div class="allimagesheader">
+        <p>Recently Added Memories</p>
+      </div>
+      <div>
+        <ul>
+          <% @recent_memories.each do |memory| %>
+
+            <li><a href="/users/<%=@user.id%>/lanes/<%=memory.lane.id%>">
+              <%=memory.title%>--<%=memory.display_date%>
+            </a></li>
+
+          <% end %>
+        </ul>
       </div>
     </div>
 

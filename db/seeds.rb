@@ -18,6 +18,7 @@ our_lane.save
 #create memory
 first_memory = Memory.create(title: "Our first date", location: "Central Park")
 first_memory.date = DateTime.new(2017, 05, 07)
+first_memory.timestamp = DateTime.new(2017, 05, 07)
 first_memory.lane = our_lane
 first_memory.creator_user_id = adam.id
 first_memory.save
@@ -50,6 +51,7 @@ first_memory.save
 #create second memory
 second_memory = Memory.create(title: "Our second date", location: "Washington Square Park")
 second_memory.date = DateTime.new(2017, 05, 14)
+second_memory.timestamp = DateTime.new(2017, 05, 14)
 second_memory.lane = our_lane
 second_memory.creator_user_id = cathy.id
 second_memory.save
@@ -91,6 +93,7 @@ new_lane.save
 first_memory = Memory.create(title: "Our trip to Atlantic City", location: "Atlantic City")
 first_memory.date = DateTime.new(2018, 8, 4)
 first_memory.lane = new_lane
+first_memory.timestamp = DateTime.new(2018, 8, 4)
 first_memory.creator_user_id = adam.id
 first_memory.save
 
@@ -156,6 +159,7 @@ second_memory = Memory.create(title: "Alex and Nathan run the marathon", locatio
 second_memory.date = DateTime.new(2018, 11, 4)
 second_memory.lane = new_lane
 second_memory.creator_user_id = alex.id
+second_memory.timestamp = DateTime.new(2018, 11, 4)
 second_memory.save
 
     #alex's recollection
@@ -225,6 +229,7 @@ second_memory.save
     first_memory.date = DateTime.new(2018, 5, 5)
     first_memory.lane = new_lane
     first_memory.creator_user_id = guy.id
+    first_memory.timestamp = DateTime.new(2018, 5, 5)
     first_memory.save
 
         #create recollections and images

@@ -72,6 +72,21 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def all_of_a_users_memories
+      memories = []
+      @user.lanes.each do |lane|
+        lane.memories.each do |memory|
+          memories << memory
+        end
+      end
+      memories
+    end
+
+    def recent_memories
+      memories = all_of_a_users_memories().sort_by{|memory| memory.timestamp}.reverse
+      memories[0..2] if memories.length > 3
+    end
+
     def all_images_find_previous_and_next
       images = all_images_sorted()
       images.each_with_index do |image, index|

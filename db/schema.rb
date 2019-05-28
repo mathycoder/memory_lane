@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
     t.string "location"
     t.integer "lane_id"
     t.integer "creator_user_id"
+    t.datetime "timestamp"
   end
 
   create_table "recollections", force: :cascade do |t|

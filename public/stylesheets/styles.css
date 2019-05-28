@@ -430,8 +430,8 @@ select {
 .footer h6 {
   display: block;
   text-align: right;
-  margin-right: 50px;
-  padding-top: 20px; 
+  margin-right: 20px;
+  padding-top: 20px;
 }
 
 #dropdownusers {
@@ -542,6 +542,30 @@ select {
   margin-top: -3px;
 }
 
+
+.allimages.recentmemories {
+  padding-bottom: 20px;
+  height: 160px;
+}
+
+.allimages.recentmemories#recent {
+  height: 160px;
+}
+
+.allimages.recentmemories ul {
+  padding: 0 30px;
+}
+
+
+.allimages.recentmemories a {
+  text-decoration: none;
+  color: black;
+}
+
+.allimages.recentmemories a:hover {
+  background-color: rgb(55, 190, 204);
+  color: white;
+}
 
 
 .memoryindextitlecontainer {

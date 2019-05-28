@@ -8,7 +8,8 @@ class MemoriesController < ApplicationController
     new_user?()
     @recent_images = recent_images()
     @recent_recollections = recent_recollections()
-    @all_quotes = all_quotes
+    @all_quotes = all_quotes()
+    @recent_memories = recent_memories()
     verify_the_user("memories/index")
   end
 
@@ -23,6 +24,7 @@ class MemoriesController < ApplicationController
     date = params[:memory][:date].split("-")
     memory.date = DateTime.new(date[2].to_i,date[0].to_i,date[1].to_i)
     memory.creator_user_id = params[:user_id]
+    memory.timestamp = DateTime.now
     memory.save
 
     recollection = Recollection.create
