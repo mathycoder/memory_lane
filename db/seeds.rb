@@ -16,6 +16,66 @@ our_lane.users << cathy
 our_lane.save
 
 #create memory
+third_memory = Memory.create(title: "Painted Town on A Hill", location: "Valparaiso, Chile")
+third_memory.date = DateTime.new(2019, 04, 25)
+third_memory.timestamp = DateTime.new(2019, 04, 25)
+third_memory.lane = our_lane
+third_memory.creator_user_id = adam.id
+third_memory.save
+
+
+  #create my recollection
+  adam_recollection = Recollection.create(anecdote: "I remember passing by a man on the brick street selling jewelery, and how the stones captivated you.  As he explained his artistic process, I saw the appreciation and wonder in your eyes.")
+  adam_recollection.user = adam
+  adam_recollection.memory = third_memory
+  adam_recollection.quote = "\"We are not hippies.  We are happies.\""
+  adam_recollection.timestamp = DateTime.new(2019, 04, 25)
+  adam_recollection.save
+
+  #create my image
+  adam_image = Image.create()
+  adam_image.file_path = "seed_images/IMG_1200.JPG"
+  adam_image.user = adam
+  adam_image.memory = third_memory
+  adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.save
+
+  #create my image
+  adam_image = Image.create()
+  adam_image.file_path = "seed_images/IMG_1292.JPG"
+  adam_image.user = adam
+  adam_image.memory = third_memory
+  adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.save
+
+  #create Cathy's recollection
+  cathy_recollection = Recollection.create(anecdote: "I loved getting lost with you in that city.  We lost track of time and wandered, what we do best, as we appreciated the art.")
+  cathy_recollection.user = cathy
+  cathy_recollection.memory = third_memory
+  cathy_recollection.joke = "How do you say Benadryl in Spanish?"
+  cathy_recollection.timestamp = DateTime.new(2019, 04, 25)
+  cathy_recollection.save
+
+  #create my image
+  adam_image = Image.create()
+  adam_image.file_path = "seed_images/IMG_1316.JPG"
+  adam_image.user = cathy
+  adam_image.memory = third_memory
+  adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.save
+
+  #create my image
+  adam_image = Image.create()
+  adam_image.file_path = "seed_images/IMG_1336.JPG"
+  adam_image.user = cathy
+  adam_image.memory = third_memory
+  adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.save
+
+
+
+
+#create memory
 first_memory = Memory.create(title: "Our first date", location: "Central Park")
 first_memory.date = DateTime.new(2017, 05, 07)
 first_memory.timestamp = DateTime.new(2017, 05, 07)
