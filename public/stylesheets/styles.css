@@ -427,6 +427,13 @@ select {
   color: white;
 }
 
+.footer h6 {
+  display: block;
+  text-align: right;
+  margin-right: 50px;
+  padding-top: 20px; 
+}
+
 #dropdownusers {
   text-align: left;
   justify-content: left;
