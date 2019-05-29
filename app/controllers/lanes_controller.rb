@@ -17,6 +17,10 @@ class LanesController < ApplicationController
 
   post '/users/:user_id/lanes' do
     create_instance_variables(params)
+    if !params.include?(:users)
+      flash[:alert] = "Please include at least one other user"
+      redirect "/users/#{@user.id}/lanes/new"
+    end
     users = params[:users].map {|user_id| User.find(user_id)}
     users << @user
 
