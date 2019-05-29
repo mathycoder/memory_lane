@@ -65,11 +65,7 @@ class ApplicationController < Sinatra::Base
 
     def recent_images
       images = all_images_sorted()
-      if images.length > 6
-        images[0..5]
-      else
-        images
-      end
+      images.length > 6? images[0..5] : images
     end
 
     def all_of_a_users_memories
