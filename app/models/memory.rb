@@ -62,4 +62,13 @@ class Memory < ActiveRecord::Base
       self.all_recollections_chronologically
     end
   end
+
+  def quotes_and_jokes
+    quote_array = []
+    self.recollections.each do |recollection|
+      quote_array << recollection.quote if !recollection.quote.nil?
+      quote_array << recollection.joke if !recollection.joke.nil?
+    end
+    quote_array
+  end
 end
