@@ -84,7 +84,11 @@ class ApplicationController < Sinatra::Base
 
     def recent_memories
       memories = all_of_a_users_memories().sort_by{|memory| memory.timestamp}.reverse
-      memories[0..2] if memories.length > 3
+      if memories.length > 3
+        memories[0..2]
+      else
+        memories
+      end 
     end
 
     def all_images_find_previous_and_next
