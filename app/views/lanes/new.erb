@@ -9,7 +9,13 @@
     <div id="dropdownusers">
       <% @users.each do |user| %>
         <% if user != @user %>
-          <input type="checkbox" name="users[]" value="<%=user.id%>"><%= user.name%></input><br>
+          <div class="selectingusers">
+            <img width="40" height="50" src="/<%= user.profile_pic_file_path %>">
+            <input type="checkbox" name="users[]" value="<%=user.id%>">
+              <%= user.name%>
+            </input>
+            <br>
+          </div>
         <% end %>
       <% end %>
     </div>

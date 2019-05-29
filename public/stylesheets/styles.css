@@ -461,6 +461,22 @@ select {
 #dropdownusers {
   text-align: left;
   justify-content: left;
+
+}
+
+#dropdownusers .selectingusers {
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+}
+
+#dropdownusers img {
+  border: none;
+  border-radius: 5px;
+}
+
+#dropdownusers .selectingusers input {
+  margin-left: 10px;
 }
 
 

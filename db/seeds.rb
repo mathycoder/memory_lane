@@ -1,13 +1,13 @@
 #create users
 adam = User.create(name: "Adam Sarli", email: "adam@gmail.com", password: "adam", profile_pic_file_path: "seed_images/profile/adam.PNG")
-cathy = User.create(name: "Cathy Santos", email: "cathy@gmail.com", password: "cathy", profile_pic_file_path: "seed_images/profile/cathy.PNG" )
-alex = User.create(name: "Alex Corbitt", email: "alex@gmail.com", password: "alex", profile_pic_file_path: "seed_images/profile/alex.PNG")
-eric = User.create(name: "Eric Weiss", email: "eric@gmail.com", password: "eric", profile_pic_file_path: "seed_images/profile/eric.PNG")
-nathan = User.create(name: "Nathan Palmisano", email: "nathan@gmail.com", password: "nathan", profile_pic_file_path: "seed_images/profile/nathan.PNG")
-danielle = User.create(name: "Danielle Sarli", email: "danielle@gmail.com", password: "danielle", profile_pic_file_path: "seed_images/profile/danielle.PNG")
-guy = User.create(name: "Guy Sarli", email: "guy@gmail.com", password: "guy", profile_pic_file_path: "seed_images/profile/guy.PNG")
-sue = User.create(name: "Sue Sarli", email: "sue@gmail.com", password: "sue", profile_pic_file_path: "seed_images/profile/sue.PNG")
-tracy = User.create(name: "Tracy Sarli", email: "tracy@gmail.com", password: "tracy", profile_pic_file_path: "seed_images/profile/tracy.PNG")
+cathy = User.create(name: "Cathy S", email: "cathy@gmail.com", password: "cathy", profile_pic_file_path: "seed_images/profile/cathy.PNG" )
+alex = User.create(name: "Alex C", email: "alex@gmail.com", password: "alex", profile_pic_file_path: "seed_images/profile/alex.PNG")
+eric = User.create(name: "Eric W", email: "eric@gmail.com", password: "eric", profile_pic_file_path: "seed_images/profile/eric.PNG")
+nathan = User.create(name: "Nathan P", email: "nathan@gmail.com", password: "nathan", profile_pic_file_path: "seed_images/profile/nathan.PNG")
+danielle = User.create(name: "Danielle S", email: "danielle@gmail.com", password: "danielle", profile_pic_file_path: "seed_images/profile/danielle.PNG")
+guy = User.create(name: "Guy S", email: "guy@gmail.com", password: "guy", profile_pic_file_path: "seed_images/profile/guy.PNG")
+sue = User.create(name: "Sue S", email: "sue@gmail.com", password: "sue", profile_pic_file_path: "seed_images/profile/sue.PNG")
+tracy = User.create(name: "Tracy S", email: "tracy@gmail.com", password: "tracy", profile_pic_file_path: "seed_images/profile/tracy.PNG")
 
 #create lane and link users
 our_lane = Lane.create()
@@ -49,7 +49,7 @@ third_memory.save
   adam_image.save
 
   #create Cathy's recollection
-  cathy_recollection = Recollection.create(anecdote: "I loved getting lost with you in that city.  We lost track of time and wandered, what we do best, as we appreciated the art.")
+  cathy_recollection = Recollection.create(anecdote: "I loved getting lost with you in that city.  We lost track of time and wandered, what we do best, as we appreciated the art.  Remember meandering into that rooftop bar?  We had such a nice view of the city.")
   cathy_recollection.user = cathy
   cathy_recollection.memory = third_memory
   cathy_recollection.joke = "How do you say Benadryl in Spanish?"
@@ -129,7 +129,7 @@ second_memory.save
     cathy_recollection = Recollection.create
     cathy_recollection.user = cathy
     cathy_recollection.memory = second_memory
-    cathy_recollection.anecdote = "I remember running in the rain to a bar.  We didn't know where we were going...we were just trying to catch some refuge.  I made some joke about the sex shop near the bar that got you laughing.  The bar was so empty...just a bunch of old people and then us sitting down."
+    cathy_recollection.anecdote = "I remember running in the rain to a bar.  We didn't know where we were going...we were just trying to catch some refuge.  I made some joke about a shop near the bar that got you laughing.  The bar was so empty...just a bunch of old people and then us sitting down."
     cathy_recollection.joke = "There was a really loud lady at the bar.  At one point you joked about playing the piano."
     cathy_recollection.timestamp = DateTime.new(2017, 05, 14)
     cathy_recollection.save
