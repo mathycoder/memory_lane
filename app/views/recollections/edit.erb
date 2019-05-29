@@ -20,12 +20,12 @@
 
     <p>
       Joke<br>
-      <textarea type='text' rows="2" cols="50" name="recollection[joke]"><%=@recollection.joke if !@recollection.joke.nil?%></textarea>
+      <textarea type='text' rows="2" cols="50" name="recollection[joke]"><%=@recollection.joke%></textarea>
     </p>
 
     <p>
       Quote<br>
-      <textarea type='text' rows="2" cols="50" name="recollection[quote]"><%=@recollection.quote if !@recollection.joke.nil?%></textarea>
+      <textarea type='text' rows="2" cols="50" name="recollection[quote]"><%=@recollection.quote%></textarea>
     </p>
 
     <input type='submit' value="Save"/>
