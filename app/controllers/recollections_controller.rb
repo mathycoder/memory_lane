@@ -10,6 +10,10 @@ class RecollectionsController < ApplicationController
   end
 
   post '/users/:user_id/memories/:memory_id/recollections' do
+    if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
+      flash[:alert] = "This recollection is blank.  Try entering some information before submitting."
+      redirect "/users/#{params[:user_id]}/memories/#{params[:memory_id]}/recollections/new"
+    end 
     recollection = Recollection.create
     recollection.user = User.find(params[:user_id])
     memory = Memory.find(params[:memory_id])

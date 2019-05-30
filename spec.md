@@ -74,9 +74,12 @@ Memories can be created, viewed, edited, and deleted, each with their own routes
 * The post '/login' route handles both of these.  If the user types an email that doesn't exist, they are
 redirected to the login page with a flash message saying no account exists with that email.  
 
+* When creating a new recollection, it'll send you a flash message and not persist the data if you try and submit a blank recollection.
+
 * It does something similar with authenticating a typed password.  
 
-* Form requirements when inputting dates prevent users from typing a date not in the correct format.  
+* Form requirements when inputting dates prevent users from typing a date not in the correct format.  They also catch things like trying to submit a picture without selecting a file, entering a Memory without including a title or a date.  
+
 
 
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
