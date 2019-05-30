@@ -80,6 +80,8 @@ redirected to the login page with a flash message saying no account exists with 
 
 * Form requirements when inputting dates prevent users from typing a date not in the correct format.  They also catch things like trying to submit a picture without selecting a file, entering a Memory without including a title or a date.  
 
+* If you try and create a lane without selecting any users, it'll send you a flash warning and not persist the lane. 
+
 
 
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
