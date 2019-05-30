@@ -7,9 +7,9 @@
     <input method="hidden" type="hidden" name="_method" value="PATCH"/>
 
     <p>
-    Title: <input type="text" name="memory[title]" value="<%=@memory.title%>"/><br><br>
-    Location: <input type="text" name="memory[location]" value="<%=@memory.location%>"/><br><br>
-    Date: <input type="text" name="memory[date]" value="<%=@memory.date_for_input_field%>" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"/>
+    Title: <input type="text" name="memory[title]" required value="<%=@memory.title%>"/><br><br>
+    Location: <input type="text" name="memory[location]" required value="<%=@memory.location%>"/><br><br>
+    Date: <input type="text" name="memory[date]" required value="<%=@memory.date_for_input_field%>" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"/>
     ex: 03-28-1984
     </p>
 
