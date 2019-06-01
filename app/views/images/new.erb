@@ -8,6 +8,7 @@
   <form enctype="multipart/form-data" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images">
     <h3>Add An Image</h3>
     <input type="file" name="file" required><br><br>
+    <textarea type='text' rows="2" name="caption" placeholder="Add a Caption"></textarea>
     <input type="submit" name="Add Image">
   </form>
 
