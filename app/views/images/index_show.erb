@@ -20,5 +20,14 @@
 </div>
 
 <div class="showpic">
-  <img src="/<%= @image.file_path %>" />
+  <img src="/<%= @image.file_path %>" /><br>
+  <p style="display: inline"><%=@image.caption%></p><br>
+  <h6 style="display: inline">photo by <%=@image.user.name%>
+    <% if @image.user == @user %>
+      <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@image.memory.id%>/images/<%=@image.id%>">
+        <input type="hidden" method="hidden" name="_method" value="DELETE">
+        <input type="submit" value="delete">
+      </form>
+    <% end %>
+  </h6>
 </div>
