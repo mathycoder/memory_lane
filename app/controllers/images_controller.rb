@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
     image.memory = memory
     image.file_path = params[:file][:filename]
     image.timestamp = DateTime.now
-    image.caption = params[:caption]
+    image.caption = params[:caption] if params.include?(:caption)
     image.save
     file = params[:file][:tempfile]
     File.open("./public/#{image.file_path}", 'wb') do |f|
