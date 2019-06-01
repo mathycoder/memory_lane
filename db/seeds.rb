@@ -38,6 +38,7 @@ third_memory.save
   adam_image.user = adam
   adam_image.memory = third_memory
   adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.caption = "Rooftop bar"
   adam_image.save
 
   #create my image
@@ -46,6 +47,7 @@ third_memory.save
   adam_image.user = adam
   adam_image.memory = third_memory
   adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.caption = "Painted alleyways... this whole walk was beautiful"
   adam_image.save
 
   #create Cathy's recollection
@@ -62,6 +64,7 @@ third_memory.save
   adam_image.user = cathy
   adam_image.memory = third_memory
   adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.caption = "My girl centered in color"
   adam_image.save
 
   #create my image
@@ -70,6 +73,7 @@ third_memory.save
   adam_image.user = cathy
   adam_image.memory = third_memory
   adam_image.timestamp = DateTime.new(2019, 04, 25)
+  adam_image.caption = "Like what you see?!"
   adam_image.save
 
 
@@ -97,6 +101,7 @@ first_memory.save
     adam_image.user = adam
     adam_image.memory = first_memory
     adam_image.timestamp = DateTime.new(2017, 05, 07)
+    adam_image.caption = "Our first picture together!"
     adam_image.save
 
     #create Cathy's recollection
@@ -139,6 +144,7 @@ second_memory.save
     cathy_image.user = cathy
     cathy_image.memory = second_memory
     cathy_image.timestamp = DateTime.new(2017, 05, 14)
+    cathy_image.caption = "Not actually from our second date, but still an early pic ;)"
     cathy_image.save
 
 #### New lane ####
@@ -171,6 +177,7 @@ first_memory.save
     adam_image.user = adam
     adam_image.memory = first_memory
     adam_image.timestamp = DateTime.new(2018, 8, 4)
+    adam_image.caption = "Da boyz"
     adam_image.save
 
     #alex's recollection
@@ -187,6 +194,7 @@ first_memory.save
     alex_image.user = alex
     alex_image.memory = first_memory
     alex_image.timestamp = DateTime.new(2018, 8, 4)
+    adam_image.caption = "Pretty sure this was like 2am"
     alex_image.save
 
     #nathan's recollection
@@ -204,6 +212,7 @@ first_memory.save
     nathan_image.user = nathan
     nathan_image.memory = first_memory
     nathan_image.timestamp = DateTime.new(2018, 8, 4)
+    nathan_image.caption = "AC Boardwalkin'"
     nathan_image.save
 
     #eric's recollection
@@ -254,6 +263,7 @@ second_memory.save
     adam_image.user = adam
     adam_image.memory = second_memory
     adam_image.timestamp = DateTime.new(2018, 11, 4)
+    adam_image.caption = "The finish line"
     adam_image.save
 
     #eric's recollection
@@ -270,6 +280,7 @@ second_memory.save
     eric_image.user = eric
     eric_image.memory = second_memory
     eric_image.timestamp = DateTime.new(2018, 11, 4)
+    eric_image.caption = "Bounding toward us like kangaroos"
     eric_image.save
 
 
@@ -305,6 +316,7 @@ second_memory.save
         sue_image.user = sue
         sue_image.memory = first_memory
         sue_image.timestamp = DateTime.new(2018, 5, 5)
+        sue_image.caption = "The Douglass and Sarli girls (and Cathy)"
         sue_image.save
 
         adam_recollection = Recollection.create()
@@ -318,6 +330,7 @@ second_memory.save
         adam_image.user = danielle
         adam_image.memory = first_memory
         adam_image.timestamp = DateTime.new(2018, 5, 5)
+        adam_image.caption = "Wish I knew what I was saying to make you smile like that..."
         adam_image.save
 
         tracy_recollection = Recollection.create()
@@ -331,6 +344,7 @@ second_memory.save
         tracy_image.user = tracy
         tracy_image.memory = first_memory
         tracy_image.timestamp = DateTime.new(2018, 5, 5)
+        tracy_image.caption = "Guy candid"
         tracy_image.save
 
         guy_recollection = Recollection.create()
@@ -344,6 +358,7 @@ second_memory.save
         guy_image.user = danielle
         guy_image.memory = first_memory
         guy_image.timestamp = DateTime.new(2018, 5, 5)
+        guy_image.caption = "So fast we're blurry"
         guy_image.save
 
         danielle_recollection = Recollection.create()
@@ -357,4 +372,5 @@ second_memory.save
         danielle_image.user = danielle
         danielle_image.memory = first_memory
         danielle_image.timestamp = DateTime.new(2018, 5, 5)
+        danielle_image.caption = "Sisters!"
         danielle_image.save

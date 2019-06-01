@@ -64,6 +64,7 @@
                 <a href="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=image.id%>">
                   <img src="/<%= image.file_path %>" />
                 </a><br>
+                <p style="display: inline"><%=image.caption%></p><br>
                 <h6 style="display: inline">photo by <%=image.user.name%>
                   <% if image.user == @user %>
                     <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=memory.id%>/images/<%=image.id%>">

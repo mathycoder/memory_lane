@@ -1,4 +1,7 @@
 /*font-family: 'Playfair Display', serif;*/
+.memoryimages p {
+  font-size: 12px; 
+}
 
 .memtitlecontainer {
   display: grid;
