@@ -15,29 +15,17 @@ class RecollectionsController < ApplicationController
       redirect "/memories/#{params[:memory_id]}/recollections/new"
     end
 
+    create_instance_variables(params)
     #jennifer's addition... wouldn't work because it goes through more than one association
     #recollection = current_user.recollections.build(params[:recollection])
 
-    #another jennifer idea.  Doesn't work because it makes anecdote empty instead of nil.
-    #recollection = Recollection.create(params[:recollection])
-
-    recollection = Recollection.create()
+    recollection = Recollection.create(params[:recollection])
     recollection.user = User.find(current_user.id)
-
-    memory = Memory.find(params[:memory_id])
-    recollection.memory = memory
-
-    #get rid of these once the create strategy works by changing nils to empties
-    recollection.anecdote = params[:recollection][:anecdote] if !params[:recollection][:anecdote].empty?
-    recollection.joke = params[:recollection][:joke] if !params[:recollection][:joke].empty?
-    recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
-
-
+    recollection.memory = @memory
     recollection.timestamp = DateTime.now
     recollection.save
-
     flash[:alert] = "Recollection successfully added to Memory"
-    redirect "/lanes/#{memory.lane.id}"
+    redirect "/lanes/#{@memory.lane.id}"
   end
 
   get '/memories/:memory_id/recollections/:recollection_id/edit' do

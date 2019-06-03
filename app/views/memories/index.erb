@@ -69,15 +69,15 @@
 
                   <br>
 
-                  <% if !recollection.anecdote.nil? %>
+                  <% if !recollection.anecdote.empty? %>
                     <%= recollection.anecdote %><br>
                   <% end %>
 
-                  <% if !recollection.quote.nil? %>
+                  <% if !recollection.quote.empty? %>
                     <br><b>Quote: </b><%=recollection.quote%><br>
                   <% end %>
 
-                  <% if !recollection.joke.nil? %>
+                  <% if !recollection.joke.empty? %>
                     <br><b>Joke: </b><%= recollection.joke %><br>
                   <% end %>
 
@@ -139,16 +139,16 @@
             <br>
 
             <div class="anecdote">
-              <% if !recollection.anecdote.nil? %>
+              <% if !recollection.anecdote.empty? %>
                 <%= recollection.anecdote %><br>
               <% end %>
             </div>
 
-            <% if !recollection.quote.nil? %>
+            <% if !recollection.quote.empty? %>
               <br><b>Quote: </b><%=recollection.quote%><br>
             <% end %>
 
-            <% if !recollection.joke.nil? %>
+            <% if !recollection.joke.empty? %>
               <br><b>Joke: </b><%= recollection.joke %><br>
             <% end %>
 
