@@ -39,7 +39,14 @@ class ApplicationController < Sinatra::Base
 
     def users_memory?
       if !current_user.memories.include?(@memory)
-        flash[:alert] = "You can't add a photo to this memory"
+        flash[:alert] = "You don't have permission to add or delete photos to this memory"
+        redirect "/users/#{current_user.id}/memories"
+      end
+    end
+
+    def user_created_memory_check
+      if current_user != @memory.creator
+        flash[:alert] = "You don't have permission to edit or delete this memory"
         redirect "/users/#{current_user.id}/memories"
       end
     end
