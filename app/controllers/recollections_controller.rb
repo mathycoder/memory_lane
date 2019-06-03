@@ -16,11 +16,13 @@ class RecollectionsController < ApplicationController
     end
 
     create_instance_variables(params)
+    users_memory?()
+    
     #jennifer's addition... wouldn't work because it goes through more than one association
     #recollection = current_user.recollections.build(params[:recollection])
 
     recollection = Recollection.create(params[:recollection])
-    recollection.user = User.find(current_user.id)
+    recollection.user = current_user
     recollection.memory = @memory
     recollection.timestamp = DateTime.now
     recollection.save
@@ -53,7 +55,6 @@ class RecollectionsController < ApplicationController
   delete '/memories/:memory_id/recollections/:recollection_id' do
     create_instance_variables(params)
     users_recollection?()
-
     @recollection.delete
     flash[:alert] = "Recollection successfully deleted"
     redirect "/lanes/#{@memory.lane.id}"
