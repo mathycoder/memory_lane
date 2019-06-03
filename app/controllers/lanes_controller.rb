@@ -4,19 +4,16 @@ class LanesController < ApplicationController
 
   get '/lanes' do
     redirect '/noaccess' if !ids_exist?(params)
-    create_instance_variables(params)
     verify_the_user("lanes/index")
   end
 
   get '/lanes/new' do
     redirect '/noaccess' if !ids_exist?(params)
-    create_instance_variables(params)
     @users = User.alphabetize
     verify_the_user("lanes/new")
   end
 
   post '/lanes' do
-    create_instance_variables(params)
     user_permission?()
     if !params.include?(:users)
       flash[:alert] = "Please include at least one other user"
@@ -47,7 +44,6 @@ class LanesController < ApplicationController
 
   post '/lanes/jumpto' do
     create_instance_variables(params)
-    user_permission?()
 
     if params[:lane] == "new_lane"
       redirect "/lanes/new"

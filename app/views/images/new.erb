@@ -8,7 +8,7 @@
   <form enctype="multipart/form-data" method="POST" action="/memories/<%=@memory.id%>/images">
     <h3>Add An Image</h3>
     <input type="file" name="file" required><br><br>
-    <textarea maxlength="90" type='text' rows="2" name="caption" placeholder="Add a Caption"></textarea>
+    <textarea maxlength="90" type='text' rows="2" name="image[caption]" placeholder="Add a Caption"></textarea>
     <input type="submit" name="Add Image">
   </form>
 

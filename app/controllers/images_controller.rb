@@ -19,13 +19,11 @@ class ImagesController < ApplicationController
   post '/memories/:memory_id/images' do
     create_instance_variables(params)
     users_memory?()
-
-    image = Image.create()
+    image = Image.create(params[:image])
     image.user = current_user
     image.memory = @memory
     image.file_path = params[:file][:filename]
     image.timestamp = DateTime.now
-    image.caption = params[:caption] if params.include?(:caption)
     image.save
     file = params[:file][:tempfile]
     File.open("./public/#{image.file_path}", 'wb') do |f|
