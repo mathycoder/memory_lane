@@ -17,10 +17,8 @@ class UsersController < ApplicationController
 
   patch '/users/:user_id' do
     create_instance_variables(params)
-    if @user != current_user
-      flash[:alert] = "You don't have permission to edit this user's information"
-      redirect "/users/#{current_user.id}"
-    end
+    user_permission?()
+    
     File.delete("./public/#{@user.profile_pic_file_path}")
     @user.profile_pic_file_path = params[:profile_pic][:filename]
     @user.save
@@ -39,7 +37,9 @@ class UsersController < ApplicationController
   end
 
   delete '/users/:user_id' do
-    user = User.find(params[:user_id])
+    create_instance_variables(params)
+    user_permission?()
+
     user.email = ""
     user.save
     redirect '/logout'
