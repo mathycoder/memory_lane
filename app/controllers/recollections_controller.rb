@@ -38,23 +38,16 @@ class RecollectionsController < ApplicationController
   patch '/memories/:memory_id/recollections/:recollection_id' do
     create_instance_variables(params)
     users_recollection?()
-
     if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
-      @recollection.delete
+      flash[:alert] = "You tried to save a blank recollection"
+      redirect "/memories/#{@memory.id}/recollections/#{@recollection.id}/edit"
     else
-      @recollection.anecdote = params[:recollection][:anecdote]
-      @recollection.anecdote = nil if @recollection.anecdote.empty?
-      @recollection.joke = params[:recollection][:joke]
-      @recollection.joke = nil if @recollection.joke.empty?
-      @recollection.quote = params[:recollection][:quote]
-      @recollection.quote = nil if @recollection.quote.empty?
+      @recollection.update(params[:recollection])
       @recollection.timestamp = DateTime.now
       @recollection.save
+      flash[:alert] = "Recollection edited"
+      redirect "/lanes/#{@memory.lane.id}"
     end
-
-    memory = Memory.find(params[:memory_id])
-    flash[:alert] = "Recollection edited"
-    redirect "/lanes/#{memory.lane.id}"
   end
 
   delete '/memories/:memory_id/recollections/:recollection_id' do
