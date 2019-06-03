@@ -13,14 +13,19 @@ class RecollectionsController < ApplicationController
     if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
       flash[:alert] = "This recollection is blank.  Try entering some information before submitting."
       redirect "/users/#{params[:user_id]}/memories/#{params[:memory_id]}/recollections/new"
-    end 
-    recollection = Recollection.create
-    recollection.user = User.find(params[:user_id])
+    end
+    binding.pry
+
+    recollection = current_user.recollections.build(params[:recollection])
+
+    # recollection = Recollection.create(params[:recollection])
+    # recollection.user = User.find(params[:user_id])
+
     memory = Memory.find(params[:memory_id])
     recollection.memory = memory
-    recollection.anecdote = params[:recollection][:anecdote] if !params[:recollection][:anecdote].empty?
-    recollection.joke = params[:recollection][:joke] if !params[:recollection][:joke].empty?
-    recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
+    # recollection.anecdote = params[:recollection][:anecdote] if !params[:recollection][:anecdote].empty?
+    # recollection.joke = params[:recollection][:joke] if !params[:recollection][:joke].empty?
+    # recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
     recollection.timestamp = DateTime.now
     recollection.save
 
@@ -36,18 +41,24 @@ class RecollectionsController < ApplicationController
   end
 
   patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
-    recollection = Recollection.find(params[:recollection_id])
+    create_instance_variables(params)
+    
+    if @recollection.user != current_user
+      flash[:alert] = "You don't have permission to edit that recollection"
+      redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
+    end
+
     if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
-      recollection.delete
+      @recollection.delete
     else
-      recollection.anecdote = params[:recollection][:anecdote]
-      recollection.anecdote = nil if recollection.anecdote.empty?
-      recollection.joke = params[:recollection][:joke]
-      recollection.joke = nil if recollection.joke.empty?
-      recollection.quote = params[:recollection][:quote]
-      recollection.quote = nil if recollection.quote.empty?
-      recollection.timestamp = DateTime.now
-      recollection.save
+      @recollection.anecdote = params[:recollection][:anecdote]
+      @recollection.anecdote = nil if @recollection.anecdote.empty?
+      @recollection.joke = params[:recollection][:joke]
+      @recollection.joke = nil if @recollection.joke.empty?
+      @recollection.quote = params[:recollection][:quote]
+      @recollection.quote = nil if @recollection.quote.empty?
+      @recollection.timestamp = DateTime.now
+      @recollection.save
     end
 
     memory = Memory.find(params[:memory_id])
