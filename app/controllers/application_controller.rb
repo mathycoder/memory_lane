@@ -59,10 +59,10 @@ class ApplicationController < Sinatra::Base
     end
 
     def user_permission?
-      # if @user != current_user
-      #   flash[:alert] = "You don't have permission to perform this action"
-      #   redirect "/users/#{current_user.id}/memories"
-      # end
+      if @user != current_user
+        flash[:alert] = "You don't have permission to perform this action"
+        redirect "/memories"
+      end
     end
 
     def new_user?
@@ -144,11 +144,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def verify_the_user(view_to_render)
-      if logged_in?
-        erb :"#{view_to_render}"
-      else
-        redirect '/login'
-      end
+      logged_in?? (erb :"#{view_to_render}") : (redirect '/login')
     end
 
     def created_memory?
