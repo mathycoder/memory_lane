@@ -78,11 +78,11 @@ class UsersController < ApplicationController
     end
     user.save
     session[:user_id] = user.id
-    redirect "/users/#{user.id}/lanes"
+    redirect "/lanes"
   end
 
   get '/login' do
-    redirect "/users/#{session[:user_id]}" if logged_in?
+    redirect "/memories" if logged_in?
     erb :'users/login'
   end
 
@@ -99,7 +99,7 @@ class UsersController < ApplicationController
     end
 
     session[:user_id] = user.id
-    redirect "/users/#{user.id}/memories"
+    redirect "/memories"
   end
 
   get '/logout' do

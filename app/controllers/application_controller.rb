@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     if logged_in?
-      redirect "/users/#{current_user.id}"
+      redirect "/memories"
     else
       redirect "/login"
     end
@@ -33,28 +33,28 @@ class ApplicationController < Sinatra::Base
     def users_image?
       if current_user != @image.user
         flash[:alert] = "You don't have permission to delete this photo"
-        redirect "/users/#{current_user.id}/memories"
+        redirect "/memories"
       end
     end
 
     def users_memory?
       if !current_user.memories.include?(@memory)
         flash[:alert] = "You don't have permission to add or delete photos to this memory"
-        redirect "/users/#{current_user.id}/memories"
+        redirect "/memories"
       end
     end
 
     def user_created_memory_check
       if current_user != @memory.creator
         flash[:alert] = "You don't have permission to edit or delete this memory"
-        redirect "/users/#{current_user.id}/memories"
+        redirect "/memories"
       end
     end
 
     def users_recollection?
       if @recollection.user != current_user
         flash[:alert] = "You don't have permission to edit or delete that recollection"
-        redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
+        redirect "/lanes/#{@memory.lane.id}"
       end
     end
 
@@ -66,7 +66,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def new_user?
-      redirect "/users/#{current_user.id}/lanes" if current_user.lanes.empty?
+      redirect "/lanes" if current_user.lanes.empty?
     end
 
     def all_quotes
