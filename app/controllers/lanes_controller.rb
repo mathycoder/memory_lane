@@ -20,22 +20,22 @@ class LanesController < ApplicationController
     user_permission?()
     if !params.include?(:users)
       flash[:alert] = "Please include at least one other user"
-      redirect "/users/#{@user.id}/lanes/new"
+      redirect "/users/#{current_user.id}/lanes/new"
     end
     users = params[:users].map {|user_id| User.find(user_id)}
-    users << @user
+    users << current_user
 
-    if @user.lanes.none?{|lane| lane.users.sort == users.sort}
+    if current_user.lanes.none?{|lane| lane.users.sort == users.sort}
       lane = Lane.create()
       lane.users << users
       lane.save
       flash[:alert] = "Lane successfully created"
     else
-      lane = @user.lanes.find{|lane| lane.users.sort == users.sort}
+      lane = current_user.lanes.find{|lane| lane.users.sort == users.sort}
       flash[:alert] = "That lane already exists"
     end
 
-    redirect "/users/#{@user.id}/lanes/#{lane.id}"
+    redirect "/users/#{current_user.id}/lanes/#{lane.id}"
   end
 
 
@@ -50,12 +50,12 @@ class LanesController < ApplicationController
     user_permission?()
 
     if params[:lane] == "new_lane"
-      redirect "/users/#{@user.id}/lanes/new"
+      redirect "/users/#{current_user.id}/lanes/new"
     elsif params[:lane] == "Your Lanes"
-      redirect "/users/#{@user.id}/lanes"
+      redirect "/users/#{current_user.id}/lanes"
     else
       lane = Lane.find(params[:lane])
-      redirect "/users/#{@user.id}/lanes/#{lane.id}"
+      redirect "/users/#{current_user.id}/lanes/#{lane.id}"
     end
   end
 

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   patch '/users/:user_id' do
     create_instance_variables(params)
     user_permission?()
-    
+
     File.delete("./public/#{@user.profile_pic_file_path}")
     @user.profile_pic_file_path = params[:profile_pic][:filename]
     @user.save
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
         f.write(file.read)
       end
     else
-      user.profile_pic_file_path = "faux_profile_pic.PNG"
+      user.profile_pic_file_path = "silhouette.PNG"
     end
     user.save
     session[:user_id] = user.id

@@ -15,7 +15,7 @@ class MemoriesController < ApplicationController
 
   get '/users/:user_id/memories/new' do
     redirect '/noaccess' if !ids_exist?(params)
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
     verify_the_user("memories/new")
   end
 

@@ -59,19 +59,19 @@ class ApplicationController < Sinatra::Base
     end
 
     def user_permission?
-      if @user != current_user
-        flash[:alert] = "You don't have permission to perform this action"
-        redirect "/users/#{current_user.id}/memories"
-      end
+      # if @user != current_user
+      #   flash[:alert] = "You don't have permission to perform this action"
+      #   redirect "/users/#{current_user.id}/memories"
+      # end
     end
 
     def new_user?
-      redirect "/users/#{@user.id}/lanes" if @user.lanes.empty?
+      redirect "/users/#{current_user.id}/lanes" if current_user.lanes.empty?
     end
 
     def all_quotes
       quotes = []
-      @user.lanes.each do |lane|
+      current_user.lanes.each do |lane|
         lane.recollections.each do |recollection|
           quotes << recollection.quote if !recollection.quote.nil?
         end
@@ -90,7 +90,7 @@ class ApplicationController < Sinatra::Base
 
     def all_images_sorted
       images = []
-      @user.memories.each do |memory|
+      current_user.memories.each do |memory|
         memory.images.each do |image|
           images << image
         end
@@ -105,7 +105,7 @@ class ApplicationController < Sinatra::Base
 
     def all_of_a_users_memories
       memories = []
-      @user.lanes.each do |lane|
+      current_user.lanes.each do |lane|
         lane.memories.each do |memory|
           memories << memory
         end
@@ -130,7 +130,7 @@ class ApplicationController < Sinatra::Base
 
     def recent_recollections
       recollections = []
-      @user.lanes.each do |lane|
+      current_user.lanes.each do |lane|
         lane.recollections.each do |recollection|
           recollections << recollection
         end
@@ -144,25 +144,23 @@ class ApplicationController < Sinatra::Base
     end
 
     def verify_the_user(view_to_render)
-      if logged_in? && current_user == @user
+      if logged_in?
         erb :"#{view_to_render}"
-      elsif logged_in? && current_user != @user
-        erb :'users/noaccess'
       else
         redirect '/login'
       end
     end
 
     def created_memory?
-      @memory.creator == @user
+      @memory.creator == current_user
     end
 
     def part_of_memory?
-      @memory.lane.users.include?(@user)
+      @memory.lane.users.include?(current_user)
     end
 
     def my_recollection?
-      @recollection.user == @user
+      @recollection.user == current_user
     end
 
     def ids_exist?(params)
