@@ -16,17 +16,20 @@ class UsersController < ApplicationController
   end
 
   patch '/users/:user_id' do
-    user = User.find(params[:user_id])
-
-    File.delete("./public/#{user.profile_pic_file_path}")
-    user.profile_pic_file_path = params[:profile_pic][:filename]
-    user.save
+    create_instance_variables(params)
+    if @user != current_user
+      flash[:alert] = "You don't have permission to edit this user's information"
+      redirect "/users/#{current_user.id}"
+    end
+    File.delete("./public/#{@user.profile_pic_file_path}")
+    @user.profile_pic_file_path = params[:profile_pic][:filename]
+    @user.save
     file = params[:profile_pic][:tempfile]
     File.open("./public/#{user.profile_pic_file_path}", 'wb') do |f|
       f.write(file.read)
     end
     flash[:alert] = "Profile image changed"
-    redirect "/users/#{user.id}"
+    redirect "/users/#{@user.id}"
   end
 
   get '/users/:user_id/delete' do
