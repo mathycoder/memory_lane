@@ -1,6 +1,6 @@
 <div class="myforms newmemory">
   <h1>Create a New Memory</h1>
-  <form method="POST" action="/users/<%=@user.id%>/memories">
+  <form method="POST" action="/users/<%=current_user.id%>/memories">
 
     <p>
       <input type="text" name="memory[title]" placeholder="Title" required/><br>
@@ -10,11 +10,11 @@
 
     <p>Select a lane:
       <select name="memory[lane_id]">
-        <% @user.lanes.each do |lane| %>
+        <% current_user.lanes.each do |lane| %>
           <option value=<%=lane.id%>>with
 
             <% lane.users.each do |user| %>
-              <%= user.name if user != @user %>
+              <%= user.name if user != current_user %>
             <% end %>
 
           </option>

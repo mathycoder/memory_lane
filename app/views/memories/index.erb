@@ -1,7 +1,7 @@
 <div class="memoryindextitlecontainer">
   <div class="memoryindextitle">
       <h1>Your Memories</h1>
-      <form action="/users/<%=@user.id%>/memories/new" method="GET">
+      <form action="/users/<%=current_user.id%>/memories/new" method="GET">
         <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
       </form>
   </div>
@@ -15,8 +15,8 @@
 <div class="memoryindexcontainer">
   <div class="memoryindexbody">
     <div class="memorydisplay">
-      <% @user.memories.sorted_by_newest.each do |memory| %>
-        <a href="/users/<%=@user.id%>/lanes/<%=memory.lane.id%>"><div class="memoryelement">
+      <% current_user.memories.sorted_by_newest.each do |memory| %>
+        <a href="/users/<%=current_user.id%>/lanes/<%=memory.lane.id%>"><div class="memoryelement">
 
           <div class="memoryheader">
             <div class="memorytitle">
@@ -99,7 +99,7 @@
       </div>
       <div class="flexcontainer">
         <% @recent_images.each do |image| %>
-          <a href="/users/<%=@user.id%>/images/<%=image.id%>">
+          <a href="/users/<%=current_user.id%>/images/<%=image.id%>">
             <img height="100px" width="150px" src="/<%= image.file_path %>">
           </a>
         <% end %>
@@ -113,7 +113,7 @@
       <div>
         <ul>
           <% @recent_memories.each do |memory| %>
-            <li><a href="/users/<%=@user.id%>/lanes/<%=memory.lane.id%>">
+            <li><a href="/users/<%=current_user.id%>/lanes/<%=memory.lane.id%>">
               <%=memory.title%>--<%=memory.display_date%>
             </a></li>
           <% end %>
@@ -127,7 +127,7 @@
       </div>
       <div class="memoryrecollections">
         <% @recent_recollections.each do |recollection| %>
-          <a href="/users/<%=@user.id%>/lanes/<%=recollection.memory.lane.id%>"><div class="recollection">
+          <a href="/users/<%=current_user.id%>/lanes/<%=recollection.memory.lane.id%>"><div class="recollection">
             <% if !recollection.user.profile_pic_file_path.nil?%>
               <img width="40" height="46" src="/<%= recollection.user.profile_pic_file_path %>" />
             <% end %>
