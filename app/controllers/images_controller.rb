@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
     users_memory?()
 
     image = Image.create()
-    image.user = User.find(params[:user_id])
+    image.user = current_user
     image.memory = @memory
     image.file_path = params[:file][:filename]
     image.timestamp = DateTime.now
@@ -32,7 +32,7 @@ class ImagesController < ApplicationController
       f.write(file.read)
     end
     flash[:alert] = "Photo successfully added to Memory"
-    redirect "/users/#{params[:user_id]}/lanes/#{@memory.lane.id}"
+    redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do

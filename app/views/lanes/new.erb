@@ -8,7 +8,6 @@
     <h3 style="text-align: left">Select users to invite to your lane:</h3>
     <div id="dropdownusers">
       <% @users.each do |user| %>
-        <% binding.pry %>
         <% if user != current_user %>
           <div class="selectingusers">
             <img width="40" height="50" src="/<%= user.profile_pic_file_path %>">

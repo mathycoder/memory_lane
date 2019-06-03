@@ -12,25 +12,32 @@ class RecollectionsController < ApplicationController
   post '/users/:user_id/memories/:memory_id/recollections' do
     if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
       flash[:alert] = "This recollection is blank.  Try entering some information before submitting."
-      redirect "/users/#{params[:user_id]}/memories/#{params[:memory_id]}/recollections/new"
+      redirect "/users/#{current_user.id}/memories/#{params[:memory_id]}/recollections/new"
     end
-    binding.pry
 
-    recollection = current_user.recollections.build(params[:recollection])
+    #jennifer's addition... wouldn't work because it goes through more than one association
+    #recollection = current_user.recollections.build(params[:recollection])
 
-    # recollection = Recollection.create(params[:recollection])
-    # recollection.user = User.find(params[:user_id])
+    #another jennifer idea.  Doesn't work because it makes anecdote empty instead of nil.
+    #recollection = Recollection.create(params[:recollection])
+
+    recollection = Recollection.create()
+    recollection.user = User.find(current_user.id)
 
     memory = Memory.find(params[:memory_id])
     recollection.memory = memory
-    # recollection.anecdote = params[:recollection][:anecdote] if !params[:recollection][:anecdote].empty?
-    # recollection.joke = params[:recollection][:joke] if !params[:recollection][:joke].empty?
-    # recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
+
+    #get rid of these once the create strategy works by changing nils to empties
+    recollection.anecdote = params[:recollection][:anecdote] if !params[:recollection][:anecdote].empty?
+    recollection.joke = params[:recollection][:joke] if !params[:recollection][:joke].empty?
+    recollection.quote = params[:recollection][:quote] if !params[:recollection][:quote].empty?
+
+
     recollection.timestamp = DateTime.now
     recollection.save
 
     flash[:alert] = "Recollection successfully added to Memory"
-    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+    redirect "/users/#{current_user.id}/lanes/#{memory.lane.id}"
   end
 
   get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
@@ -59,15 +66,15 @@ class RecollectionsController < ApplicationController
 
     memory = Memory.find(params[:memory_id])
     flash[:alert] = "Recollection edited"
-    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+    redirect "/users/#{current_user.id}/lanes/#{memory.lane.id}"
   end
 
   delete '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
     create_instance_variables(params)
     users_recollection?()
-    
+
     @recollection.delete
     flash[:alert] = "Recollection successfully deleted"
-    redirect "/users/#{params[:user_id]}/lanes/#{@memory.lane.id}"
+    redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
   end
 end

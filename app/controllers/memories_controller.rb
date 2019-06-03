@@ -24,7 +24,7 @@ class MemoriesController < ApplicationController
     memory = Memory.create(title: params[:memory][:title], location: params[:memory][:location], lane_id: params[:memory][:lane_id])
     date = params[:memory][:date].split("-")
     memory.date = DateTime.new(date[2].to_i,date[0].to_i,date[1].to_i)
-    memory.creator_user_id = params[:user_id]
+    memory.creator_user_id = current_user.id
     memory.timestamp = DateTime.now
     memory.save
 

@@ -1,7 +1,7 @@
 
 <div class="myforms newmemory">
 
-  <form method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/recollections">
+  <form method="POST" action="/users/<%=current_user.id%>/memories/<%=@memory.id%>/recollections">
 
     <p>
       Title: <%= @memory.title %><br>

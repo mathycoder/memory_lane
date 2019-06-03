@@ -19,15 +19,15 @@ class UsersController < ApplicationController
     create_instance_variables(params)
     user_permission?()
 
-    File.delete("./public/#{@user.profile_pic_file_path}")
-    @user.profile_pic_file_path = params[:profile_pic][:filename]
-    @user.save
+    File.delete("./public/#{current_user.profile_pic_file_path}")
+    current_user.profile_pic_file_path = params[:profile_pic][:filename]
+    current_user.save
     file = params[:profile_pic][:tempfile]
     File.open("./public/#{user.profile_pic_file_path}", 'wb') do |f|
       f.write(file.read)
     end
     flash[:alert] = "Profile image changed"
-    redirect "/users/#{@user.id}"
+    redirect "/users/#{current_user.id}"
   end
 
   get '/users/:user_id/delete' do
