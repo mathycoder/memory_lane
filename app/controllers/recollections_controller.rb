@@ -42,11 +42,7 @@ class RecollectionsController < ApplicationController
 
   patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
     create_instance_variables(params)
-    
-    if @recollection.user != current_user
-      flash[:alert] = "You don't have permission to edit that recollection"
-      redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
-    end
+    users_recollection?()
 
     if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
       @recollection.delete
@@ -67,10 +63,11 @@ class RecollectionsController < ApplicationController
   end
 
   delete '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
-    recollection = Recollection.find(params[:recollection_id])
-    memory = Memory.find(params[:memory_id])
-    recollection.delete
+    create_instance_variables(params)
+    users_recollection?()
+    
+    @recollection.delete
     flash[:alert] = "Recollection successfully deleted"
-    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+    redirect "/users/#{params[:user_id]}/lanes/#{@memory.lane.id}"
   end
 end

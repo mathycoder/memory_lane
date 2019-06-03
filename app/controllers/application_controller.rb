@@ -30,6 +30,13 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def users_recollection?
+      if @recollection.user != current_user
+        flash[:alert] = "You don't have permission to edit or delete that recollection"
+        redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
+      end
+    end
+
     def new_user?
       redirect "/users/#{@user.id}/lanes" if @user.lanes.empty?
     end
