@@ -17,7 +17,7 @@ class RecollectionsController < ApplicationController
 
     create_instance_variables(params)
     users_memory?()
-    
+
     #jennifer's addition... wouldn't work because it goes through more than one association
     #recollection = current_user.recollections.build(params[:recollection])
 

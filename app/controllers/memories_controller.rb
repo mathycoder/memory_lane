@@ -4,7 +4,6 @@ class MemoriesController < ApplicationController
 
   get '/memories' do
     redirect '/noaccess' if !ids_exist?(params)
-    create_instance_variables(params)
     new_user?()
     @recent_images = recent_images()
     @recent_recollections = recent_recollections()
@@ -19,8 +18,6 @@ class MemoriesController < ApplicationController
   end
 
   post '/memories' do
-    create_instance_variables(params)
-    user_permission?()
     memory = Memory.create(title: params[:memory][:title], location: params[:memory][:location], lane_id: params[:memory][:lane_id])
     date = params[:memory][:date].split("-")
     memory.date = DateTime.new(date[2].to_i,date[0].to_i,date[1].to_i)
