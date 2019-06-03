@@ -2,7 +2,7 @@
 <div class="myforms newmemory">
   <h1>Edit your Memory!</h1>
 
-  <form style="display: inline" method="POST" action="/users/<%=current_user.id%>/memories/<%=@memory.id%>">
+  <form style="display: inline" method="POST" action="/memories/<%=@memory.id%>">
 
     <input method="hidden" type="hidden" name="_method" value="PATCH"/>
 
@@ -17,7 +17,7 @@
 
   </form>
 
-  <form style="display: inline" method="POST" action="/users/<%=current_user.id%>/memories/<%=@memory.id%>">
+  <form style="display: inline" method="POST" action="/memories/<%=@memory.id%>">
     <input method="hidden" type="hidden" name="_method" value="DELETE"/>
     <input type="submit" value="Delete"/>
   </form>

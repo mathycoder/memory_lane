@@ -2,20 +2,20 @@ require_relative "./application_controller.rb"
 
 class LanesController < ApplicationController
 
-  get '/users/:user_id/lanes' do
+  get '/lanes' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     verify_the_user("lanes/index")
   end
 
-  get '/users/:user_id/lanes/new' do
+  get '/lanes/new' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     @users = User.alphabetize
     verify_the_user("lanes/new")
   end
 
-  post '/users/:user_id/lanes' do
+  post '/lanes' do
     create_instance_variables(params)
     user_permission?()
     if !params.include?(:users)
@@ -35,27 +35,27 @@ class LanesController < ApplicationController
       flash[:alert] = "That lane already exists"
     end
 
-    redirect "/users/#{current_user.id}/lanes/#{lane.id}"
+    redirect "/lanes/#{lane.id}"
   end
 
 
-  get '/users/:user_id/lanes/:lane_id' do
+  get '/lanes/:lane_id' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     verify_the_user("lanes/show")
   end
 
-  post '/users/:user_id/lanes/jumpto' do
+  post '/lanes/jumpto' do
     create_instance_variables(params)
     user_permission?()
 
     if params[:lane] == "new_lane"
-      redirect "/users/#{current_user.id}/lanes/new"
+      redirect "/lanes/new"
     elsif params[:lane] == "Your Lanes"
-      redirect "/users/#{current_user.id}/lanes"
+      redirect "/lanes"
     else
       lane = Lane.find(params[:lane])
-      redirect "/users/#{current_user.id}/lanes/#{lane.id}"
+      redirect "/lanes/#{lane.id}"
     end
   end
 

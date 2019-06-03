@@ -5,14 +5,14 @@
   Date: <%= @memory.display_date %><br>
   </p>
 
-  <form enctype="multipart/form-data" method="POST" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images">
+  <form enctype="multipart/form-data" method="POST" action="/memories/<%=@memory.id%>/images">
     <h3>Add An Image</h3>
     <input type="file" name="file" required><br><br>
     <textarea maxlength="90" type='text' rows="2" name="caption" placeholder="Add a Caption"></textarea>
     <input type="submit" name="Add Image">
   </form>
 
-  <form method="GET" action="/users/<%=@user.id%>/lanes/<%=@memory.lane.id%>">
+  <form method="GET" action="/lanes/<%=@memory.lane.id%>">
     <input type="submit" value="Cancel"/>
   </form>
 </div>

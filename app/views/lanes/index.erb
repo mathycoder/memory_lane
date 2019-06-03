@@ -1,6 +1,6 @@
 <div class="yourlanes lanetitle">
   <h1>Your lanes
-    <form action="/users/<%=current_user.id%>/lanes/new" method="GET">
+    <form action="/lanes/new" method="GET">
       <div id="button"><input class ="keybuttons" type='submit' value="Create New Lane"/></div>
     </form>
   </h1>
@@ -9,7 +9,7 @@
 <div class="memoryelement yourlanes">
   <% if !current_user.lanes.empty? %>
     <% current_user.lanes.each do |lane| %>
-      <a href = "/users/<%=current_user.id%>/lanes/<%=lane.id%>">
+      <a href = "/lanes/<%=lane.id%>">
         <h3>Your Lane with:
           <%=current_user.list(lane.users)%><br>
           <% lane.users.each do |user| %>

@@ -4,7 +4,7 @@
     <h1>
       <div id="big">Your Lane with</div><br>
       <div id="little"><%= current_user.list(@lane.users) %></div>
-      <form action="/users/<%=current_user.id%>/memories/new" method="GET">
+      <form action="/memories/new" method="GET">
         <div id="button"><input class ="keybuttons" type='submit' value="Create New Memory"/></div>
       </form>
     </h1>
@@ -33,7 +33,7 @@
           <h6 style="display: inline">
             Created by <%=memory.creator.name %>
             <% if memory.creator == current_user %>
-              <a href="/users/<%=current_user.id%>/memories/<%=memory.id%>/edit">Edit</a>
+              <a href="/memories/<%=memory.id%>/edit">Edit</a>
             <% end %>
           </h6>
         </div>
@@ -52,7 +52,7 @@
 
       <div class="memoryimagescontainer">
         <div id="addapicture">
-          <form method="GET" action="/users/<%=current_user.id%>/memories/<%=memory.id%>/images/new">
+          <form method="GET" action="/memories/<%=memory.id%>/images/new">
             <input type='submit' value='Add A Picture'>
           </form>
         </div>
@@ -61,13 +61,13 @@
           <% memory.images.each do |image| %>
             <% if !image.file_path.nil?%>
               <div>
-                <a href="/users/<%=current_user.id%>/memories/<%=memory.id%>/images/<%=image.id%>">
+                <a href="/memories/<%=memory.id%>/images/<%=image.id%>">
                   <img src="/<%= image.file_path %>" />
                 </a><br>
                 <p style="display: inline"><%=image.caption%></p><br>
                 <h6 style="display: inline">photo by <%=image.user.name%>
                   <% if image.user == current_user %>
-                    <form style="display: inline" method="POST" action="/users/<%=current_user.id%>/memories/<%=memory.id%>/images/<%=image.id%>">
+                    <form style="display: inline" method="POST" action="/memories/<%=memory.id%>/images/<%=image.id%>">
                       <input type="hidden" method="hidden" name="_method" value="DELETE">
                       <input type="submit" value="delete">
                     </form>
@@ -82,7 +82,7 @@
       <br><br>
 
       <div class="memoryrecollectionscontainer" id="inlane">
-        <form method="GET" action="/users/<%=current_user.id%>/memories/<%=memory.id%>/recollections/new">
+        <form method="GET" action="/memories/<%=memory.id%>/recollections/new">
           <input type='submit' value='Add A Recollection'>
         </form>
 
@@ -95,7 +95,7 @@
 
               <div id="recollectionby">Recollection by <%=recollection.user.name %>
                 <% if recollection.user == current_user %>
-                  <form style="display: inline" method="GET" action="/users/<%=current_user.id%>/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">
+                  <form style="display: inline" method="GET" action="/memories/<%=memory.id%>/recollections/<%=recollection.id%>/edit">
                     <input type='submit' value='Edit'>
                   </form>
                 <% end %>

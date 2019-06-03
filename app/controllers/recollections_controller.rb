@@ -2,17 +2,17 @@ require_relative "./application_controller.rb"
 
 class RecollectionsController < ApplicationController
 
-  get '/users/:user_id/memories/:memory_id/recollections/new' do
+  get '/memories/:memory_id/recollections/new' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     redirect '/noaccess' if !part_of_memory?
     verify_the_user("recollections/new")
   end
 
-  post '/users/:user_id/memories/:memory_id/recollections' do
+  post '/memories/:memory_id/recollections' do
     if params[:recollection][:anecdote].empty? && params[:recollection][:joke].empty? && params[:recollection][:quote].empty?
       flash[:alert] = "This recollection is blank.  Try entering some information before submitting."
-      redirect "/users/#{current_user.id}/memories/#{params[:memory_id]}/recollections/new"
+      redirect "/memories/#{params[:memory_id]}/recollections/new"
     end
 
     #jennifer's addition... wouldn't work because it goes through more than one association
@@ -37,17 +37,17 @@ class RecollectionsController < ApplicationController
     recollection.save
 
     flash[:alert] = "Recollection successfully added to Memory"
-    redirect "/users/#{current_user.id}/lanes/#{memory.lane.id}"
+    redirect "/lanes/#{memory.lane.id}"
   end
 
-  get '/users/:user_id/memories/:memory_id/recollections/:recollection_id/edit' do
+  get '/memories/:memory_id/recollections/:recollection_id/edit' do
     redirect '/noaccess' if !ids_exist?(params)
     create_instance_variables(params)
     redirect '/noaccess' if !my_recollection? || !part_of_memory?
     verify_the_user("recollections/edit")
   end
 
-  patch '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
+  patch '/memories/:memory_id/recollections/:recollection_id' do
     create_instance_variables(params)
     users_recollection?()
 
@@ -66,15 +66,15 @@ class RecollectionsController < ApplicationController
 
     memory = Memory.find(params[:memory_id])
     flash[:alert] = "Recollection edited"
-    redirect "/users/#{current_user.id}/lanes/#{memory.lane.id}"
+    redirect "/lanes/#{memory.lane.id}"
   end
 
-  delete '/users/:user_id/memories/:memory_id/recollections/:recollection_id' do
+  delete '/memories/:memory_id/recollections/:recollection_id' do
     create_instance_variables(params)
     users_recollection?()
 
     @recollection.delete
     flash[:alert] = "Recollection successfully deleted"
-    redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
+    redirect "/lanes/#{@memory.lane.id}"
   end
 end

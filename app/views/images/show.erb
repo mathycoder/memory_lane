@@ -1,19 +1,19 @@
 <div class="picnav"/>
 
 <div class="backtolane">
-  <form method="GET" action="/users/<%=@user.id%>/lanes/<%=@memory.lane.id%>">
+  <form method="GET" action="/lanes/<%=@memory.lane.id%>">
     <input type="submit" value="Back to Lane"/>
   </form>
 </div>
 
   <% if !@previous.nil?%>
-    <form method="GET" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images/<%=@previous.id%>">
+    <form method="GET" action="/memories/<%=@memory.id%>/images/<%=@previous.id%>">
       <input type="submit" value="Previous"/>
     </form>
   <% end %>
 
   <% if !@next.nil?%>
-    <form method="GET" action="/users/<%=@user.id%>/memories/<%=@memory.id%>/images/<%=@next.id%>">
+    <form method="GET" action="/memories/<%=@memory.id%>/images/<%=@next.id%>">
       <input type="submit" value="Next"/>
     </form>
   <% end %>
@@ -24,7 +24,7 @@
   <p style="display: inline"><%=@image.caption%></p><br>
   <h6 style="display: inline">photo by <%=@image.user.name%>
     <% if @image.user == @user %>
-      <form style="display: inline" method="POST" action="/users/<%=@user.id%>/memories/<%=@image.memory.id%>/images/<%=@image.id%>">
+      <form style="display: inline" method="POST" action="/memories/<%=@image.memory.id%>/images/<%=@image.id%>">
         <input type="hidden" method="hidden" name="_method" value="DELETE">
         <input type="submit" value="delete">
       </form>
