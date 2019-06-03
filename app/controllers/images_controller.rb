@@ -17,10 +17,12 @@ class ImagesController < ApplicationController
   end
 
   post '/users/:user_id/memories/:memory_id/images' do
+    create_instance_variables(params)
+    users_memory?()
+
     image = Image.create()
     image.user = User.find(params[:user_id])
-    memory = Memory.find(params[:memory_id])
-    image.memory = memory
+    image.memory = @memory
     image.file_path = params[:file][:filename]
     image.timestamp = DateTime.now
     image.caption = params[:caption] if params.include?(:caption)
@@ -30,7 +32,7 @@ class ImagesController < ApplicationController
       f.write(file.read)
     end
     flash[:alert] = "Photo successfully added to Memory"
-    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+    redirect "/users/#{params[:user_id]}/lanes/#{@memory.lane.id}"
   end
 
   get '/users/:user_id/memories/:memory_id/images/:image_id' do
@@ -42,12 +44,12 @@ class ImagesController < ApplicationController
   end
 
   delete '/users/:user_id/memories/:memory_id/images/:image_id' do
-    image = Image.find(params[:image_id])
-    memory = Memory.find(params[:memory_id])
-    File.delete("./public/#{image.file_path}")
-    image.delete
+    create_instance_variables(params)
+    users_image?()
+    File.delete("./public/#{@image.file_path}")
+    @image.delete
     flash[:alert] = "Photo deleted from Memory"
-    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+    redirect "/users/#{current_user.id}/lanes/#{@memory.lane.id}"
   end
 
 end

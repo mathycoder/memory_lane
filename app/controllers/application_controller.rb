@@ -30,6 +30,20 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def users_image?
+      if current_user != @image.user
+        flash[:alert] = "You don't have permission to delete this photo"
+        redirect "/users/#{current_user.id}/memories"
+      end
+    end
+
+    def users_memory?
+      if !current_user.memories.include?(@memory)
+        flash[:alert] = "You can't add a photo to this memory"
+        redirect "/users/#{current_user.id}/memories"
+      end
+    end
+
     def users_recollection?
       if @recollection.user != current_user
         flash[:alert] = "You don't have permission to edit or delete that recollection"
