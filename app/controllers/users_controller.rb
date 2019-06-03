@@ -48,6 +48,17 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
+    if params[:user][:name].empty?
+      flash[:alert] = "Please enter your name"
+      redirect '/signup'
+    elsif params[:user][:email].empty?
+      flash[:alert] = "Please enter an email address"
+      redirect '/signup'
+    elsif params[:user][:password].empty?
+      flash[:alert] = "Please enter a password"
+      redirect '/signup'
+    end
+
     if User.find_by(email: params[:user][:email])
       flash[:alert] = "There's already an account registered to that email address"
       redirect '/signup'
