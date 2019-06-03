@@ -20,6 +20,8 @@ class MemoriesController < ApplicationController
   end
 
   post '/users/:user_id/memories' do
+    create_instance_variables(params)
+    user_permission?()
     memory = Memory.create(title: params[:memory][:title], location: params[:memory][:location], lane_id: params[:memory][:lane_id])
     date = params[:memory][:date].split("-")
     memory.date = DateTime.new(date[2].to_i,date[0].to_i,date[1].to_i)
@@ -28,7 +30,7 @@ class MemoriesController < ApplicationController
     memory.save
 
     flash[:alert] = "New Memory successfully added"
-    redirect "/users/#{params[:user_id]}/lanes/#{memory.lane.id}"
+    redirect "/users/#{current_user.id}/lanes/#{memory.lane.id}"
   end
 
   get '/users/:user_id/memories/:memory_id/edit' do

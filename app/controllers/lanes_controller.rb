@@ -17,6 +17,7 @@ class LanesController < ApplicationController
 
   post '/users/:user_id/lanes' do
     create_instance_variables(params)
+    user_permission?()
     if !params.include?(:users)
       flash[:alert] = "Please include at least one other user"
       redirect "/users/#{@user.id}/lanes/new"
@@ -46,6 +47,7 @@ class LanesController < ApplicationController
 
   post '/users/:user_id/lanes/jumpto' do
     create_instance_variables(params)
+    user_permission?()
 
     if params[:lane] == "new_lane"
       redirect "/users/#{@user.id}/lanes/new"

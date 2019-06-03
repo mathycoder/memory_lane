@@ -53,8 +53,8 @@ class ApplicationController < Sinatra::Base
 
     def user_permission?
       if @user != current_user
-        flash[:alert] = "You don't have permission to edit or delete this user's account"
-        redirect "/users/#{current_user.id}"
+        flash[:alert] = "You don't have permission to perform this action"
+        redirect "/users/#{current_user.id}/memories"
       end
     end
 
