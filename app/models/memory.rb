@@ -63,8 +63,8 @@ class Memory < ActiveRecord::Base
   def quotes_and_jokes
     quote_array = []
     self.recollections.each do |recollection|
-      quote_array << recollection.quote if !recollection.quote.nil?
-      quote_array << recollection.joke if !recollection.joke.nil?
+      quote_array << recollection.quote if !recollection.quote.empty?
+      quote_array << recollection.joke if !recollection.joke.empty?
     end
     quote_array
   end

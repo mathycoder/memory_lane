@@ -73,7 +73,7 @@ class ApplicationController < Sinatra::Base
       quotes = []
       current_user.lanes.each do |lane|
         lane.recollections.each do |recollection|
-          quotes << recollection.quote if !recollection.quote.nil?
+          quotes << recollection.quote if !recollection.quote.empty?
         end
       end
       quotes
