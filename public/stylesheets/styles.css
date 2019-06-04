@@ -30,15 +30,32 @@
   font-size: 60px;
 }
 
+.yourlanes
+{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+
+}
+
 .yourlanes a
 {
+  column-span: 5;
   text-decoration: none;
   color: black;
+}
+
+.yourlanes #hide_lane
+{
+  column-span: 1;
+  text-align: center;
+  padding-top: 40px;
+
 }
 
 .yourlanes h3 {
   margin: 3px;
   padding: 10px;
+  width: 100%;
 }
 
 .yourlanes h3:hover {
