@@ -24,12 +24,26 @@ class User < ActiveRecord::Base
     self.all.sort_by{|user| user.name}
   end
 
-  def nonhidden_lanes
+  def unhidden_lanes
     lanes = []
     self.user_lanes.each do |user_lane|
       lanes << user_lane.lane if !user_lane.hidden
     end
     lanes
+  end
+
+  def unhidden_memories
+    memories = []
+    unhidden_lanes.each do |lane|
+      lane.memories.each do |memory|
+        memories << memory
+      end
+    end
+    memories 
+  end
+
+  def sorted_unhidden_memories
+    unhidden_memories.sort_by{|memory| memory.date}.reverse
   end
 
 end

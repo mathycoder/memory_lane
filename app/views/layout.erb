@@ -22,7 +22,7 @@
             <form method="POST" action="/lanes/jumpto">
               <select name="lane">
                 <option value="Your Lanes">Your Lanes</option>
-                <% current_user.lanes.each do |lane| %>
+                <% current_user.unhidden_lanes.each do |lane| %>
                   <option value="<%=lane.id%>"><%=lane.alphabetized_firstnames(current_user)%></option>
                 <% end %>
                 <option value="new_lane">Create New Lane</option>

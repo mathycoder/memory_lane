@@ -4,7 +4,7 @@ class LanesController < ApplicationController
 
   get '/lanes' do
     redirect '/noaccess' if !ids_exist?(params)
-    @lanes = current_user.nonhidden_lanes 
+    @lanes = current_user.unhidden_lanes 
     verify_the_user("lanes/index")
   end
 

@@ -5,6 +5,7 @@ class MemoriesController < ApplicationController
   get '/memories' do
     redirect '/noaccess' if !ids_exist?(params)
     new_user?()
+    @memories = current_user.sorted_unhidden_memories
     @recent_images = recent_images()
     @recent_recollections = recent_recollections()
     @all_quotes = all_quotes()

@@ -71,7 +71,7 @@ class ApplicationController < Sinatra::Base
 
     def all_quotes
       quotes = []
-      current_user.lanes.each do |lane|
+      current_user.unhidden_lanes.each do |lane|
         lane.recollections.each do |recollection|
           quotes << recollection.quote if !recollection.quote.empty?
         end
@@ -90,7 +90,7 @@ class ApplicationController < Sinatra::Base
 
     def all_images_sorted
       images = []
-      current_user.memories.each do |memory|
+      @memories.each do |memory|
         memory.images.each do |image|
           images << image
         end
@@ -105,7 +105,7 @@ class ApplicationController < Sinatra::Base
 
     def all_of_a_users_memories
       memories = []
-      current_user.lanes.each do |lane|
+      current_user.unhidden_lanes.each do |lane|
         lane.memories.each do |memory|
           memories << memory
         end
@@ -130,7 +130,7 @@ class ApplicationController < Sinatra::Base
 
     def recent_recollections
       recollections = []
-      current_user.lanes.each do |lane|
+      current_user.unhidden_lanes.each do |lane|
         lane.recollections.each do |recollection|
           recollections << recollection
         end

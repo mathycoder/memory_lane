@@ -15,7 +15,7 @@
 <div class="memoryindexcontainer">
   <div class="memoryindexbody">
     <div class="memorydisplay">
-      <% current_user.memories.sorted_by_newest.each do |memory| %>
+      <% @memories.each do |memory| %>
         <a href="/lanes/<%=memory.lane.id%>"><div class="memoryelement">
 
           <div class="memoryheader">
