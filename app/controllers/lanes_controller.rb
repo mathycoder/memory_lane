@@ -44,7 +44,6 @@ class LanesController < ApplicationController
 
   post '/lanes/jumpto' do
     create_instance_variables(params)
-
     if params[:lane] == "new_lane"
       redirect "/lanes/new"
     elsif params[:lane] == "Your Lanes"

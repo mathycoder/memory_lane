@@ -42,7 +42,6 @@ class UsersController < ApplicationController
   delete '/users/:user_id' do
     create_instance_variables(params)
     user_permission?()
-
     user.email = ""
     user.save
     redirect '/logout'

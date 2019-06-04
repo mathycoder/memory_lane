@@ -19,8 +19,7 @@ class ImagesController < ApplicationController
   post '/memories/:memory_id/images' do
     create_instance_variables(params)
     users_memory?()
-    image = Image.create(params[:image])
-    image.user = current_user
+    image = current_user.images.build(params[:image])
     image.memory = @memory
     image.file_path = params[:file][:filename]
     image.timestamp = DateTime.now
