@@ -14,15 +14,9 @@ class RecollectionsController < ApplicationController
       flash[:alert] = "This recollection is blank.  Try entering some information before submitting."
       redirect "/memories/#{params[:memory_id]}/recollections/new"
     end
-
     create_instance_variables(params)
     users_memory?()
-
-    #jennifer's addition... wouldn't work because it goes through more than one association
-    #recollection = current_user.recollections.build(params[:recollection])
-
-    recollection = Recollection.create(params[:recollection])
-    recollection.user = current_user
+    recollection = current_user.recollections.build(params[:recollection])
     recollection.memory = @memory
     recollection.timestamp = DateTime.now
     recollection.save
