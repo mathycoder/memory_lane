@@ -8,5 +8,6 @@ begin
   use MemoriesController
   use RecollectionsController
   use ImagesController
+  use UserLanesController
   run ApplicationController
 end
