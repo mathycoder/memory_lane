@@ -90,7 +90,7 @@ class ApplicationController < Sinatra::Base
 
     def all_images_sorted
       images = []
-      @memories.each do |memory|
+      current_user.sorted_unhidden_memories.each do |memory|
         memory.images.each do |image|
           images << image
         end
