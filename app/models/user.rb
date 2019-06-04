@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     self.user_lanes.each do |user_lane|
       lanes << user_lane.lane if !user_lane.hidden
     end
-    lanes 
+    lanes
   end
 
 end

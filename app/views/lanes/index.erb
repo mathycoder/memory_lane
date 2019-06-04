@@ -8,7 +8,7 @@
 
 <div class="memoryelement yourlanes">
   <% if !current_user.lanes.empty? %>
-    <% current_user.lanes.each do |lane| %>
+    <% @lanes.each do |lane| %>
       <a href = "/lanes/<%=lane.id%>">
         <h3>Your Lane with:
           <%=current_user.list(lane.users)%><br>
