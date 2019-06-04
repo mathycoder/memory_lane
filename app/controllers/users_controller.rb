@@ -42,8 +42,8 @@ class UsersController < ApplicationController
   delete '/users/:user_id' do
     create_instance_variables(params)
     user_permission?()
-    user.email = ""
-    user.save
+    @user.active = false
+    @user.save
     redirect '/logout'
   end
 
@@ -94,15 +94,16 @@ class UsersController < ApplicationController
     if !user
       flash[:alert] = "There's no user with that email address"
       redirect '/login'
-    end
-
-    if !user.authenticate(params[:password])
+    elsif !user.authenticate(params[:password])
       flash[:alert] = "The password you entered is incorrect"
       redirect '/login'
+    elsif !user.active
+      flash[:alert] = "That account is inactive"
+      redirect '/login'
+    else
+      session[:user_id] = user.id
+      redirect "/memories"
     end
-
-    session[:user_id] = user.id
-    redirect "/memories"
   end
 
   get '/logout' do
