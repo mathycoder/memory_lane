@@ -1,4 +1,11 @@
 /*font-family: 'Playfair Display', serif;*/
+#hiddenlanes {
+  display: block;
+  text-align: right;
+  margin-right: 50px;
+  margin-top: -20px;
+}
+
 .memoryimages p {
   font-size: 12px;
 }
@@ -55,7 +62,7 @@
 .yourlanes h3 {
   margin: 3px;
   padding: 10px;
-  width: 100%;
+  width: 90%;
 }
 
 .yourlanes h3:hover {
@@ -111,7 +118,7 @@
     background-color: rgb(49, 79, 77);
   }
 
-  .memorydisplay input[type=submit], .showpic input[type=submit], #hide_lane input[type=submit] {
+  .memorydisplay input[type=submit], .showpic input[type=submit], #hide_lane input[type=submit], #hiddenlanes input[type=submit] {
     width: auto;
     background-color: rgb(124, 166, 147);
     color: white;
@@ -122,7 +129,7 @@
     cursor: pointer;
   }
 
-  .memorydisplay input[type=submit]:hover, .showpic input[type=submit]:hover, #hide_lane input[type=submit]:hover  {
+  .memorydisplay input[type=submit]:hover, .showpic input[type=submit]:hover, #hide_lane input[type=submit]:hover, #hiddenlanes input[type=submit]:hover  {
     background-color: rgb(49, 79, 77);
   }
 
