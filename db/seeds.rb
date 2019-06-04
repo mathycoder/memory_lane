@@ -1,13 +1,13 @@
 #create users
-adam = User.create(name: "Adam Sarli", email: "adam@gmail.com", password: "adam", profile_pic_file_path: "seed_images/profile/adam.PNG")
-cathy = User.create(name: "Cathy S", email: "cathy@gmail.com", password: "cathy", profile_pic_file_path: "seed_images/profile/cathy.PNG" )
-alex = User.create(name: "Alex C", email: "alex@gmail.com", password: "alex", profile_pic_file_path: "seed_images/profile/alex.PNG")
-eric = User.create(name: "Eric W", email: "eric@gmail.com", password: "eric", profile_pic_file_path: "seed_images/profile/eric.PNG")
-nathan = User.create(name: "Nathan P", email: "nathan@gmail.com", password: "nathan", profile_pic_file_path: "seed_images/profile/nathan.PNG")
-danielle = User.create(name: "Danielle S", email: "danielle@gmail.com", password: "danielle", profile_pic_file_path: "seed_images/profile/danielle.PNG")
-guy = User.create(name: "Guy S", email: "guy@gmail.com", password: "guy", profile_pic_file_path: "seed_images/profile/guy.PNG")
-sue = User.create(name: "Sue S", email: "sue@gmail.com", password: "sue", profile_pic_file_path: "seed_images/profile/sue.PNG")
-tracy = User.create(name: "Tracy S", email: "tracy@gmail.com", password: "tracy", profile_pic_file_path: "seed_images/profile/tracy.PNG")
+adam = User.create(name: "Adam Sarli", email: "adam@gmail.com", password: "adam", profile_pic_file_path: "seed_images/profile/adam.PNG", active: true)
+cathy = User.create(name: "Cathy S", email: "cathy@gmail.com", password: "cathy", profile_pic_file_path: "seed_images/profile/cathy.PNG", active: true )
+alex = User.create(name: "Alex C", email: "alex@gmail.com", password: "alex", profile_pic_file_path: "seed_images/profile/alex.PNG", active: true)
+eric = User.create(name: "Eric W", email: "eric@gmail.com", password: "eric", profile_pic_file_path: "seed_images/profile/eric.PNG", active: true)
+nathan = User.create(name: "Nathan P", email: "nathan@gmail.com", password: "nathan", profile_pic_file_path: "seed_images/profile/nathan.PNG", active: true)
+danielle = User.create(name: "Danielle S", email: "danielle@gmail.com", password: "danielle", profile_pic_file_path: "seed_images/profile/danielle.PNG", active: true)
+guy = User.create(name: "Guy S", email: "guy@gmail.com", password: "guy", profile_pic_file_path: "seed_images/profile/guy.PNG", active: true)
+sue = User.create(name: "Sue S", email: "sue@gmail.com", password: "sue", profile_pic_file_path: "seed_images/profile/sue.PNG", active: true)
+tracy = User.create(name: "Tracy S", email: "tracy@gmail.com", password: "tracy", profile_pic_file_path: "seed_images/profile/tracy.PNG", active: true)
 
 #create lane and link users
 our_lane = Lane.create()

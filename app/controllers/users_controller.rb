@@ -69,6 +69,7 @@ class UsersController < ApplicationController
       redirect '/signup'
     end
     user = User.create(params[:user])
+    user.active = true
     if params.include?(:profile_pic)
       user.profile_pic_file_path = params[:profile_pic][:filename]
       file = params[:profile_pic][:tempfile]
