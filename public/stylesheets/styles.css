@@ -1,4 +1,14 @@
 /*font-family: 'Playfair Display', serif;*/
+#memoryindexquote {
+  text-decoration: none;
+  color: black;
+}
+
+#memoryindexquote:hover {
+  text-decoration: none;
+  color: rgb(49, 79, 77); 
+}
+
 #hiddenlanes {
   display: block;
   text-align: right;
