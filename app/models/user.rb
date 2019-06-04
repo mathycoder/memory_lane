@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
     self.all.sort_by{|user| user.name}
   end
 
+  def nonhidden_lanes
+    lanes = []
+    self.user_lanes.each do |user_lane|
+      lanes << user_lane.lane if !user_lane.hidden
+    end
+    lanes 
+  end
+
 end
