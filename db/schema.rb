@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
   create_table "user_lanes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "lane_id"
+    t.boolean "hidden", default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_125048) do
     t.string "email"
     t.string "password_digest"
     t.string "profile_pic_file_path"
-    t.boolean "active"
+    t.boolean "active", default: true
   end
 
 end

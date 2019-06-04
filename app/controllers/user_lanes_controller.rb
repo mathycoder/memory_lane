@@ -1,4 +1,7 @@
 require_relative "./application_controller.rb"
 
 class UserLanesController < ApplicationController
-end 
+  patch '/lanes/:lane_id' do
+    binding.pry 
+  end
+end

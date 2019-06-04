@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :password_digest
       t.string :profile_pic_file_path
-      t.boolean :active
+      t.boolean :active, default: true 
     end
   end
 end
