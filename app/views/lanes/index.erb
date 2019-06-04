@@ -18,7 +18,8 @@
         </h3>
       </a>
       <div id="hide_lane">
-        <form>
+        <form method="POST" action="/lanes/<%=lane.id%>">
+          <input method="hidden" type="hidden" name="_method" value="PATCH"/>
           <input type="submit" value="Hide Lane"/>
         </form>
       </div>

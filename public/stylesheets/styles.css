@@ -111,18 +111,18 @@
     background-color: rgb(49, 79, 77);
   }
 
-  .memorydisplay input[type=submit], .showpic input[type=submit] {
+  .memorydisplay input[type=submit], .showpic input[type=submit], #hide_lane input[type=submit] {
     width: auto;
     background-color: rgb(124, 166, 147);
     color: white;
-    padding: 2px 3px;
+    padding: 2px 4px;
     margin-left: 5px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
 
-  .memorydisplay input[type=submit]:hover, .showpic input[type=submit]:hover {
+  .memorydisplay input[type=submit]:hover, .showpic input[type=submit]:hover, #hide_lane input[type=submit]:hover  {
     background-color: rgb(49, 79, 77);
   }
 
