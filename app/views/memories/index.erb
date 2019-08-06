@@ -8,7 +8,9 @@
   <div class="memoryindextitlequote lanetitle">
     <h3>
       <% recollection = @all_quotes.sample %>
-      <a id="memoryindexquote" href="/lanes/<%=recollection.memory.lane.id%>"><%= recollection.quote %></a>
+      <% if recollection %>
+        <a id="memoryindexquote" href="/lanes/<%=recollection.memory.lane.id%>"><%= recollection.quote %></a>
+      <% end %>
     </h3>
   </div>
 </div>
